@@ -8,6 +8,7 @@ namespace RestaurantSystem
 {
     public class MenuItem : MenuElement
     {
+        private List<MenuElement> _items;
         public override float GetPrice()
         {
             throw new NotImplementedException();
