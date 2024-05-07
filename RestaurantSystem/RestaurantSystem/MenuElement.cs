@@ -9,6 +9,9 @@ namespace RestaurantSystem
     public abstract class MenuElement
     {
 
-        public abstract float getPrice();
+        public abstract float Price
+        {
+            get;
+        }
     }
 }
