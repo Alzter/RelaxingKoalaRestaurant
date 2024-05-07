@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\maddi\\Documents\\university\\SWE30003\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj": {}
+    "C:\\Users\\Alex\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\maddi\\Documents\\university\\SWE30003\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj": {
+    "C:\\Users\\Alex\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maddi\\Documents\\university\\SWE30003\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj",
+        "projectUniqueName": "C:\\Users\\Alex\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj",
         "projectName": "RestaurantSystem",
-        "projectPath": "C:\\Users\\maddi\\Documents\\university\\SWE30003\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj",
-        "packagesPath": "C:\\Users\\maddi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maddi\\Documents\\university\\SWE30003\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\obj\\",
+        "projectPath": "C:\\Users\\Alex\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj",
+        "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Alex\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\maddi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +58,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
