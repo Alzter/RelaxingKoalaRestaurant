@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    internal class MenuItem
+    public class MenuItem : MenuElement
     {
+        public override float GetPrice()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
