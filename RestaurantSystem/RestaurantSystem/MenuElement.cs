@@ -8,5 +8,8 @@ namespace RestaurantSystem
 {
     public abstract class MenuElement
     {
+
+
+        public abstract float getPrice();
     }
 }
