@@ -8,17 +8,14 @@ namespace RestaurantSystem
 {
     public class MenuItem : MenuElement
     {
-<<<<<<< HEAD
         private float basePrice;
 
         public MenuItem(float basePrice)
-=======
-        private List<MenuElement> _items;
-        public override float GetPrice()
->>>>>>> 92b23f9f5c946e171289856924db688c6386528f
         {
             this.basePrice = basePrice;
         }
+
+        private List<MenuElement> _items;
 
         public override float Price
         {
