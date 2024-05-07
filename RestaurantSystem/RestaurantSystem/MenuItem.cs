@@ -8,9 +8,16 @@ namespace RestaurantSystem
 {
     public class MenuItem : MenuElement
     {
-        public override float GetPrice()
+        private float basePrice;
+
+        public MenuItem(float basePrice)
         {
-            throw new NotImplementedException();
+            this.basePrice = basePrice;
+        }
+
+        public override float Price
+        {
+            get { return basePrice; }
         }
     }
 }
