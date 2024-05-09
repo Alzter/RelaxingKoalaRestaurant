@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alex\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj": {}
+    "C:\\Users\\erikf\\Source\\Repos\\Alzter\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alex\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj": {
+    "C:\\Users\\erikf\\Source\\Repos\\Alzter\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alex\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj",
+        "projectUniqueName": "C:\\Users\\erikf\\Source\\Repos\\Alzter\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj",
         "projectName": "RestaurantSystem",
-        "projectPath": "C:\\Users\\Alex\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj",
-        "packagesPath": "C:\\Users\\Alex\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alex\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\obj\\",
+        "projectPath": "C:\\Users\\erikf\\Source\\Repos\\Alzter\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\RestaurantSystem.csproj",
+        "packagesPath": "C:\\Users\\erikf\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\erikf\\Source\\Repos\\Alzter\\RelaxingKoalaRestaurant\\RestaurantSystem\\RestaurantSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alex\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\erikf\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -58,7 +63,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\6.0.421\\RuntimeIdentifierGraph.json"
         }
       }
     }

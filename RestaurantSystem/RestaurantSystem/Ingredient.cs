@@ -8,5 +8,6 @@ namespace RestaurantSystem
 {
     public class Ingredient : MenuElement
     {
+        public override float Price => throw new NotImplementedException();
     }
 }
