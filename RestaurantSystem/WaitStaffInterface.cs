@@ -12,9 +12,18 @@ namespace RestaurantSystem
 {
     public partial class WaitStaffInterface : Form
     {
-        public WaitStaffInterface()
+        private TestInterface _testI;
+
+        public WaitStaffInterface(TestInterface testI)
         {
+            _testI = testI;
             InitializeComponent();
+        }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            _testI.Show();
         }
     }
 }

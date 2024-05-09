@@ -12,9 +12,18 @@ namespace RestaurantSystem
 {
     public partial class KitchenInterface : Form
     {
-        public KitchenInterface()
+        private TestInterface _testI;
+
+        public KitchenInterface(TestInterface testI)
         {
             InitializeComponent();
+            _testI = testI;
+        }
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            _testI.Show();
         }
     }
 }

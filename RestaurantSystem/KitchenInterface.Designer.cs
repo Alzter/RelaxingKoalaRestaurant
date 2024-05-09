@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "KitchenInterface";
+            Back = new Button();
+            SuspendLayout();
+            // 
+            // Back
+            // 
+            Back.Location = new Point(916, 12);
+            Back.Name = "Back";
+            Back.Size = new Size(150, 46);
+            Back.TabIndex = 0;
+            Back.Text = "Back";
+            Back.UseVisualStyleBackColor = true;
+            Back.Click += Back_Click;
+            // 
+            // KitchenInterface
+            // 
+            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1089, 746);
+            Controls.Add(Back);
+            Name = "KitchenInterface";
+            Text = "KitchenInterface";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button Back;
     }
 }

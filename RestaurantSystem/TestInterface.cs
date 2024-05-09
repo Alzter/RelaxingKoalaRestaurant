@@ -20,10 +20,10 @@ namespace RestaurantSystem
         public TestInterface()
         {
             InitializeComponent();
-            _waitStaffI = new WaitStaffInterface();
-            _kitchenI = new KitchenInterface();
-            _deliveryI = new DeliveryInterface();
-            _customerI = new CustomerInterface();
+            _waitStaffI = new WaitStaffInterface(this);
+            _kitchenI = new KitchenInterface(this);
+            _deliveryI = new DeliveryInterface(this);
+            _customerI = new CustomerInterface(this);
         }
 
         private void WaitStaffInterface_Click(object sender, EventArgs e)
