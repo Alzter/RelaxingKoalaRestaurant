@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public class Receipt
+    public class Receipt: PaymentRecord
     {
     }
 }
