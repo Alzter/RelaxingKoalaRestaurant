@@ -55,6 +55,19 @@ namespace RestaurantSystem
             get{ return _isPaid; }
         }
 
+        public bool PayForOrder(Receipt receipt)
+        {
+            // TODO: Verify the legitimacy of the receipt, then set paid for status to true.
+            throw new NotImplementedException();
+
+            //if (receipt.isLegit())
+            //{
+            //    _isPaid = true;
+            //    return true;
+            //}
+            //return false;
+        }
+
         public Invoice GetInvoice()
         {
             throw new NotImplementedException();
