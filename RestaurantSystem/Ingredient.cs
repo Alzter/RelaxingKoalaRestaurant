@@ -14,7 +14,7 @@ namespace RestaurantSystem
         {
             get
             {
-                return basePrice;
+                return BasePrice;
             }
         }
     }

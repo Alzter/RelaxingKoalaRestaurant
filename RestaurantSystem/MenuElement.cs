@@ -23,6 +23,11 @@ namespace RestaurantSystem
             get;
         }
 
+        public double BasePrice
+        {
+            get { return _basePrice; }
+        }
+
         public string Name
         {
             get { return _name; }

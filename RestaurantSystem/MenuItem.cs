@@ -9,7 +9,6 @@ namespace RestaurantSystem
     public class MenuItem : MenuElement
     {
         private string _name;
-        private double _basePrice;
         private List<Ingredient> _ingredients;
         private List<Ingredient> _removableIngredients;
         private List<Ingredient> _addableIngredients;
@@ -35,7 +34,7 @@ namespace RestaurantSystem
                     _extraPrice += i.Price;
                 }
 
-                return _basePrice + _extraPrice;
+                return BasePrice + _extraPrice;
             }
         }
 
