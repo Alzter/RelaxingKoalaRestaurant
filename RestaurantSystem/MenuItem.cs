@@ -19,7 +19,7 @@ namespace RestaurantSystem
             _removableIngredients = removableIngredients;
             _ingredients = removableIngredients;
             _addableIngredients = addableIngredients;
-            _extraIngredients = new List<Ingredient>;
+            _extraIngredients = new List<Ingredient>();
         }
 
         private List<MenuElement> _items;
