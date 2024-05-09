@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    internal class PaymentRecord
+    public abstract class PaymentRecord
     {
+        public abstract Order getOrder
+        {
+            get;
+        }       
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public class Invoice: PaymentRecord
+    public class Invoice : PaymentRecord
     {
+        public override Order getOrder => throw new NotImplementedException();
     }
 }
