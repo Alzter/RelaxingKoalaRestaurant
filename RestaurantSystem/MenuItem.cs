@@ -55,7 +55,7 @@ namespace RestaurantSystem
         {
             if (_addableIngredients.Contains(item))
             {
-                _ingredients.Add(item);
+                _extraIngredients.Add(item);
             }
             else
             {
@@ -65,7 +65,12 @@ namespace RestaurantSystem
 
         public List<Ingredient> Ingredients
         {
-            get { return _ingredients; }
+            get {
+
+                // TODO: Have Ingredients return a list containing all base ingredients AND all extra ingredients of the menu item.
+                throw new NotImplementedException();
+                
+            }
         }
 
         //public List<Ingredient> Ingredients { get { return _ingredients; } }
