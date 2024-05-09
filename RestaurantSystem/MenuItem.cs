@@ -14,7 +14,7 @@ namespace RestaurantSystem
         private List<Ingredient> _addableIngredients;
         private List<Ingredient> _extraIngredients;
 
-        public MenuItem(string name, double basePrice, List<Ingredient> removableIngredients, List<Ingredient> addableIngredients) : base(name, basePrice)
+        public MenuItem(string name, double basePrice, List<Ingredient> addableIngredients, List<Ingredient> removableIngredients) : base(name, basePrice)
         {
             _removableIngredients = removableIngredients;
             _ingredients = removableIngredients;
