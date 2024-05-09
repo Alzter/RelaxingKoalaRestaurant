@@ -1,17 +1,14 @@
 namespace RestaurantTests
 {
-    public class Tests
+    public class OrderTests
     {
+        Order o;
+        MenuItem m;
+
         [SetUp]
         public void Setup()
         {
-            
-        }
 
-        [Test]
-        public void Test1()
-        {
-            Assert.Pass();
         }
     }
 }

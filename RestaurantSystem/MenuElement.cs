@@ -3,15 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace RestaurantSystem
 {
     public abstract class MenuElement
     {
+        private string _name;
+        private double _basePrice;
 
-        public abstract float Price
+        public MenuElement(string name, double basePrice)
+        {
+            _name = name;
+            _basePrice = basePrice;
+        }
+
+        public abstract double Price
         {
             get;
+        }
+
+        public string Name
+        {
+            get { return _name; }
         }
     }
 }
