@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class WaitStaffInterface : Form
+    public partial class TestInterface : Form
     {
-        public WaitStaffInterface()
+        public TestInterface()
         {
             InitializeComponent();
         }
