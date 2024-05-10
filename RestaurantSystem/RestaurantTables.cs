@@ -28,19 +28,20 @@ namespace RestaurantSystem
             _tables = new List<Table>();
         }
 
-        public List<Table> GetEmptyTables()
+        // Returns list of tables that have specified status
+        public List<Table> GetStatusTables(TableStatus status)
         {
-            List<Table> emptyTables = new List<Table>();
+            List<Table> statusTables = new List<Table>();
 
             foreach (Table table in _tables)
             {
-                if (table.GetStatus() == TableStatus.EMPTY)
+                if (table.GetStatus() == status)
                 {
-                    emptyTables.Add(table);
+                    statusTables.Add(table);
                 }
             }
 
-            return emptyTables;
+            return statusTables;
         }
     }
 }
