@@ -24,6 +24,11 @@ namespace RestaurantSystem
             _tableNumber = tableNumber;
         }
 
+        public TableStatus GetStatus()
+        {
+            return _status;
+        }
+
         public void ChangeStatus(TableStatus status)
         {
             _status = status;

@@ -27,5 +27,20 @@ namespace RestaurantSystem
         {
             _tables = new List<Table>();
         }
+
+        public List<Table> GetEmptyTables()
+        {
+            List<Table> emptyTables = new List<Table>();
+
+            foreach (Table table in _tables)
+            {
+                if (table.GetStatus() == TableStatus.EMPTY)
+                {
+                    emptyTables.Add(table);
+                }
+            }
+
+            return emptyTables;
+        }
     }
 }
