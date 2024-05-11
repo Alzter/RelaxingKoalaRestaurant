@@ -10,18 +10,21 @@ namespace RestaurantSystem
     {
         private DateTime _bookingTime;
         private Table _tableReserved;
-        // Customer?
-        // Number of guests?
+        // Customer obj?
+        private int _numOfGuests = 0;  // Is there a maximum number of guests allowed for a booking?
 
-        public Reservation(DateTime bookingTime)
+        // Readonly? Should we be able to change the booking time after it's been created?
+        public DateTime BookingTime
         {
-            _bookingTime = bookingTime;
-            _tableReserved = null; // Will work out how table is assigned later
+            get { return _bookingTime; }
         }
 
-        public void ReserveTable(Table table)
+        // TODO: Needs Customer obj for name and number? 
+        public Reservation(DateTime bookingTime, Table table, int numOfGuests)
         {
+            _bookingTime = bookingTime;
             _tableReserved = table;
+            _numOfGuests = numOfGuests;
         }
     }
 }
