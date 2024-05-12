@@ -33,9 +33,10 @@
             // 
             // Back
             // 
-            Back.Location = new Point(871, 31);
+            Back.Location = new Point(835, 10);
+            Back.Margin = new Padding(2, 1, 2, 1);
             Back.Name = "Back";
-            Back.Size = new Size(150, 46);
+            Back.Size = new Size(81, 22);
             Back.TabIndex = 0;
             Back.Text = "Back";
             Back.UseVisualStyleBackColor = true;
@@ -43,10 +44,11 @@
             // 
             // WaitStaffInterface
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1058, 709);
+            ClientSize = new Size(928, 658);
             Controls.Add(Back);
+            Margin = new Padding(2, 1, 2, 1);
             Name = "WaitStaffInterface";
             Text = "WaitStaffInterface";
             ResumeLayout(false);
