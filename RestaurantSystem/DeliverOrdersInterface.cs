@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,6 +32,7 @@ namespace RestaurantSystem
         private void ListBOrdersReady_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.Hide();
+            _manageOrdersI.Order = ListBOrdersReady.SelectedItem.ToString();
             _manageOrdersI.Show();
         }
     }

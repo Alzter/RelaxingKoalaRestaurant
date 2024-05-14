@@ -85,6 +85,7 @@
             ListBMenuItems.ScrollAlwaysVisible = true;
             ListBMenuItems.Size = new Size(423, 169);
             ListBMenuItems.TabIndex = 4;
+            ListBMenuItems.SelectedIndexChanged += ListBMenuItems_SelectedIndexChanged;
             // 
             // TxtTotalPrice
             // 
