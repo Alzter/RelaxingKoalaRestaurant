@@ -62,6 +62,7 @@
             Menu.Name = "Menu";
             Menu.Size = new Size(309, 604);
             Menu.TabIndex = 1;
+            Menu.SelectedIndexChanged += Menu_SelectedIndexChanged;
             // 
             // Order
             // 

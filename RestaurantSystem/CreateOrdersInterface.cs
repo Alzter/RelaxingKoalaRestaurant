@@ -10,25 +10,20 @@ using System.Windows.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class CustomerInterface : Form
+    public partial class CreateOrdersInterface : Form
     {
-        private TestInterface _testI;
+        private WaitStaffInterface _waitStaffI;
 
-        public CustomerInterface(TestInterface testI)
+        public CreateOrdersInterface(WaitStaffInterface waitStaffI)
         {
             InitializeComponent();
-            _testI = testI;
+            _waitStaffI = waitStaffI;
         }
 
-        private void Back_Click(object sender, EventArgs e)
+        private void BtnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            _testI.Show();
-        }
-
-        private void Menu_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            _waitStaffI.Show();
         }
     }
 }
