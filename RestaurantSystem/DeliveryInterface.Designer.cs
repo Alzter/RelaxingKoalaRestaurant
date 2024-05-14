@@ -29,31 +29,46 @@
         private void InitializeComponent()
         {
             Back = new Button();
+            TxtReadyOrders = new Label();
             SuspendLayout();
             // 
             // Back
             // 
-            Back.Location = new Point(873, 33);
+            Back.Location = new Point(470, 15);
+            Back.Margin = new Padding(2, 1, 2, 1);
             Back.Name = "Back";
-            Back.Size = new Size(150, 46);
+            Back.Size = new Size(81, 22);
             Back.TabIndex = 0;
             Back.Text = "Back";
             Back.UseVisualStyleBackColor = true;
             Back.Click += Back_Click;
             // 
+            // TxtReadyOrders
+            // 
+            TxtReadyOrders.AutoSize = true;
+            TxtReadyOrders.Location = new Point(12, 22);
+            TxtReadyOrders.Name = "TxtReadyOrders";
+            TxtReadyOrders.Size = new Size(80, 15);
+            TxtReadyOrders.TabIndex = 1;
+            TxtReadyOrders.Text = "Ready Orders:";
+            // 
             // DeliveryInterface
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1071, 723);
+            ClientSize = new Size(577, 477);
+            Controls.Add(TxtReadyOrders);
             Controls.Add(Back);
+            Margin = new Padding(2, 1, 2, 1);
             Name = "DeliveryInterface";
             Text = "DeliveryInterface";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button Back;
+        private Label TxtReadyOrders;
     }
 }

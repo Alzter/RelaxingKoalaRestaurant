@@ -14,7 +14,7 @@ namespace RestaurantSystem
     {
         private TestInterface _testI;
         private ManageTablesInterface _manageTablesI;
-        private DeliverOrdersInterface _deliveryOrdersI;
+        private DeliverOrdersInterface _deliverOrdersI;
         private CreateOrdersInterface _createOrdersI;
 
         public WaitStaffInterface(TestInterface testI)
@@ -22,7 +22,7 @@ namespace RestaurantSystem
             _testI = testI;
             InitializeComponent();
             _manageTablesI = new ManageTablesInterface(this);
-            _deliveryOrdersI = new DeliverOrdersInterface(this);
+            _deliverOrdersI = new DeliverOrdersInterface(this);
             _createOrdersI = new CreateOrdersInterface(this);
         }
 
@@ -41,7 +41,7 @@ namespace RestaurantSystem
         private void BtnDeliverOrders_Click(object sender, EventArgs e)
         {
             this.Hide();
-            _deliveryOrdersI.Show();
+            _deliverOrdersI.Show();
         }
 
         private void BtnManageTables_Click(object sender, EventArgs e)

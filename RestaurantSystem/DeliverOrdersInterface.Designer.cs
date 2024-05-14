@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             BtnBack = new Button();
+            TxtOrdersReady = new Label();
+            ListBOrdersReady = new ListBox();
             SuspendLayout();
             // 
             // BtnBack
@@ -42,19 +44,44 @@
             BtnBack.UseVisualStyleBackColor = true;
             BtnBack.Click += BtnBack_Click;
             // 
+            // TxtOrdersReady
+            // 
+            TxtOrdersReady.AutoSize = true;
+            TxtOrdersReady.Location = new Point(12, 9);
+            TxtOrdersReady.Name = "TxtOrdersReady";
+            TxtOrdersReady.Size = new Size(80, 15);
+            TxtOrdersReady.TabIndex = 3;
+            TxtOrdersReady.Text = "Orders Ready:";
+            // 
+            // ListBOrdersReady
+            // 
+            ListBOrdersReady.FormattingEnabled = true;
+            ListBOrdersReady.ItemHeight = 15;
+            ListBOrdersReady.Items.AddRange(new object[] { "Order 1", "Order 2" });
+            ListBOrdersReady.Location = new Point(26, 40);
+            ListBOrdersReady.Name = "ListBOrdersReady";
+            ListBOrdersReady.Size = new Size(563, 364);
+            ListBOrdersReady.TabIndex = 4;
+            ListBOrdersReady.SelectedIndexChanged += ListBOrdersReady_SelectedIndexChanged;
+            // 
             // DeliverOrdersInterface
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(511, 450);
+            ClientSize = new Size(620, 450);
+            Controls.Add(ListBOrdersReady);
+            Controls.Add(TxtOrdersReady);
             Controls.Add(BtnBack);
             Name = "DeliverOrdersInterface";
             Text = "DeliverOrdersInterface";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button BtnBack;
+        private Label TxtOrdersReady;
+        private ListBox ListBOrdersReady;
     }
 }
