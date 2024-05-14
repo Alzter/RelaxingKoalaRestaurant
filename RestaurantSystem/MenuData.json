@@ -1,0 +1,115 @@
+{
+  "ingredients": [
+    {
+      "name": "Olives",
+      "basePrice": 0.5
+    },
+    {
+      "name": "Tomato Sauce",
+      "basePrice": 0.5
+    },
+    {
+      "name": "Ham",
+      "basePrice": 2.0
+    },
+    {
+      "name": "Pineapple",
+      "basePrice": 1.5
+    },
+    {
+      "name": "Mozzarella",
+      "basePrice": 2.0
+    },
+    {
+      "name": "Cheese",
+      "basePrice": 1.0
+    },
+    {
+      "name": "Tomato",
+      "basePrice": 0.5
+    },
+    {
+      "name": "Lettuce",
+      "basePrice": 0.5
+    },
+    {
+      "name": "Onion",
+      "basePrice": 0.5
+    },
+    {
+      "name": "Pickles",
+      "basePrice": 1.0
+    },
+    {
+      "name": "Mayo",
+      "basePrice": 0.5
+    },
+    {
+      "name": "Eggplant",
+      "basePrice": 2.0
+    },
+    {
+      "name": "Pasta",
+      "basePrice": 6.0
+    }
+  ],
+  "menus": [
+    {
+      "name": "Takeaway Menu",
+      "items": [
+        {
+          "name": "Hawaiian Pizza",
+          "basePrice": 18.0,
+          "addableIngredients": [ "Olives", "Tomato" ],
+          "removableIngredients": [ "Tomato Sauce", "Ham", "Pineapple", "Mozzarella" ]
+        },
+        {
+          "name": "Burger",
+          "basePrice": 14.0,
+          "addableIngredients": [ "Cheese", "Pineapple" ],
+          "removableIngredients": [ "Tomato", "Lettuce", "Onion", "Pickles", "Mayo" ]
+        }
+      ]
+    },
+    {
+      "name": "Dine-In Menu",
+      "items": [
+        {
+          "name": "Hawaiian Pizza",
+          "basePrice": 16.0,
+          "addableIngredients": [ "Olives", "Tomato" ],
+          "removableIngredients": [ "Tomato Sauce", "Ham", "Pineapple", "Mozzarella" ]
+        },
+        {
+          "name": "Gourmet Burger",
+          "basePrice": 12.0,
+          "addableIngredients": [ "Cheese", "Pineapple" ],
+          "removableIngredients": [ "Tomato", "Lettuce", "Onion", "Pickles", "Mayo" ]
+        },
+        {
+          "name": "Lasagna",
+          "basePrice": 18.0,
+          "addableIngredients": [ "Eggplant" ],
+          "removableIngredients": [ "Pasta", "Cheese" ]
+        }
+      ]
+    },
+    {
+      "name": "Delivery Menu",
+      "items": [
+        {
+          "name": "Cold Hawaiian Pizza",
+          "basePrice": 21.0,
+          "addableIngredients": [ "Olives", "Tomato" ],
+          "removableIngredients": [ "Tomato Sauce", "Ham", "Pineapple", "Mozzarella" ]
+        },
+        {
+          "name": "Stale Burger",
+          "basePrice": 19.0,
+          "addableIngredients": [ "Cheese", "Pineapple" ],
+          "removableIngredients": [ "Tomato", "Lettuce", "Onion", "Pickles", "Mayo" ]
+        }
+      ]
+    }
+  ]
+}
