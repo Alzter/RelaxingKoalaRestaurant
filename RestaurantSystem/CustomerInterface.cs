@@ -30,5 +30,15 @@ namespace RestaurantSystem
         {
 
         }
+
+        private void BtnAddToOrder_Click(object sender, EventArgs e)
+        {
+            ListBOrder.Items.Add(ListBMenu.SelectedItem);
+        }
+
+        private void BtnRemoveFromOrder_Click(object sender, EventArgs e)
+        {
+            ListBOrder.Items.Remove(ListBOrder.SelectedItem);
+        }
     }
 }

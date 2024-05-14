@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             Back = new Button();
-            Menu = new ListBox();
-            Order = new ListBox();
+            ListBMenu = new ListBox();
+            ListBOrder = new ListBox();
             BtnAddToOrder = new Button();
             BtnRemoveFromOrder = new Button();
             BtnPlaceOrder = new Button();
@@ -53,25 +53,25 @@
             Back.UseVisualStyleBackColor = true;
             Back.Click += Back_Click;
             // 
-            // Menu
+            // ListBMenu
             // 
-            Menu.FormattingEnabled = true;
-            Menu.ItemHeight = 15;
-            Menu.Items.AddRange(new object[] { "Burger", "Fries", "Soda", "Lasagna", "Salad" });
-            Menu.Location = new Point(12, 57);
-            Menu.Name = "Menu";
-            Menu.Size = new Size(309, 604);
-            Menu.TabIndex = 1;
-            Menu.SelectedIndexChanged += Menu_SelectedIndexChanged;
+            ListBMenu.FormattingEnabled = true;
+            ListBMenu.ItemHeight = 15;
+            ListBMenu.Items.AddRange(new object[] { "Burger", "Fries", "Soda", "Lasagna", "Salad" });
+            ListBMenu.Location = new Point(12, 57);
+            ListBMenu.Name = "ListBMenu";
+            ListBMenu.Size = new Size(309, 604);
+            ListBMenu.TabIndex = 1;
+            ListBMenu.SelectedIndexChanged += Menu_SelectedIndexChanged;
             // 
-            // Order
+            // ListBOrder
             // 
-            Order.FormattingEnabled = true;
-            Order.ItemHeight = 15;
-            Order.Location = new Point(573, 60);
-            Order.Name = "Order";
-            Order.Size = new Size(245, 289);
-            Order.TabIndex = 2;
+            ListBOrder.FormattingEnabled = true;
+            ListBOrder.ItemHeight = 15;
+            ListBOrder.Location = new Point(573, 60);
+            ListBOrder.Name = "ListBOrder";
+            ListBOrder.Size = new Size(245, 289);
+            ListBOrder.TabIndex = 2;
             // 
             // BtnAddToOrder
             // 
@@ -81,6 +81,7 @@
             BtnAddToOrder.TabIndex = 3;
             BtnAddToOrder.Text = "Add To Order";
             BtnAddToOrder.UseVisualStyleBackColor = true;
+            BtnAddToOrder.Click += BtnAddToOrder_Click;
             // 
             // BtnRemoveFromOrder
             // 
@@ -90,6 +91,7 @@
             BtnRemoveFromOrder.TabIndex = 4;
             BtnRemoveFromOrder.Text = "Remove From Order";
             BtnRemoveFromOrder.UseVisualStyleBackColor = true;
+            BtnRemoveFromOrder.Click += BtnRemoveFromOrder_Click;
             // 
             // BtnPlaceOrder
             // 
@@ -173,8 +175,8 @@
             Controls.Add(BtnPlaceOrder);
             Controls.Add(BtnRemoveFromOrder);
             Controls.Add(BtnAddToOrder);
-            Controls.Add(Order);
-            Controls.Add(Menu);
+            Controls.Add(ListBOrder);
+            Controls.Add(ListBMenu);
             Controls.Add(Back);
             Margin = new Padding(2, 1, 2, 1);
             Name = "CustomerInterface";
@@ -186,8 +188,8 @@
         #endregion
 
         private Button Back;
-        private ListBox Menu;
-        private ListBox Order;
+        private ListBox ListBMenu;
+        private ListBox ListBOrder;
         private Button BtnAddToOrder;
         private Button BtnRemoveFromOrder;
         private Button BtnPlaceOrder;
