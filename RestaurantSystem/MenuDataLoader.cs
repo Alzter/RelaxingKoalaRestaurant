@@ -52,7 +52,7 @@ namespace RestaurantSystem
                 }
                 else
                 {
-                    menu = new TakeAwayMenu(menuItems, menuData.Name);
+                    menu = new DineInMenu(menuItems, menuData.Name);
                 }
                 menus.Add(menu);
             }
