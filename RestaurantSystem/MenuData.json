@@ -93,23 +93,6 @@
           "removableIngredients": [ "Pasta", "Cheese" ]
         }
       ]
-    },
-    {
-      "name": "Delivery Menu",
-      "items": [
-        {
-          "name": "Cold Hawaiian Pizza",
-          "basePrice": 21.0,
-          "addableIngredients": [ "Olives", "Tomato" ],
-          "removableIngredients": [ "Tomato Sauce", "Ham", "Pineapple", "Mozzarella" ]
-        },
-        {
-          "name": "Stale Burger",
-          "basePrice": 19.0,
-          "addableIngredients": [ "Cheese", "Pineapple" ],
-          "removableIngredients": [ "Tomato", "Lettuce", "Onion", "Pickles", "Mayo" ]
-        }
-      ]
     }
   ]
 }
