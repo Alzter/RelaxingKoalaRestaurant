@@ -11,29 +11,26 @@ using System.Windows.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class DeliverOrdersInterface : Form
+    public partial class DeliverOrdersController : Form
     {
-        private WaitStaffInterface _waitStaffI;
-        private ManageOrdersInterface _manageOrdersI;
+        private UserInterface _userInterface;
 
-        public DeliverOrdersInterface(WaitStaffInterface waitStaffI)
+        public DeliverOrdersController(UserInterface userInterface)
         {
             InitializeComponent();
-            _waitStaffI = waitStaffI;
-            _manageOrdersI = new ManageOrdersInterface(this);
+            _userInterface = userInterface;
         }
 
+        // Return to WaitStaff Interface
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            _waitStaffI.Show();
+            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CWaitStaff);
         }
 
+        // Go to ManageOrders Interface of selected order
         private void ListBOrdersReady_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.Hide();
-            _manageOrdersI.Order = ListBOrdersReady.SelectedItem.ToString();
-            _manageOrdersI.Show();
+            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CManageOrders);
         }
     }
 }

@@ -10,19 +10,20 @@ using System.Windows.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class ManageTablesInterface : Form
+    public partial class DeliveryController : Form
     {
-        private WaitStaffInterface _waitStaffI;
-        public ManageTablesInterface(WaitStaffInterface waitStaffI)
+        private UserInterface _userInterface;
+
+        public DeliveryController(UserInterface userInterface)
         {
             InitializeComponent();
-            _waitStaffI = waitStaffI;
+            _userInterface = userInterface;
         }
 
+        // Return to Restaurant Interface
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            _waitStaffI.Show();
+            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CRestaurant);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace RestaurantSystem
 {
-    partial class WaitStaffInterface
+    partial class WaitStaffController
     {
         /// <summary>
         /// Required designer variable.
@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Back = new Button();
+            BtnBack = new Button();
             BtnCreateOrders = new Button();
             BtnDeliverOrders = new Button();
             BtnManageTables = new Button();
             SuspendLayout();
             // 
-            // Back
+            // BtnBack
             // 
-            Back.Location = new Point(11, 419);
-            Back.Margin = new Padding(2, 1, 2, 1);
-            Back.Name = "Back";
-            Back.Size = new Size(81, 22);
-            Back.TabIndex = 0;
-            Back.Text = "Back";
-            Back.UseVisualStyleBackColor = true;
-            Back.Click += Back_Click;
+            BtnBack.Location = new Point(11, 419);
+            BtnBack.Margin = new Padding(2, 1, 2, 1);
+            BtnBack.Name = "BtnBack";
+            BtnBack.Size = new Size(81, 22);
+            BtnBack.TabIndex = 0;
+            BtnBack.Text = "Back";
+            BtnBack.UseVisualStyleBackColor = true;
+            BtnBack.Click += BtnBack_Click;
             // 
             // BtnCreateOrders
             // 
@@ -75,7 +75,7 @@
             BtnManageTables.UseVisualStyleBackColor = true;
             BtnManageTables.Click += BtnManageTables_Click;
             // 
-            // WaitStaffInterface
+            // WaitStaffController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -83,16 +83,16 @@
             Controls.Add(BtnManageTables);
             Controls.Add(BtnDeliverOrders);
             Controls.Add(BtnCreateOrders);
-            Controls.Add(Back);
+            Controls.Add(BtnBack);
             Margin = new Padding(2, 1, 2, 1);
-            Name = "WaitStaffInterface";
+            Name = "WaitStaffController";
             Text = "WaitStaffInterface";
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button Back;
+        private Button BtnBack;
         private Button BtnCreateOrders;
         private Button BtnDeliverOrders;
         private Button BtnManageTables;

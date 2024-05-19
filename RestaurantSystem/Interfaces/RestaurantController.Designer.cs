@@ -1,6 +1,6 @@
 ﻿namespace RestaurantSystem
 {
-    partial class TestInterface
+    partial class RestaurantController
     {
         /// <summary>
         /// Required designer variable.
@@ -36,9 +36,10 @@
             // 
             // WaitStaffInterface
             // 
-            WaitStaffInterface.Location = new Point(73, 408);
+            WaitStaffInterface.Location = new Point(28, 19);
+            WaitStaffInterface.Margin = new Padding(2, 1, 2, 1);
             WaitStaffInterface.Name = "WaitStaffInterface";
-            WaitStaffInterface.Size = new Size(240, 101);
+            WaitStaffInterface.Size = new Size(316, 178);
             WaitStaffInterface.TabIndex = 0;
             WaitStaffInterface.Text = "WaitStaffInterface";
             WaitStaffInterface.UseVisualStyleBackColor = true;
@@ -46,9 +47,10 @@
             // 
             // CustomerInterface
             // 
-            CustomerInterface.Location = new Point(402, 400);
+            CustomerInterface.Location = new Point(28, 231);
+            CustomerInterface.Margin = new Padding(2, 1, 2, 1);
             CustomerInterface.Name = "CustomerInterface";
-            CustomerInterface.Size = new Size(250, 109);
+            CustomerInterface.Size = new Size(316, 188);
             CustomerInterface.TabIndex = 1;
             CustomerInterface.Text = "CustomerInterface";
             CustomerInterface.UseVisualStyleBackColor = true;
@@ -56,9 +58,10 @@
             // 
             // DeliveryInterface
             // 
-            DeliveryInterface.Location = new Point(778, 391);
+            DeliveryInterface.Location = new Point(442, 19);
+            DeliveryInterface.Margin = new Padding(2, 1, 2, 1);
             DeliveryInterface.Name = "DeliveryInterface";
-            DeliveryInterface.Size = new Size(274, 127);
+            DeliveryInterface.Size = new Size(319, 178);
             DeliveryInterface.TabIndex = 2;
             DeliveryInterface.Text = "DeliveryInterface";
             DeliveryInterface.UseVisualStyleBackColor = true;
@@ -66,25 +69,27 @@
             // 
             // KitchenInterface
             // 
-            KitchenInterface.Location = new Point(1144, 410);
+            KitchenInterface.Location = new Point(442, 231);
+            KitchenInterface.Margin = new Padding(2, 1, 2, 1);
             KitchenInterface.Name = "KitchenInterface";
-            KitchenInterface.Size = new Size(241, 97);
+            KitchenInterface.Size = new Size(319, 188);
             KitchenInterface.TabIndex = 3;
             KitchenInterface.Text = "KitchenInterface";
             KitchenInterface.UseVisualStyleBackColor = true;
             KitchenInterface.Click += KitchenInterface_Click;
             // 
-            // TestInterface
+            // RestaurantController
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1491, 934);
+            ClientSize = new Size(803, 438);
             Controls.Add(KitchenInterface);
             Controls.Add(DeliveryInterface);
             Controls.Add(CustomerInterface);
             Controls.Add(WaitStaffInterface);
-            Name = "TestInterface";
-            Text = "TestInterface";
+            Margin = new Padding(2, 1, 2, 1);
+            Name = "RestaurantController";
+            Text = "RestaurantSystem";
             ResumeLayout(false);
         }
 

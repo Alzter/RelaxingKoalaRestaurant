@@ -1,6 +1,6 @@
 ﻿namespace RestaurantSystem
 {
-    partial class KitchenInterface
+    partial class KitchenController
     {
         /// <summary>
         /// Required designer variable.
@@ -28,32 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Back = new Button();
+            BtnBack = new Button();
             SuspendLayout();
             // 
-            // Back
+            // BtnBack
             // 
-            Back.Location = new Point(916, 12);
-            Back.Name = "Back";
-            Back.Size = new Size(150, 46);
-            Back.TabIndex = 0;
-            Back.Text = "Back";
-            Back.UseVisualStyleBackColor = true;
-            Back.Click += Back_Click;
+            BtnBack.Location = new Point(493, 6);
+            BtnBack.Margin = new Padding(2, 1, 2, 1);
+            BtnBack.Name = "BtnBack";
+            BtnBack.Size = new Size(81, 22);
+            BtnBack.TabIndex = 0;
+            BtnBack.Text = "Back";
+            BtnBack.UseVisualStyleBackColor = true;
+            BtnBack.Click += BtnBack_Click;
             // 
-            // KitchenInterface
+            // KitchenController
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1089, 746);
-            Controls.Add(Back);
-            Name = "KitchenInterface";
+            ClientSize = new Size(586, 350);
+            Controls.Add(BtnBack);
+            Margin = new Padding(2, 1, 2, 1);
+            Name = "KitchenController";
             Text = "KitchenInterface";
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button Back;
+        private Button BtnBack;
     }
 }

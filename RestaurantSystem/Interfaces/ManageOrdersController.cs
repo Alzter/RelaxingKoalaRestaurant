@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class ManageOrdersInterface : Form
+    public partial class ManageOrdersController : Form
     {
-        private DeliverOrdersInterface _deliverOrdersI;
+        private UserInterface _userInterface;
         private string _order; // TEST
 
-        public ManageOrdersInterface(DeliverOrdersInterface deliverOrdersI)
+        public ManageOrdersController(UserInterface userInterface)
         {
             InitializeComponent();
-            _deliverOrdersI = deliverOrdersI;
+            _userInterface = userInterface;
         }
 
         public string Order
@@ -37,10 +37,10 @@ namespace RestaurantSystem
 
         }
 
+        // Return to DeliverOrders Interface
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            _deliverOrdersI.Show();
+            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CDeliverOrders);
         }
 
         private void ListBMenuItems_SelectedIndexChanged(object sender, EventArgs e)

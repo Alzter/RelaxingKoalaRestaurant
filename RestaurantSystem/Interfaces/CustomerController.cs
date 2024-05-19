@@ -10,20 +10,20 @@ using System.Windows.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class CustomerInterface : Form
+    public partial class CustomerController : Form
     {
-        private TestInterface _testI;
+        private UserInterface _userInterface;
 
-        public CustomerInterface(TestInterface testI)
+        public CustomerController(UserInterface userInterface)
         {
             InitializeComponent();
-            _testI = testI;
+            _userInterface = userInterface;
         }
-
+        
+        // Return to Restaurant Interface
         private void Back_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            _testI.Show();
+            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CRestaurant);
         }
 
         private void Menu_SelectedIndexChanged(object sender, EventArgs e)
