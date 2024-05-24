@@ -1,4 +1,6 @@
-﻿namespace RestaurantTests
+﻿using RestaurantSystem.entity;
+
+namespace RestaurantTests
 {
     public class MenuItemTests
     {

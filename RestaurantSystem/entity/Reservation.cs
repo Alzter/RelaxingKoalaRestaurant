@@ -29,12 +29,12 @@ namespace RestaurantSystem
         {
             get
             {
-                TimeSpan diff = (_endTime - _startTime);
+                TimeSpan diff = _endTime - _startTime;
                 double mins = diff.TotalMinutes;
                 return (int)mins;
             }
         }
-        public int TableNumber { get { return _tableNumber;  } }
+        public int TableNumber { get { return _tableNumber; } }
         public int NumberOfGuests { get { return _numberOfGuests; } }
         public string CustomerName { get { return _customerName; } }
     }

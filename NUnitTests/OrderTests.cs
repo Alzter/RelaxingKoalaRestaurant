@@ -1,3 +1,5 @@
+using RestaurantSystem.entity;
+
 namespace RestaurantTests
 {
     public class OrderTests

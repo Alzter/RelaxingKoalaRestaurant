@@ -25,8 +25,8 @@ namespace RestaurantSystem
             throw new NotImplementedException();
         }
 
-        public double Price { get { return _price; } } 
-        public double OrderID { get { return _orderID; } }  
+        public double Price { get { return _price; } }
+        public double OrderID { get { return _orderID; } }
         public DateTime DateIssued { get { return _dateIssued; } }
     }
 }
