@@ -6,15 +6,27 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public class Ingredient : MenuElement
+    public class Ingredient
     {
-        public Ingredient(string name, double basePrice) : base(name, basePrice) { }
+        private string _name;
+        private double _extraPrice;
+        private int _id;
 
-        public override double Price
+        public Ingredient(string name, double extraPrice)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Name
+        {
+            get { return _name; }
+        }
+
+        public double Price
         {
             get
             {
-                return BasePrice;
+                throw new NotImplementedException();
             }
         }
     }

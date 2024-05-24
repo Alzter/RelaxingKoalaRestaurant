@@ -6,29 +6,35 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public abstract class Order
+    public class Order : MenuItemContainer
     {
-        public enum OrderStatus
+        private OrderStatus _status;
+        private DateTime _creationTime;
+        private DateTime _estimatedCompletionTime;
+        private DateTime _completionTime;
+        private bool isPaid;
+        private string? _address;
+        private int? _tableNumber;
+        private int _id;
+
+        public Order(List<MenuItem> items, int tableNumber) : this(items)
         {
-            Waiting,
-            InProgress,
-            Ready,
-            Served
+            throw new NotImplementedException();
         }
 
-        private bool _isPaid;
-        private List<MenuItem> _items;
-        private DateTime _creationTime;
-        private DateTime _completionTime;
-        private DateTime _estimatedCompletionTime;
-        private OrderStatus _status;
-
-        public Order(List<MenuItem> items)
+        public Order(List<MenuItem> items, string address) : this(items)
         {
-            _items = items;
-            _isPaid = false;
-            _status = OrderStatus.Waiting;
-            _creationTime = DateTime.Now;
+            throw new NotImplementedException();
+        }
+
+        public Order(List<MenuItem> items) : base(items)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PayForOrder()
+        {
+            throw new NotImplementedException();
         }
 
         public OrderStatus Status
@@ -37,40 +43,30 @@ namespace RestaurantSystem
             set { _status = value; }
         }
 
-        public List<MenuItem> Items
+        public DateTime EstimatedCompletionTime
         {
-            get { return _items; }
+            get { return _estimatedCompletionTime; }
+            set { _estimatedCompletionTime = value; }
         }
 
-        public float Price
+        public double Price
         {
             get
             {
-                throw new NotImplementedException();
+                throw new NotImplementedException;
             }
         }
 
-        public bool IsPaid
+        public string? Address
         {
-            get{ return _isPaid; }
+            get { return _address; }
         }
 
-        public bool PayForOrder(Receipt receipt)
+        public int? TableNumber
         {
-            // TODO: Verify the legitimacy of the receipt, then set paid for status to true.
-            throw new NotImplementedException();
-
-            //if (receipt.isLegit())
-            //{
-            //    _isPaid = true;
-            //    return true;
-            //}
-            //return false;
+            get { return _tableNumber; }
         }
 
-        public Invoice GetInvoice()
-        {
-            throw new NotImplementedException();
-        }
+        public int ID { get { return _id; } }
     }
 }

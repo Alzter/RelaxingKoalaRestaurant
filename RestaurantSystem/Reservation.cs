@@ -8,23 +8,34 @@ namespace RestaurantSystem
 {
     public class Reservation
     {
-        private DateTime _bookingTime;
-        private Table _tableReserved;
-        // Customer obj?
-        private int _numOfGuests = 0;  // Is there a maximum number of guests allowed for a booking?
+        private DateTime _startTime;
+        private DateTime _endTime;
+        private int _tableNumber;
+        private string _customerName;
+        private int _numberOfGuests;
 
-        // Readonly? Should we be able to change the booking time after it's been created?
-        public DateTime BookingTime
+        public Reservation(DateTime startTime, int durationMinutes, int tableNumber, string customerName, int numberOfGuests)
         {
-            get { return _bookingTime; }
+            _startTime = startTime;
+            _endTime = startTime.AddMinutes(durationMinutes);
+            _tableNumber = tableNumber;
+            _customerName = customerName;
+            _numberOfGuests = numberOfGuests;
         }
 
-        // TODO: Needs Customer obj for name and number? 
-        public Reservation(DateTime bookingTime, Table table, int numOfGuests)
+        public DateTime StartTime { get { return _startTime; } }
+        public DateTime EndTime { get { return _endTime; } }
+        public int DurationMinutes
         {
-            _bookingTime = bookingTime;
-            _tableReserved = table;
-            _numOfGuests = numOfGuests;
+            get
+            {
+                TimeSpan diff = (_endTime - _startTime);
+                double mins = diff.TotalMinutes;
+                return (int)mins;
+            }
         }
+        public int TableNumber { get { return _tableNumber;  } }
+        public int NumberOfGuests { get { return _numberOfGuests; } }
+        public string CustomerName { get { return _customerName; } }
     }
 }

@@ -6,25 +6,19 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public abstract class Menu
+    public class Menu : MenuItemContainer
     {
-        private List<MenuItem> items;
-        private string name;
+        private string _name;
 
-        public Menu(List<MenuItem> items, string name)
+        public Menu(List<MenuItem> items, string name) : base(items)
         {
-            this.items = items;
-            this.name = name;
+            _name = name;
         }
 
         public string Name
         {
-            get { return name; }
+            get { return _name; }
         }
 
-        public List<MenuItem> Items
-        {
-            get { return items; }
-        }
     }
 }

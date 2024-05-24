@@ -6,78 +6,76 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public class MenuItem : MenuElement
+    public class MenuItem
     {
+        private List<Ingredient> _baseIngredients;
+        private List<Ingredient>? _addableIngredients;
+        private List<Ingredient> ingredients;
+        private double _basePrice;
         private string _name;
-        private List<Ingredient> _ingredients;
-        private List<Ingredient> _removableIngredients;
-        private List<Ingredient> _addableIngredients;
-        private List<Ingredient> _extraIngredients;
+        private int _id;
 
-        public MenuItem(string name, double basePrice, List<Ingredient> addableIngredients, List<Ingredient> removableIngredients) : base(name, basePrice)
+        public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients, List<Ingredient> addableIngredients) : this(name, basePrice, baseIngredients)
         {
-            _removableIngredients = removableIngredients;
-            _ingredients = removableIngredients;
-            _addableIngredients = addableIngredients;
-            _extraIngredients = new List<Ingredient>();
+            throw new NotImplementedException();
         }
 
-        private List<MenuElement> _items;
-
-        public override double Price
+        public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients)
         {
-            get
-            {
-                double _extraPrice = 0;
-
-                foreach (Ingredient i in _extraIngredients)
-                {
-                    _extraPrice += i.Price;
-                }
-
-                return BasePrice + _extraPrice;
-            }
-        }
-
-        public void RemoveIngredient(Ingredient item)
-        {
-            if (_removableIngredients.Contains(item))
-            {
-                _ingredients.Remove(item);
-            }
-            else
-            {
-                throw new Exception($"Ingredient {item.Name} could not be removed because it is not in the list of removable ingredients.");
-            }
+            throw new NotImplementedException();
         }
 
         public void AddIngredient(Ingredient item)
         {
-            if (_addableIngredients.Contains(item))
+            throw new NotImplementedException();
+        }
+
+        public void RemoveIngredient(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveIngredient(Ingredient item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Ingredient GetAddableIngredient(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Ingredient GetIngredient(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Name { get { return _name; } }
+
+        public double Price
+        {
+            get
             {
-                _extraIngredients.Add(item);
-            }
-            else
-            {
-                throw new Exception($"Ingredient {item.Name} could not be added because it is not in the list of addable ingredients.");
+                throw new NotImplementedException;
             }
         }
 
         public List<Ingredient> Ingredients
         {
-            get {
-
-                // TODO: Have Ingredients return a list containing all base ingredients AND all extra ingredients of the menu item.
+            get
+            {
                 throw new NotImplementedException();
-                
+
             }
         }
 
-        //public List<Ingredient> Ingredients { get { return _ingredients; } }
+        public List<Ingredient> AddableIngredients
+        {
+            get
+            {
+                throw new NotImplementedException();
 
-        //public void AddIngredient(Ingredient item) { _ingredients.Add(item); }
-
-        //public void RemoveIngredient(Ingredient item) { _ingredients.Remove(item); }
-        //public void RemoveIngredient(int index) { _ingredients.RemoveAt(index); }
+            }
+        }
     }
 }

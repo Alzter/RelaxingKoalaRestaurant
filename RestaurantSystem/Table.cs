@@ -4,34 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public enum TableStatus
-{
-    EMPTY,
-    OCCUPIED,
-    RESERVED,
-    NEEDS_CLEANING
-}
-
 namespace RestaurantSystem
 {
     public class Table
     {
         private int _tableNumber;
-        private TableStatus _status = TableStatus.EMPTY;
+        private TableStatus _status;
 
-        public Table(int tableNumber)
+        public Table(int tableNumber, TableStatus status)
         {
-            _tableNumber = tableNumber;
+            _tableNumber = tableNumber; _status = status;
         }
 
-        public TableStatus GetStatus()
+        public int Number
         {
-            return _status;
+            get { return _tableNumber; }
         }
 
-        public void ChangeStatus(TableStatus status)
+        public TableStatus Status
         {
-            _status = status;
+            get
+            {
+                return _status;
+            }
+            set
+            {
+                _status = value;
+            }
         }
     }
 }
