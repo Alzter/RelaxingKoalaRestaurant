@@ -3,6 +3,7 @@
     public class MenuItemTests
     {
         MenuItem pineapplePizza;
+        MenuItem tiramisu;
         Ingredient extraCheese;
         Ingredient pineapple;
 
@@ -11,6 +12,7 @@
         {
             extraCheese = new Ingredient("cheese", 2.5);
             pineapple = new Ingredient("pineapple", 2.5);
+            tiramisu = new MenuItem("tiramisu", 9.75);
             pineapplePizza = new MenuItem(
                 "pizza", // Name (duh)
                 12.80, // Base price.
@@ -20,9 +22,10 @@
         }
 
         [Test]
-        public void TestBasePrice()
+        public void TestPrice()
         {
             Assert.AreEqual(12.80, pineapplePizza.Price, "The base price of a menu item should be constant.");
+            Assert.AreEqual(9.75, tiramisu.Price, "The base price of a menu item should be constant.");
         }
 
         [Test]
@@ -31,6 +34,7 @@
             pineapplePizza.RemoveIngredient(pineapple);
             Assert.AreEqual(12.80, pineapplePizza.Price, "The base price of a menu item should not change when ingredients are removed.");
         }
+
 
         [Test]
         public void TestAddingItemsIncreasesPrice()

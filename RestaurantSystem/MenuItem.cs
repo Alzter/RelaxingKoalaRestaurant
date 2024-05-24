@@ -14,6 +14,16 @@ namespace RestaurantSystem
         private List<Ingredient> _addableIngredients;
         private List<Ingredient> _extraIngredients;
 
+        // Create menu item without addable or removable ingredients.
+        public MenuItem(string name, double basePrice) : base(name, basePrice)
+        {
+            _removableIngredients = new List<Ingredient>();
+            _ingredients = new List<Ingredient>();
+            _extraIngredients = new List<Ingredient>();
+            _addableIngredients = new List<Ingredient>();
+        }
+
+        // Create menu item with addable and removable ingredients.
         public MenuItem(string name, double basePrice, List<Ingredient> addableIngredients, List<Ingredient> removableIngredients) : base(name, basePrice)
         {
             _removableIngredients = removableIngredients;
