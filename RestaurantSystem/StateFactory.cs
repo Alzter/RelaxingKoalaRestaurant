@@ -36,8 +36,8 @@ namespace RestaurantSystem
             
         public RestaurantService RestaurantService { get { return _restaurantService; } }
         public WaitStaffService WaitStaffService { get { return _waitStaffService; } }
-        public KitchenStaffService KitchenService { get { return _kitchenStaffService; } }
-        public DeliveryStaffService DeliveryService { get { return _deliveryStaffService; } }
+        public KitchenStaffService KitchenStaffService { get { return _kitchenStaffService; } }
+        public DeliveryStaffService DeliveryStaffService { get { return _deliveryStaffService; } }
         public CustomerService CustomerService { get { return _customerService; } }
         public CreateOrderService CreateOrderService { get { return _createOrderService; } }
         public ManageOrdersService ManageOrdersService { get { return _manageOrdersService; } }

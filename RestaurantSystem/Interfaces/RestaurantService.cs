@@ -23,25 +23,25 @@ namespace RestaurantSystem
         // Go to WaitStaff Interface
         private void WaitStaffInterface_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CWaitStaff);
+            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.WaitStaffService);
         }
 
         // Go to Customer Interface
         private void CustomerInterface_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CCustomer);
+            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CustomerService);
         }
 
         // Go to Delivery Interface
         private void DeliveryInterface_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CDelivery);
+            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.DeliveryStaffService);
         }
 
         // Go to Kitchen Interface
         private void KitchenInterface_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CKitchen);
+            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.KitchenStaffService);
         }
     }
 }
