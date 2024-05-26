@@ -23,31 +23,31 @@ namespace RestaurantSystem
         // Return to Restaurant UI
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.RestaurantService);
+            _userInterface.StateMachine.PushState(_userInterface.StateFactory.RestaurantService);
         }
 
         // Go to CreateOrder UI
         private void BtnCreateOrder_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CreateOrderService);
+            _userInterface.StateMachine.PushState(_userInterface.StateFactory.CreateOrderService);
         }
 
         // Go to ManageOrders UI
         private void BtnManageOrders_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.ManageOrdersService);
+            _userInterface.StateMachine.PushState(_userInterface.StateFactory.ManageOrdersService);
         }
 
         // Go to CreateReservation UI
         private void BtnCreateReservation_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CreateReservationService);
+            _userInterface.StateMachine.PushState(_userInterface.StateFactory.CreateReservationService);
         }
 
         // Go to ManageTables UI
         private void BtnManageTables_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.ManageTablesService);
+            _userInterface.StateMachine.PushState(_userInterface.StateFactory.ManageTablesService);
         }
     }
 }

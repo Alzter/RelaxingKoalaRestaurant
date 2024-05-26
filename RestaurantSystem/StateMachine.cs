@@ -9,20 +9,31 @@ namespace RestaurantSystem
 {
     public class StateMachine
     {
-        private Form _currentState;
-        public Form CurrentState { get { return _currentState; } }
+        private Stack<Form> _stateStack;
+        public Form CurrentState { get { return _stateStack.Peek(); } }
 
         public StateMachine(Form startingForm)
         { 
-            _currentState = startingForm;
+            _stateStack = new Stack<Form>();
+            _stateStack.Push(startingForm);
         }
 
-        public void ChangeState(Form newForm)
+        public void PushState(Form newForm)
         {
             Assert.IsNotNull(newForm); // Make sure newForm is not null
-            _currentState.Hide();
-            _currentState = newForm;
-            _currentState.Show();
+            CurrentState.Hide();
+            _stateStack.Push(newForm);
+            CurrentState.Show();
+        }
+
+        public void PopState()
+        {
+            if (_stateStack.Count > 1) 
+            {
+                CurrentState.Hide();
+                _stateStack.Pop();
+                CurrentState.Show();
+            }
         }
     }
 }

@@ -25,7 +25,7 @@ namespace RestaurantSystem
         {
             get { return _order; }
             set
-            { 
+            {
                 _order = value;
                 ListBMenuItems.Items.Clear();
                 ListBMenuItems.Items.Add(_order);
@@ -37,16 +37,19 @@ namespace RestaurantSystem
 
         }
 
-        // Return to DeliverOrders Interface
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
-            //_userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CDeliverOrders);
+            _userInterface.StateMachine.PopState();
         }
 
         private void ListBMenuItems_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnHandlePayment_Click(object sender, EventArgs e)
+        {
+            _userInterface.StateMachine.PushState(_userInterface.StateFactory.OrderPaymentService);
         }
     }
 }

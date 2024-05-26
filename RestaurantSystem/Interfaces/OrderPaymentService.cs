@@ -22,7 +22,7 @@ namespace RestaurantSystem.Interfaces
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-
+            _userInterface.StateMachine.PopState();
         }
     }
 }
