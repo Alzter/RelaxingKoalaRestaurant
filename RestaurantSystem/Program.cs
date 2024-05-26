@@ -13,9 +13,12 @@ namespace RestaurantSystem
         {
             // Loading JSON data for menus, menu items, and ingredients
             var menus = MenuRepository.LoadMenus("MenuData.json");
+            // Testing saved menus
+            MenuRepository.SaveMenus("MenuData.json", menus);
+            var menus2 = MenuRepository.LoadMenus("MenuData.json");
 
             // Testing if it worked
-            foreach (var menu in menus)
+            foreach (var menu in menus2)
             {
                 Console.WriteLine($"{menu.Name}:");
                 foreach (var item in menu.Items)
