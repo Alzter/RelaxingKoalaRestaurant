@@ -1,4 +1,4 @@
-using RestaurantSystem.entity;
+using RestaurantSystem;
 
 namespace RestaurantTests
 {

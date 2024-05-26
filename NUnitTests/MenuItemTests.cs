@@ -1,4 +1,4 @@
-﻿using RestaurantSystem.entity;
+﻿using RestaurantSystem;
 
 namespace RestaurantTests
 {
@@ -12,27 +12,27 @@ namespace RestaurantTests
         [SetUp]
         public void Setup()
         {
-            //extraCheese = new Ingredient("cheese", 2.5);
-            //pineapple = new Ingredient("pineapple", 2.5);
-            //pineapplePizza = new MenuItem(
-            //    "pizza", // Name (duh)
-            //    12.80, // Base price.
-            //    new List<Ingredient> { extraCheese }, // Extra cheese may be added to the pineapple pizza.
-            //    new List<Ingredient> { pineapple }    // The pineapple may be removed from the pineapple pizza.
-            //);
+            extraCheese = new Ingredient("cheese", 2.5);
+            pineapple = new Ingredient("pineapple", 2.5);
+
+            pineapplePizza = new MenuItem("Pineapple Pizza", 12.80,
+                new List<Ingredient> { pineapple },                 // Extra cheese may be added to the pineapple pizza.
+                new List<Ingredient> { extraCheese });              // The pineapple may be removed from the pineapple pizza.
+
         }
 
         [Test]
         public void TestPrice()
         {
-            // Assert.AreEqual(12.80, pineapplePizza.Price, "The base price of a menu item should be constant.");
+            Assert.AreEqual(12.80, pineapplePizza.Price, "The base price of a menu item should be constant.");
         }
 
         [Test]
-        public void TestRemovingItemsDoesNotAlterPrice()
+        public void TestRemoveIngredient()
         {
-            // pineapplePizza.RemoveIngredient(pineapple);
-            // Assert.AreEqual(12.80, pineapplePizza.Price, "The base price of a menu item should not change when ingredients are removed.");
+            pineapplePizza.RemoveIngredient(pineapple);
+            Assert.IsTrue(pineapplePizza.Ingredients.Count == 0);
+            Assert.AreEqual(12.80, pineapplePizza.Price, "The base price of a menu item should not change when ingredients are removed.");
         }
 
 
