@@ -74,6 +74,7 @@
             BtnHandlePayment.TabIndex = 3;
             BtnHandlePayment.Text = "Handle Payment";
             BtnHandlePayment.UseVisualStyleBackColor = true;
+            BtnHandlePayment.Click += BtnHandlePayment_Click;
             // 
             // ListBMenuItems
             // 
@@ -116,7 +117,7 @@
             BtnBack.UseVisualStyleBackColor = true;
             BtnBack.Click += BtnBack_Click;
             // 
-            // ManageOrdersInterface
+            // ManageOrdersService
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -129,7 +130,7 @@
             Controls.Add(BtnMarkAsDelivered);
             Controls.Add(TxtStatus);
             Controls.Add(TxtTableNum);
-            Name = "ManageOrdersInterface";
+            Name = "ManageOrdersService";
             Text = "ManageOrdersInterface";
             ResumeLayout(false);
             PerformLayout();

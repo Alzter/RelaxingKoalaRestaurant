@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             BtnBack = new Button();
+            BtnManageOrders = new Button();
             SuspendLayout();
             // 
             // BtnBack
             // 
-            BtnBack.Location = new Point(493, 6);
+            BtnBack.Location = new Point(11, 318);
             BtnBack.Margin = new Padding(2, 1, 2, 1);
             BtnBack.Name = "BtnBack";
             BtnBack.Size = new Size(81, 22);
@@ -42,14 +43,26 @@
             BtnBack.UseVisualStyleBackColor = true;
             BtnBack.Click += BtnBack_Click;
             // 
-            // KitchenController
+            // BtnManageOrders
+            // 
+            BtnManageOrders.Location = new Point(191, 127);
+            BtnManageOrders.Margin = new Padding(2, 1, 2, 1);
+            BtnManageOrders.Name = "BtnManageOrders";
+            BtnManageOrders.Size = new Size(205, 77);
+            BtnManageOrders.TabIndex = 1;
+            BtnManageOrders.Text = "Manage Orders";
+            BtnManageOrders.UseVisualStyleBackColor = true;
+            BtnManageOrders.Click += BtnManageOrders_Click;
+            // 
+            // KitchenStaffService
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(586, 350);
+            Controls.Add(BtnManageOrders);
             Controls.Add(BtnBack);
             Margin = new Padding(2, 1, 2, 1);
-            Name = "KitchenController";
+            Name = "KitchenStaffService";
             Text = "KitchenInterface";
             ResumeLayout(false);
         }
@@ -57,5 +70,6 @@
         #endregion
 
         private Button BtnBack;
+        private Button BtnManageOrders;
     }
 }
