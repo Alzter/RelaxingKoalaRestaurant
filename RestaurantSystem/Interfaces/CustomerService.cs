@@ -23,7 +23,7 @@ namespace RestaurantSystem
         // Return to Restaurant Interface
         private void Back_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CRestaurant);
+            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.RestaurantService);
         }
 
         private void Menu_SelectedIndexChanged(object sender, EventArgs e)

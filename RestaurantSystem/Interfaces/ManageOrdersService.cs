@@ -40,7 +40,8 @@ namespace RestaurantSystem
         // Return to DeliverOrders Interface
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CDeliverOrders);
+            throw new NotImplementedException();
+            //_userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CDeliverOrders);
         }
 
         private void ListBMenuItems_SelectedIndexChanged(object sender, EventArgs e)
