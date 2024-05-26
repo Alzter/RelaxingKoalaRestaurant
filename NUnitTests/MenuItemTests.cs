@@ -14,11 +14,13 @@ namespace RestaurantTests
         {
             extraCheese = new Ingredient("cheese", 2.5);
             pineapple = new Ingredient("pineapple", 2.5);
+            
 
             pineapplePizza = new MenuItem("Pineapple Pizza", 12.80,
                 new List<Ingredient> { pineapple },                 // Extra cheese may be added to the pineapple pizza.
                 new List<Ingredient> { extraCheese });              // The pineapple may be removed from the pineapple pizza.
 
+            
         }
 
         [Test]

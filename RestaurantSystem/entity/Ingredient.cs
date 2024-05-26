@@ -14,20 +14,12 @@ namespace RestaurantSystem
 
         public Ingredient(string name, double extraPrice)
         {
-            throw new NotImplementedException();
+            _name = name;
+            _extraPrice = extraPrice;
         }
 
-        public string Name
-        {
-            get { return _name; }
-        }
+        public string Name { get { return _name; } }
 
-        public double Price
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public double Price { get { return _extraPrice; } }
     }
 }

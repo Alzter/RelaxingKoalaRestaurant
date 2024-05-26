@@ -8,46 +8,58 @@ namespace RestaurantSystem
 {
     public class MenuItem
     {
-        private List<Ingredient> _baseIngredients;
+        private List<Ingredient>? _baseIngredients;
         private List<Ingredient>? _addableIngredients;
-        private List<Ingredient> ingredients;
+        private List<Ingredient> _ingredients;
         private double _basePrice;
         private string _name;
         private int _id;
 
         public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients, List<Ingredient> addableIngredients) : this(name, basePrice, baseIngredients)
         {
-            throw new NotImplementedException();
+            _addableIngredients = addableIngredients;
         }
 
-        public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients)
+        public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients) : this(name,basePrice)
         {
-            throw new NotImplementedException();
+            _baseIngredients = baseIngredients;
+        }
+
+        public MenuItem(string name, double basePrice)
+        {
+            _name = name;
+            _basePrice = basePrice;
+
+            _ingredients = new List<Ingredient>();
+            if (_baseIngredients != null) { _ingredients.AddRange(_baseIngredients); }
         }
 
         public void AddIngredient(Ingredient item)
         {
-            throw new NotImplementedException();
+            _ingredients.Add(item);
         }
 
         public void RemoveIngredient(int id)
         {
-            throw new NotImplementedException();
+            _ingredients.RemoveAt(id);
         }
 
         public void RemoveIngredient(Ingredient item)
         {
-            throw new NotImplementedException();
+            _ingredients.Remove(item);
         }
 
         public Ingredient GetAddableIngredient(int id)
         {
-            throw new NotImplementedException();
+            if (_addableIngredients == null) { throw new NullReferenceException("No addable ingredients list to reference"); }
+            if (id < 1 || id > _addableIngredients.Count) { throw new IndexOutOfRangeException("Addable ingredient out of range"); }
+            return _addableIngredients[id];
         }
 
         public Ingredient GetIngredient(int id)
         {
-            throw new NotImplementedException();
+            if (id < 1 || id > _ingredients.Count) { throw new IndexOutOfRangeException("Ingredient out of range"); }
+            return _ingredients[id];
         }
 
         public string Name { get { return _name; } }
@@ -56,7 +68,18 @@ namespace RestaurantSystem
         {
             get
             {
-                throw new NotImplementedException();
+                double price = _basePrice;
+
+                // Add the price of each extra ingredient to the base price.
+                foreach (Ingredient i in _ingredients)
+                {
+                    if (!_baseIngredients.Contains(i))
+                    {
+                        price += i.Price;
+                    }
+                }
+
+                return price;
             }
         }
 
@@ -64,7 +87,7 @@ namespace RestaurantSystem
         {
             get
             {
-                throw new NotImplementedException();
+                return Ingredients;
 
             }
         }
@@ -73,7 +96,7 @@ namespace RestaurantSystem
         {
             get
             {
-                throw new NotImplementedException();
+                return AddableIngredients;
 
             }
         }
