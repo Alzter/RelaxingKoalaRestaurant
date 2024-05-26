@@ -8,30 +8,47 @@ namespace RestaurantSystem
 {
     public class MenuItem
     {
-        private List<Ingredient>? _baseIngredients;
-        private List<Ingredient>? _addableIngredients;
+        private List<Ingredient> _baseIngredients;
+        private List<Ingredient> _addableIngredients;
         private List<Ingredient> _ingredients;
         private double _basePrice;
         private string _name;
         private int _id;
 
-        public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients, List<Ingredient> addableIngredients) : this(name, basePrice, baseIngredients)
+        public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients, List<Ingredient> addableIngredients)
         {
             _addableIngredients = addableIngredients;
-        }
-
-        public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients) : this(name,basePrice)
-        {
             _baseIngredients = baseIngredients;
-        }
 
-        public MenuItem(string name, double basePrice)
-        {
             _name = name;
             _basePrice = basePrice;
 
             _ingredients = new List<Ingredient>();
-            if (_baseIngredients != null) { _ingredients.AddRange(_baseIngredients); }
+            _ingredients.AddRange(_baseIngredients);
+        }
+
+        public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients)
+        {
+            _addableIngredients = new List<Ingredient>();
+            _baseIngredients = baseIngredients;
+
+            _name = name;
+            _basePrice = basePrice;
+
+            _ingredients = new List<Ingredient>();
+            _ingredients.AddRange(_baseIngredients);
+        }
+
+        public MenuItem(string name, double basePrice)
+        {
+            _addableIngredients = new List<Ingredient>();
+            _baseIngredients = new List<Ingredient>();
+
+            _name = name;
+            _basePrice = basePrice;
+
+            _ingredients = new List<Ingredient>();
+            _ingredients.AddRange(_baseIngredients);
         }
 
         public void AddIngredient(Ingredient item)
@@ -87,7 +104,7 @@ namespace RestaurantSystem
         {
             get
             {
-                return Ingredients;
+                return _ingredients;
 
             }
         }
@@ -96,7 +113,7 @@ namespace RestaurantSystem
         {
             get
             {
-                return AddableIngredients;
+                return _addableIngredients;
 
             }
         }

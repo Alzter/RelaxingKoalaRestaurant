@@ -17,10 +17,16 @@ namespace RestaurantTests
             
 
             pineapplePizza = new MenuItem("Pineapple Pizza", 12.80,
-                new List<Ingredient> { pineapple },                 // Extra cheese may be added to the pineapple pizza.
-                new List<Ingredient> { extraCheese });              // The pineapple may be removed from the pineapple pizza.
+                new List<Ingredient> { pineapple },                 // The pineapple may be removed from the pineapple pizza.
+                new List<Ingredient> { extraCheese }                // Extra cheese may be added to the pineapple pizza.
+            );
+        }
 
-            
+        [Test]
+        public void TestIngredientsListCreated()
+        {
+            Assert.IsTrue(pineapplePizza.Ingredients.Contains(pineapple), "The pineapple pizza should contain a pineapple ingredient.");
+            Assert.IsTrue(pineapplePizza.Ingredients.Count == 1, "The pineapple pizza should have one ingredient in its list.");
         }
 
         [Test]
