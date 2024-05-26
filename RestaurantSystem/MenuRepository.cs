@@ -53,5 +53,81 @@ namespace RestaurantSystem
 
             return menus;
         }
+
+        public static void SaveMenus(string filePath, List<Menu> menus)
+        {
+            var ingredientsSet = new HashSet<Ingredient>();
+            var jsonIngredients = new List<JsonIngredient>();
+
+            foreach (var menu in menus)
+            {
+                foreach (var menuItem in menu.Items)
+                {
+                    foreach (var ingredient in menuItem.Ingredients)
+                    {
+                        if (ingredientsSet.Add(ingredient))
+                        {
+                            jsonIngredients.Add(new JsonIngredient { Name = ingredient.Name, BasePrice = ingredient.Price });
+                        }
+                    }
+
+                    foreach (var ingredient in menuItem.AddableIngredients)
+                    {
+                        if (ingredientsSet.Add(ingredient))
+                        {
+                            jsonIngredients.Add(new JsonIngredient { Name = ingredient.Name, BasePrice = ingredient.Price });
+                        }
+                    }
+                }
+            }
+
+            var jsonMenus = new List<JsonMenu>();
+
+            foreach (var menu in menus)
+            {
+                var jsonMenuItems = new List<JsonMenuItem>();
+
+                foreach (var menuItem in menu.Items)
+                {
+                    var addableIngredients = new List<string>();
+                    var removableIngredients = new List<string>();
+
+                    foreach (var ingredient in menuItem.AddableIngredients)
+                    {
+                        addableIngredients.Add(ingredient.Name);
+                    }
+
+                    foreach (var ingredient in menuItem.Ingredients)
+                    {
+                        removableIngredients.Add(ingredient.Name);
+                    }
+
+                    jsonMenuItems.Add(new JsonMenuItem
+                    {
+                        Name = menuItem.Name,
+                        BasePrice = menuItem.Price,
+                        AddableIngredients = addableIngredients,
+                        RemovableIngredients = removableIngredients
+                    });
+                }
+
+                jsonMenus.Add(new JsonMenu
+                {
+                    Name = menu.Name,
+                    Items = jsonMenuItems
+                });
+            }
+
+            var data = new JsonMenuData
+            {
+                Ingredients = jsonIngredients,
+                Menus = jsonMenus
+            };
+
+            var json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(filePath, json);
+        }
+
     }
 }
+
