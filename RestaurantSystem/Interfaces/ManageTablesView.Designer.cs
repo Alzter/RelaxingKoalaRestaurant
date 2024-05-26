@@ -1,6 +1,6 @@
-﻿namespace RestaurantSystem.Interfaces
+﻿namespace RestaurantSystem
 {
-    partial class OrderPaymentService
+    partial class ManageTablesView
     {
         /// <summary>
         /// Required designer variable.
@@ -37,19 +37,19 @@
             BtnBack.Margin = new Padding(2, 1, 2, 1);
             BtnBack.Name = "BtnBack";
             BtnBack.Size = new Size(42, 22);
-            BtnBack.TabIndex = 3;
+            BtnBack.TabIndex = 1;
             BtnBack.Text = "Back";
             BtnBack.UseVisualStyleBackColor = true;
             BtnBack.Click += BtnBack_Click;
             // 
-            // OrderPaymentService
+            // ManageTablesInterface
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(549, 450);
             Controls.Add(BtnBack);
-            Name = "OrderPaymentService";
-            Text = "OrderPaymentService";
+            Name = "ManageTablesInterface";
+            Text = "ManageTablesInterface";
             ResumeLayout(false);
         }
 

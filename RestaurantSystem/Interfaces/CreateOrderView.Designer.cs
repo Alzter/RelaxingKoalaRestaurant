@@ -1,6 +1,6 @@
-﻿namespace RestaurantSystem.Interfaces
+﻿namespace RestaurantSystem
 {
-    partial class CreateReservationService
+    partial class CreateOrderView
     {
         /// <summary>
         /// Required designer variable.
@@ -37,19 +37,19 @@
             BtnBack.Margin = new Padding(2, 1, 2, 1);
             BtnBack.Name = "BtnBack";
             BtnBack.Size = new Size(42, 22);
-            BtnBack.TabIndex = 3;
+            BtnBack.TabIndex = 1;
             BtnBack.Text = "Back";
             BtnBack.UseVisualStyleBackColor = true;
             BtnBack.Click += BtnBack_Click;
             // 
-            // CreateReservationService
+            // CreateOrdersController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(BtnBack);
-            Name = "CreateReservationService";
-            Text = "CreateReservationService";
+            Name = "CreateOrdersController";
+            Text = "CreateOrdersController";
             ResumeLayout(false);
         }
 

@@ -15,7 +15,7 @@ namespace RestaurantSystem
         public UserInterface()
         {
             _stateFactory = new StateFactory(this);
-            _stateMachine = new StateMachine(_stateFactory.RestaurantService); // Start with Restaurant Interface that has all 4 interface options 
+            _stateMachine = new StateMachine(_stateFactory.RestaurantView); // Start with Restaurant Interface that has all 4 interface options 
         }
 
         public StateMachine StateMachine { get { return _stateMachine; } }

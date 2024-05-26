@@ -10,7 +10,7 @@ namespace RestaurantTests
         [SetUp]
         public void Setup()
         {
-            //pizza = new MenuItem("pizza" 
+            pizza = new MenuItem("pizza", 12.80);
             
         }
     }
