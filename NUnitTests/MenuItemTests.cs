@@ -5,6 +5,7 @@ namespace RestaurantTests
     public class MenuItemTests
     {
         MenuItem pineapplePizza;
+        MenuItem tiramisu;
         Ingredient extraCheese;
         Ingredient pineapple;
 
@@ -22,7 +23,7 @@ namespace RestaurantTests
         }
 
         [Test]
-        public void TestBasePrice()
+        public void TestPrice()
         {
             // Assert.AreEqual(12.80, pineapplePizza.Price, "The base price of a menu item should be constant.");
         }
@@ -33,6 +34,7 @@ namespace RestaurantTests
             // pineapplePizza.RemoveIngredient(pineapple);
             // Assert.AreEqual(12.80, pineapplePizza.Price, "The base price of a menu item should not change when ingredients are removed.");
         }
+
 
         [Test]
         public void TestAddingItemsIncreasesPrice()

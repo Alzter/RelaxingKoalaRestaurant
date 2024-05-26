@@ -12,7 +12,7 @@ namespace RestaurantSystem
         static void Main()
         {
             // Loading JSON data for menus, menu items, and ingredients
-            var menus = MenuDataLoader.LoadMenus("MenuData.json");
+            var menus = MenuRepository.LoadMenus("MenuData.json");
 
             // Testing if it worked
             foreach (var menu in menus)

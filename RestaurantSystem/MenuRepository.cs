@@ -8,7 +8,7 @@ using RestaurantSystem.entity;
 
 namespace RestaurantSystem
 {
-    public static class MenuDataLoader
+    public static class MenuRepository
     {
         public static List<Menu> LoadMenus(string filePath)
         {
