@@ -8,22 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RestaurantSystem
+namespace RestaurantSystem.Interfaces
 {
-    public partial class CreateOrdersController : Form
+    public partial class CreateReservationService : Form
     {
         private UserInterface _userInterface;
 
-        public CreateOrdersController(UserInterface userInterface)
+        public CreateReservationService(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;
         }
 
-        // Return to WaitStaff Interface
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CWaitStaff);
+
         }
     }
 }

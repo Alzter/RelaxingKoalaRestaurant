@@ -1,6 +1,6 @@
 ﻿namespace RestaurantSystem
 {
-    partial class WaitStaffController
+    partial class WaitStaffService
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             BtnBack = new Button();
-            BtnCreateOrders = new Button();
-            BtnDeliverOrders = new Button();
+            BtnCreateOrder = new Button();
+            BtnManageOrders = new Button();
+            BtnCreateReservation = new Button();
             BtnManageTables = new Button();
             SuspendLayout();
             // 
@@ -45,47 +46,58 @@
             BtnBack.UseVisualStyleBackColor = true;
             BtnBack.Click += BtnBack_Click;
             // 
-            // BtnCreateOrders
+            // BtnCreateOrder
             // 
-            BtnCreateOrders.Location = new Point(231, 123);
-            BtnCreateOrders.Name = "BtnCreateOrders";
-            BtnCreateOrders.Size = new Size(120, 23);
-            BtnCreateOrders.TabIndex = 1;
-            BtnCreateOrders.Text = "Create Orders";
-            BtnCreateOrders.UseVisualStyleBackColor = true;
-            BtnCreateOrders.Click += BtnCreateOrders_Click;
+            BtnCreateOrder.Location = new Point(43, 42);
+            BtnCreateOrder.Name = "BtnCreateOrder";
+            BtnCreateOrder.Size = new Size(195, 132);
+            BtnCreateOrder.TabIndex = 1;
+            BtnCreateOrder.Text = "Create Order";
+            BtnCreateOrder.UseVisualStyleBackColor = true;
+            BtnCreateOrder.Click += BtnCreateOrder_Click;
             // 
-            // BtnDeliverOrders
+            // BtnManageOrders
             // 
-            BtnDeliverOrders.Location = new Point(231, 187);
-            BtnDeliverOrders.Name = "BtnDeliverOrders";
-            BtnDeliverOrders.Size = new Size(120, 23);
-            BtnDeliverOrders.TabIndex = 2;
-            BtnDeliverOrders.Text = "Deliver Orders";
-            BtnDeliverOrders.UseVisualStyleBackColor = true;
-            BtnDeliverOrders.Click += BtnDeliverOrders_Click;
+            BtnManageOrders.Location = new Point(351, 42);
+            BtnManageOrders.Name = "BtnManageOrders";
+            BtnManageOrders.Size = new Size(195, 132);
+            BtnManageOrders.TabIndex = 2;
+            BtnManageOrders.Text = "Manage Orders";
+            BtnManageOrders.UseVisualStyleBackColor = true;
+            BtnManageOrders.Click += BtnManageOrders_Click;
+            // 
+            // BtnCreateReservation
+            // 
+            BtnCreateReservation.Location = new Point(43, 218);
+            BtnCreateReservation.Name = "BtnCreateReservation";
+            BtnCreateReservation.Size = new Size(195, 132);
+            BtnCreateReservation.TabIndex = 3;
+            BtnCreateReservation.Text = "Create Reservation";
+            BtnCreateReservation.UseVisualStyleBackColor = true;
+            BtnCreateReservation.Click += BtnCreateReservation_Click;
             // 
             // BtnManageTables
             // 
-            BtnManageTables.Location = new Point(231, 253);
+            BtnManageTables.Location = new Point(351, 218);
             BtnManageTables.Name = "BtnManageTables";
-            BtnManageTables.Size = new Size(120, 23);
-            BtnManageTables.TabIndex = 3;
+            BtnManageTables.Size = new Size(195, 132);
+            BtnManageTables.TabIndex = 4;
             BtnManageTables.Text = "Manage Tables";
             BtnManageTables.UseVisualStyleBackColor = true;
             BtnManageTables.Click += BtnManageTables_Click;
             // 
-            // WaitStaffController
+            // WaitStaffService
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(592, 451);
             Controls.Add(BtnManageTables);
-            Controls.Add(BtnDeliverOrders);
-            Controls.Add(BtnCreateOrders);
+            Controls.Add(BtnCreateReservation);
+            Controls.Add(BtnManageOrders);
+            Controls.Add(BtnCreateOrder);
             Controls.Add(BtnBack);
             Margin = new Padding(2, 1, 2, 1);
-            Name = "WaitStaffController";
+            Name = "WaitStaffService";
             Text = "WaitStaffInterface";
             ResumeLayout(false);
         }
@@ -93,8 +105,9 @@
         #endregion
 
         private Button BtnBack;
-        private Button BtnCreateOrders;
-        private Button BtnDeliverOrders;
+        private Button BtnCreateOrder;
+        private Button BtnManageOrders;
+        private Button BtnCreateReservation;
         private Button BtnManageTables;
     }
 }

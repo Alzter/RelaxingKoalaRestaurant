@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class ManageOrdersController : Form
+    public partial class ManageOrdersService : Form
     {
         private UserInterface _userInterface;
         private string _order; // TEST
 
-        public ManageOrdersController(UserInterface userInterface)
+        public ManageOrdersService(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;

@@ -1,6 +1,6 @@
 ﻿namespace RestaurantSystem
 {
-    partial class CreateOrdersController
+    partial class KitchenStaffService
     {
         /// <summary>
         /// Required designer variable.
@@ -33,23 +33,24 @@
             // 
             // BtnBack
             // 
-            BtnBack.Location = new Point(11, 418);
+            BtnBack.Location = new Point(493, 6);
             BtnBack.Margin = new Padding(2, 1, 2, 1);
             BtnBack.Name = "BtnBack";
-            BtnBack.Size = new Size(42, 22);
-            BtnBack.TabIndex = 1;
+            BtnBack.Size = new Size(81, 22);
+            BtnBack.TabIndex = 0;
             BtnBack.Text = "Back";
             BtnBack.UseVisualStyleBackColor = true;
             BtnBack.Click += BtnBack_Click;
             // 
-            // CreateOrdersController
+            // KitchenController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(586, 350);
             Controls.Add(BtnBack);
-            Name = "CreateOrdersController";
-            Text = "CreateOrdersController";
+            Margin = new Padding(2, 1, 2, 1);
+            Name = "KitchenController";
+            Text = "KitchenInterface";
             ResumeLayout(false);
         }
 
