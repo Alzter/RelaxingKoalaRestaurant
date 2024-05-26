@@ -53,7 +53,7 @@ namespace RestaurantSystem
         {
             get
             {
-                throw new NotImplementedException;
+                throw new NotImplementedException();
             }
         }
 

@@ -47,14 +47,7 @@ namespace RestaurantSystem
                 }
 
                 Menu menu;
-                if (menuData.Name.Contains("Takeaway"))
-                {
-                    menu = new TakeAwayMenu(menuItems, menuData.Name);
-                }
-                else
-                {
-                    menu = new DineInMenu(menuItems, menuData.Name);
-                }
+                menu = new Menu(menuItems, menuData.Name);
                 menus.Add(menu);
             }
 
