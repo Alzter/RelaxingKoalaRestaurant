@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class ManageTablesController : Form
+    public partial class CreateOrderService : Form
     {
         private UserInterface _userInterface;
 
-        public ManageTablesController(UserInterface userInterface)
+        public CreateOrderService(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;
@@ -23,7 +23,7 @@ namespace RestaurantSystem
         // Return to WaitStaff Interface
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CWaitStaff);
+            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.WaitStaffService);
         }
     }
 }

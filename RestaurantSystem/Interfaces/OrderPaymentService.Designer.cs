@@ -1,6 +1,6 @@
-﻿namespace RestaurantSystem
+﻿namespace RestaurantSystem.Interfaces
 {
-    partial class KitchenController
+    partial class OrderPaymentService
     {
         /// <summary>
         /// Required designer variable.
@@ -33,24 +33,23 @@
             // 
             // BtnBack
             // 
-            BtnBack.Location = new Point(493, 6);
+            BtnBack.Location = new Point(11, 418);
             BtnBack.Margin = new Padding(2, 1, 2, 1);
             BtnBack.Name = "BtnBack";
-            BtnBack.Size = new Size(81, 22);
-            BtnBack.TabIndex = 0;
+            BtnBack.Size = new Size(42, 22);
+            BtnBack.TabIndex = 3;
             BtnBack.Text = "Back";
             BtnBack.UseVisualStyleBackColor = true;
             BtnBack.Click += BtnBack_Click;
             // 
-            // KitchenController
+            // OrderPaymentService
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(586, 350);
+            ClientSize = new Size(800, 450);
             Controls.Add(BtnBack);
-            Margin = new Padding(2, 1, 2, 1);
-            Name = "KitchenController";
-            Text = "KitchenInterface";
+            Name = "OrderPaymentService";
+            Text = "OrderPaymentService";
             ResumeLayout(false);
         }
 

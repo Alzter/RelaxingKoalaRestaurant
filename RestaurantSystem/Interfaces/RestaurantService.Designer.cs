@@ -1,6 +1,6 @@
 ﻿namespace RestaurantSystem
 {
-    partial class RestaurantController
+    partial class RestaurantService
     {
         /// <summary>
         /// Required designer variable.

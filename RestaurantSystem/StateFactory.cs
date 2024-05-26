@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RestaurantSystem.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,37 +9,40 @@ namespace RestaurantSystem
 {
     public class StateFactory
     {
-        private RestaurantController _cRestaurant;
-        private WaitStaffController _cWaitStaff;
-        private KitchenController _cKitchen;
-        private DeliveryController _cDelivery;
-        private CustomerController _cCustomer;
-        private CreateOrdersController _cCreateOrders;
-        private ManageOrdersController _cManageOrders;
-        private DeliverOrdersController _cDeliverOrders;
-        private ManageTablesController _cManageTables;
+        private RestaurantService _restaurantService;
+        private WaitStaffService _waitStaffService;
+        private KitchenStaffService _kitchenStaffService;
+        private DeliveryStaffService _deliveryStaffService;
+        private CustomerService _customerService;
+        private CreateOrderService _createOrderService;
+        private ManageOrdersService _manageOrdersService;
+        private ManageTablesService _manageTablesService;
+        private CreateReservationService _createReservationService;
+        private OrderPaymentService _orderPaymentService;
 
         public StateFactory(UserInterface userInterface)
         {
-            _cRestaurant = new RestaurantController(userInterface);
-            _cWaitStaff = new WaitStaffController(userInterface);
-            _cKitchen = new KitchenController(userInterface);
-            _cDelivery = new DeliveryController(userInterface);
-            _cCustomer = new CustomerController(userInterface);
-            _cCreateOrders = new CreateOrdersController(userInterface);
-            _cManageOrders = new ManageOrdersController(userInterface);
-            _cDeliverOrders = new DeliverOrdersController(userInterface);
-            _cManageTables = new ManageTablesController(userInterface);
+            _restaurantService = new RestaurantService(userInterface);
+            _waitStaffService = new WaitStaffService(userInterface);
+            _kitchenStaffService = new KitchenStaffService(userInterface);
+            _deliveryStaffService = new DeliveryStaffService(userInterface);
+            _customerService = new CustomerService(userInterface);
+            _createOrderService = new CreateOrderService(userInterface);
+            _manageOrdersService = new ManageOrdersService(userInterface);
+            _manageTablesService = new ManageTablesService(userInterface);
+            _createReservationService = new CreateReservationService(userInterface);
+            _orderPaymentService = new OrderPaymentService(userInterface);
         }
-
-        public RestaurantController CRestaurant { get { return _cRestaurant; } }
-        public WaitStaffController CWaitStaff { get { return _cWaitStaff; } }
-        public KitchenController CKitchen { get { return _cKitchen; } }
-        public DeliveryController CDelivery { get { return _cDelivery; } }
-        public CustomerController CCustomer { get { return _cCustomer; } }
-        public CreateOrdersController CCreateOrders { get { return _cCreateOrders; } }
-        public ManageOrdersController CManageOrders { get { return _cManageOrders; } }
-        public DeliverOrdersController CDeliverOrders { get { return _cDeliverOrders; } }
-        public ManageTablesController CManageTables { get { return _cManageTables; } }
+            
+        public RestaurantService RestaurantService { get { return _restaurantService; } }
+        public WaitStaffService WaitStaffService { get { return _waitStaffService; } }
+        public KitchenStaffService KitchenService { get { return _kitchenStaffService; } }
+        public DeliveryStaffService DeliveryService { get { return _deliveryStaffService; } }
+        public CustomerService CustomerService { get { return _customerService; } }
+        public CreateOrderService CreateOrderService { get { return _createOrderService; } }
+        public ManageOrdersService ManageOrdersService { get { return _manageOrdersService; } }
+        public ManageTablesService ManageTablesService { get { return _manageTablesService; } }
+        public CreateReservationService CreateReservationService { get { return _createReservationService; } }
+        public OrderPaymentService OrderPaymentService { get { return _orderPaymentService; } }
     }
 }

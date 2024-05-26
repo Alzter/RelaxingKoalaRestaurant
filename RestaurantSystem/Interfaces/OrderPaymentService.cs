@@ -8,22 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RestaurantSystem
+namespace RestaurantSystem.Interfaces
 {
-    public partial class KitchenController : Form
+    public partial class OrderPaymentService : Form
     {
         private UserInterface _userInterface;
 
-        public KitchenController(UserInterface userInterface)
+        public OrderPaymentService(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;
         }
 
-        // Return to Restaurant Interface
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.ChangeState(_userInterface.StateFactory.CRestaurant);
+
         }
     }
 }

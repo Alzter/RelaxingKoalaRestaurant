@@ -1,6 +1,6 @@
-﻿namespace RestaurantSystem
+﻿namespace RestaurantSystem.Interfaces
 {
-    partial class DeliveryController
+    partial class CreateReservationService
     {
         /// <summary>
         /// Required designer variable.
@@ -29,46 +29,32 @@
         private void InitializeComponent()
         {
             BtnBack = new Button();
-            TxtReadyOrders = new Label();
             SuspendLayout();
             // 
             // BtnBack
             // 
-            BtnBack.Location = new Point(470, 15);
+            BtnBack.Location = new Point(11, 418);
             BtnBack.Margin = new Padding(2, 1, 2, 1);
             BtnBack.Name = "BtnBack";
-            BtnBack.Size = new Size(81, 22);
-            BtnBack.TabIndex = 0;
+            BtnBack.Size = new Size(42, 22);
+            BtnBack.TabIndex = 3;
             BtnBack.Text = "Back";
             BtnBack.UseVisualStyleBackColor = true;
             BtnBack.Click += BtnBack_Click;
             // 
-            // TxtReadyOrders
-            // 
-            TxtReadyOrders.AutoSize = true;
-            TxtReadyOrders.Location = new Point(12, 22);
-            TxtReadyOrders.Name = "TxtReadyOrders";
-            TxtReadyOrders.Size = new Size(80, 15);
-            TxtReadyOrders.TabIndex = 1;
-            TxtReadyOrders.Text = "Ready Orders:";
-            // 
-            // DeliveryController
+            // CreateReservationService
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(577, 477);
-            Controls.Add(TxtReadyOrders);
+            ClientSize = new Size(800, 450);
             Controls.Add(BtnBack);
-            Margin = new Padding(2, 1, 2, 1);
-            Name = "DeliveryController";
-            Text = "DeliveryInterface";
+            Name = "CreateReservationService";
+            Text = "CreateReservationService";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private Button BtnBack;
-        private Label TxtReadyOrders;
     }
 }
