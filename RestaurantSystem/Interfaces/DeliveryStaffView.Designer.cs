@@ -1,6 +1,6 @@
 ﻿namespace RestaurantSystem
 {
-    partial class KitchenStaffService
+    partial class DeliveryStaffView
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             BtnBack = new Button();
+            TxtReadyOrders = new Label();
             BtnManageOrders = new Button();
             SuspendLayout();
             // 
             // BtnBack
             // 
-            BtnBack.Location = new Point(11, 318);
+            BtnBack.Location = new Point(11, 445);
             BtnBack.Margin = new Padding(2, 1, 2, 1);
             BtnBack.Name = "BtnBack";
             BtnBack.Size = new Size(81, 22);
@@ -43,33 +44,45 @@
             BtnBack.UseVisualStyleBackColor = true;
             BtnBack.Click += BtnBack_Click;
             // 
+            // TxtReadyOrders
+            // 
+            TxtReadyOrders.AutoSize = true;
+            TxtReadyOrders.Location = new Point(12, 22);
+            TxtReadyOrders.Name = "TxtReadyOrders";
+            TxtReadyOrders.Size = new Size(80, 15);
+            TxtReadyOrders.TabIndex = 1;
+            TxtReadyOrders.Text = "Ready Orders:";
+            // 
             // BtnManageOrders
             // 
-            BtnManageOrders.Location = new Point(191, 127);
+            BtnManageOrders.Location = new Point(186, 200);
             BtnManageOrders.Margin = new Padding(2, 1, 2, 1);
             BtnManageOrders.Name = "BtnManageOrders";
             BtnManageOrders.Size = new Size(205, 77);
-            BtnManageOrders.TabIndex = 1;
+            BtnManageOrders.TabIndex = 2;
             BtnManageOrders.Text = "Manage Orders";
             BtnManageOrders.UseVisualStyleBackColor = true;
             BtnManageOrders.Click += BtnManageOrders_Click;
             // 
-            // KitchenStaffService
+            // DeliveryStaffService
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(586, 350);
+            ClientSize = new Size(577, 477);
             Controls.Add(BtnManageOrders);
+            Controls.Add(TxtReadyOrders);
             Controls.Add(BtnBack);
             Margin = new Padding(2, 1, 2, 1);
-            Name = "KitchenStaffService";
-            Text = "KitchenInterface";
+            Name = "DeliveryStaffService";
+            Text = "DeliveryInterface";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button BtnBack;
+        private Label TxtReadyOrders;
         private Button BtnManageOrders;
     }
 }

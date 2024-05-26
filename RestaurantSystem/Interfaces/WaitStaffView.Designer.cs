@@ -1,6 +1,6 @@
 ﻿namespace RestaurantSystem
 {
-    partial class WaitStaffService
+    partial class WaitStaffView
     {
         /// <summary>
         /// Required designer variable.

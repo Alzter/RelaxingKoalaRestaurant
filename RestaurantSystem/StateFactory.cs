@@ -9,40 +9,40 @@ namespace RestaurantSystem
 {
     public class StateFactory
     {
-        private RestaurantService _restaurantService;
-        private WaitStaffService _waitStaffService;
-        private KitchenStaffService _kitchenStaffService;
-        private DeliveryStaffService _deliveryStaffService;
-        private CustomerService _customerService;
-        private CreateOrderService _createOrderService;
-        private ManageOrdersService _manageOrdersService;
-        private ManageTablesService _manageTablesService;
-        private CreateReservationService _createReservationService;
-        private OrderPaymentService _orderPaymentService;
+        private RestaurantView _restaurantView;
+        private WaitStaffView _waitStaffView;
+        private KitchenStaffView _kitchenStaffView;
+        private DeliveryStaffView _deliveryStaffView;
+        private CustomerView _customerView;
+        private CreateOrderView _createOrderView;
+        private ManageOrdersView _manageOrdersView;
+        private ManageTablesView _manageTablesView;
+        private CreateReservationView _createReservationView;
+        private OrderPaymentView _orderPaymentView;
 
         public StateFactory(UserInterface userInterface)
         {
-            _restaurantService = new RestaurantService(userInterface);
-            _waitStaffService = new WaitStaffService(userInterface);
-            _kitchenStaffService = new KitchenStaffService(userInterface);
-            _deliveryStaffService = new DeliveryStaffService(userInterface);
-            _customerService = new CustomerService(userInterface);
-            _createOrderService = new CreateOrderService(userInterface);
-            _manageOrdersService = new ManageOrdersService(userInterface);
-            _manageTablesService = new ManageTablesService(userInterface);
-            _createReservationService = new CreateReservationService(userInterface);
-            _orderPaymentService = new OrderPaymentService(userInterface);
+            _restaurantView = new RestaurantView(userInterface);
+            _waitStaffView = new WaitStaffView(userInterface);
+            _kitchenStaffView = new KitchenStaffView(userInterface);
+            _deliveryStaffView = new DeliveryStaffView(userInterface);
+            _customerView = new CustomerView(userInterface);
+            _createOrderView = new CreateOrderView(userInterface);
+            _manageOrdersView = new ManageOrdersView(userInterface);
+            _manageTablesView = new ManageTablesView(userInterface);
+            _createReservationView = new CreateReservationView(userInterface);
+            _orderPaymentView = new OrderPaymentView(userInterface);
         }
             
-        public RestaurantService RestaurantService { get { return _restaurantService; } }
-        public WaitStaffService WaitStaffService { get { return _waitStaffService; } }
-        public KitchenStaffService KitchenStaffService { get { return _kitchenStaffService; } }
-        public DeliveryStaffService DeliveryStaffService { get { return _deliveryStaffService; } }
-        public CustomerService CustomerService { get { return _customerService; } }
-        public CreateOrderService CreateOrderService { get { return _createOrderService; } }
-        public ManageOrdersService ManageOrdersService { get { return _manageOrdersService; } }
-        public ManageTablesService ManageTablesService { get { return _manageTablesService; } }
-        public CreateReservationService CreateReservationService { get { return _createReservationService; } }
-        public OrderPaymentService OrderPaymentService { get { return _orderPaymentService; } }
+        public RestaurantView RestaurantView { get { return _restaurantView; } }
+        public WaitStaffView WaitStaffView { get { return _waitStaffView; } }
+        public KitchenStaffView KitchenStaffView { get { return _kitchenStaffView; } }
+        public DeliveryStaffView DeliveryStaffView { get { return _deliveryStaffView; } }
+        public CustomerView CustomerView { get { return _customerView; } }
+        public CreateOrderView CreateOrderView { get { return _createOrderView; } }
+        public ManageOrdersView ManageOrdersView { get { return _manageOrdersView; } }
+        public ManageTablesView ManageTablesView { get { return _manageTablesView; } }
+        public CreateReservationView CreateReservationView { get { return _createReservationView; } }
+        public OrderPaymentView OrderPaymentView { get { return _orderPaymentView; } }
     }
 }

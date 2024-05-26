@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class KitchenStaffService : Form
+    public partial class KitchenStaffView : Form
     {
         private UserInterface _userInterface;
 
-        public KitchenStaffService(UserInterface userInterface)
+        public KitchenStaffView(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;
@@ -28,7 +28,7 @@ namespace RestaurantSystem
 
         private void BtnManageOrders_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.PushState(_userInterface.StateFactory.ManageOrdersService);
+            _userInterface.StateMachine.PushState(_userInterface.StateFactory.ManageOrdersView);
         }
     }
 }
