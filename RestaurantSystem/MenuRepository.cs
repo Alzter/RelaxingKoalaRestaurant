@@ -46,7 +46,8 @@ namespace RestaurantSystem
                     menuItems.Add(new MenuItem(menuItemData.Name, menuItemData.BasePrice, addableIngredients, removableIngredients));
                 }
 
-                Menu menu = new Menu(menuItems, menuData.Name);
+                Menu menu;
+                menu = new Menu(menuItems, menuData.Name);
                 menus.Add(menu);
             }
 
