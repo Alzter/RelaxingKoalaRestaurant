@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public static class MenuDataLoader
+    public static class MenuRepository
     {
         public static List<Menu> LoadMenus(string filePath)
         {
