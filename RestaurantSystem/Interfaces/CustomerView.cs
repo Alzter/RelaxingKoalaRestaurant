@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class CustomerService : Form
+    public partial class CustomerView : Form
     {
         private UserInterface _userInterface;
 
-        public CustomerService(UserInterface userInterface)
+        public CustomerView(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;

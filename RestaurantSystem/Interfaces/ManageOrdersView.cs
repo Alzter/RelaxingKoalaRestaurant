@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace RestaurantSystem
 {
-    public partial class ManageOrdersService : Form
+    public partial class ManageOrdersView : Form
     {
         private UserInterface _userInterface;
         private string _order; // TEST
 
-        public ManageOrdersService(UserInterface userInterface)
+        public ManageOrdersView(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;
@@ -49,7 +49,7 @@ namespace RestaurantSystem
 
         private void BtnHandlePayment_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.PushState(_userInterface.StateFactory.OrderPaymentService);
+            _userInterface.StateMachine.PushState(_userInterface.StateFactory.OrderPaymentView);
         }
     }
 }

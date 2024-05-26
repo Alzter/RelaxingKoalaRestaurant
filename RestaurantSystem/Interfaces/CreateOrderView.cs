@@ -8,18 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RestaurantSystem.Interfaces
+namespace RestaurantSystem
 {
-    public partial class OrderPaymentService : Form
+    public partial class CreateOrderView : Form
     {
         private UserInterface _userInterface;
 
-        public OrderPaymentService(UserInterface userInterface)
+        public CreateOrderView(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;
         }
 
+        // Return to WaitStaff Interface
         private void BtnBack_Click(object sender, EventArgs e)
         {
             _userInterface.StateMachine.PopState();
