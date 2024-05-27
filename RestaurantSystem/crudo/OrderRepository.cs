@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    internal class OrderRepository
+    public class OrderRepository
     {
     }
 }

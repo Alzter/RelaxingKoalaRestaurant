@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantSystem.crudo
+namespace RestaurantSystem
 {
     public abstract class Repository<T>
     {
