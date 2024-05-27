@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using RestaurantSystem;
+using RestaurantSystem.crudo;
 
 namespace RestaurantSystem
 {
-    public class MenuRepository
+    public static class MenuRepository
     {
-        public List<Menu> LoadMenus(string filePath)
+        public static List<Menu> LoadMenus(string filePath)
         {
             // Read the JSON file
             var json = File.ReadAllText("MenuData.json");
@@ -54,7 +54,7 @@ namespace RestaurantSystem
             return menus;
         }
 
-        public void SaveMenus(string filePath, List<Menu> menus)
+        public static void SaveMenus(string filePath, List<Menu> menus)
         {
             var ingredientsSet = new HashSet<Ingredient>();
             var jsonIngredients = new List<JsonIngredient>();
