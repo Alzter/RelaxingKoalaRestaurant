@@ -2,10 +2,10 @@
 
 namespace RestaurantSystem;
 
-public enum TableStatus
+public enum OrderStatus
 {
-	Empty,
-	Occupied,
-	Reserved,
-	NeedsCleaning
+    Waiting,
+    InProgress,
+    Ready,
+    Served
 }
