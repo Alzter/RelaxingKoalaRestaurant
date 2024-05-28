@@ -10,7 +10,7 @@ namespace RestaurantSystem
 {
     public static class MenuRepository
     {
-        public static List<Menu> LoadMenus(string filePath)
+        public static List<Menu> LoadItems(string filePath)
         {
             // Read the JSON file
             var json = File.ReadAllText("MenuData.json");
@@ -54,7 +54,7 @@ namespace RestaurantSystem
             return menus;
         }
 
-        public static void SaveMenus(string filePath, List<Menu> menus)
+        public static void SaveItems(string filePath, List<Menu> menus)
         {
             // For holding ingredient data as JSON
             var ingredientsSet = new HashSet<Ingredient>();

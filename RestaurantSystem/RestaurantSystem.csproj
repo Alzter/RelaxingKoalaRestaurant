@@ -22,6 +22,9 @@
     <None Update="MenuData.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="OrderData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="ReservationData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

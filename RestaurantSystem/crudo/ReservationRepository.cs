@@ -8,7 +8,7 @@ namespace RestaurantSystem
 {
     public static class ReservationRepository
     {
-        public static List<Reservation> LoadReservations(string filePath)
+        public static List<Reservation> LoadItems(string filePath)
         {
             // Read the JSON file
             var json = File.ReadAllText(filePath);
@@ -33,7 +33,7 @@ namespace RestaurantSystem
             return reservations;
         }
 
-        public static void SaveReservations(string filePath, List<Reservation> reservations)
+        public static void SaveItems(string filePath, List<Reservation> reservations)
         {
             // List of JSON reservations
             var jsonReservations = new List<JsonReservation>();
@@ -66,7 +66,7 @@ namespace RestaurantSystem
         public static void CreateReservation(DateTime dateTime, int durationMinutes, int tableNumber, string customerName, int numberOfGuests)
         {
             // Load reservations
-            var reservations = LoadReservations("ReservationData.json");
+            var reservations = LoadItems("ReservationData.json");
             // Add the new reservation
             reservations.Add(new Reservation
                 (
@@ -77,7 +77,7 @@ namespace RestaurantSystem
                 numberOfGuests
                 ));
             // Save reservations 
-            SaveReservations("ReservationData.json", reservations);
+            SaveItems("ReservationData.json", reservations);
         }
     }
 }

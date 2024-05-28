@@ -11,25 +11,25 @@ namespace RestaurantSystem
         // Menus - Save / Load
         public static List<Menu> GetMenus()
         {
-            var menus = MenuRepository.LoadMenus("MenuData.json");
+            var menus = MenuRepository.LoadItems("MenuData.json");
             return menus;
         }
 
         public static void SaveMenus(List<Menu> menus) 
         {
-            MenuRepository.SaveMenus("MenuData.json", menus);
+            MenuRepository.SaveItems("MenuData.json", menus);
         }
 
         // Reservations - Save / Load
         public static List<Reservation> GetReservations()
         {
-            var reservations = ReservationRepository.LoadReservations("ReservationData.json");
+            var reservations = ReservationRepository.LoadItems("ReservationData.json");
             return reservations;
         }
 
         public static void SaveReservations(List<Reservation> reservations) 
         {
-            ReservationRepository.SaveReservations("ReservationData.json", reservations);
+            ReservationRepository.SaveItems("ReservationData.json", reservations);
         }
 
         // Orders - Save / Load
