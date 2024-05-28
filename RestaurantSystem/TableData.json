@@ -1,0 +1,44 @@
+{
+  "tables": [
+    {
+      "tableNumber": 1,
+      "status": "Available"
+    },
+    {
+      "tableNumber": 2,
+      "status": "Occupied"
+    },
+    {
+      "tableNumber": 3,
+      "status": "Reserved"
+    },
+    {
+      "tableNumber": 4,
+      "status": "Available"
+    },
+    {
+      "tableNumber": 5,
+      "status": "Occupied"
+    },
+    {
+      "tableNumber": 6,
+      "status": "Available"
+    },
+    {
+      "tableNumber": 7,
+      "status": "Reserved"
+    },
+    {
+      "tableNumber": 8,
+      "status": "Available"
+    },
+    {
+      "tableNumber": 9,
+      "status": "Occupied"
+    },
+    {
+      "tableNumber": 10,
+      "status": "Available"
+    }
+  ]
+}
