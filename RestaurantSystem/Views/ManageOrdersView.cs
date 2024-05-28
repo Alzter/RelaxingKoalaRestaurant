@@ -13,23 +13,11 @@ namespace RestaurantSystem
     public partial class ManageOrdersView : Form
     {
         private UserInterface _userInterface;
-        private string _order; // TEST
 
         public ManageOrdersView(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;
-        }
-
-        public string Order
-        {
-            get { return _order; }
-            set
-            {
-                _order = value;
-                ListBMenuItems.Items.Clear();
-                ListBMenuItems.Items.Add(_order);
-            }
         }
 
         private void BtnMarkAsDelivered_Click(object sender, EventArgs e)
@@ -50,6 +38,11 @@ namespace RestaurantSystem
         private void BtnHandlePayment_Click(object sender, EventArgs e)
         {
             _userInterface.StateMachine.PushState(_userInterface.StateFactory.PaymentView);
+        }
+
+        private void BtnInProgress_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
