@@ -18,7 +18,7 @@ namespace RestaurantSystem
         private ManageOrdersView _manageOrdersView;
         private ManageTablesView _manageTablesView;
         private CreateReservationView _createReservationView;
-        private OrderPaymentView _orderPaymentView;
+        private PaymentView _paymentView;
 
         public StateFactory(UserInterface userInterface)
         {
@@ -31,7 +31,7 @@ namespace RestaurantSystem
             _manageOrdersView = new ManageOrdersView(userInterface);
             _manageTablesView = new ManageTablesView(userInterface);
             _createReservationView = new CreateReservationView(userInterface);
-            _orderPaymentView = new OrderPaymentView(userInterface);
+            _paymentView = new PaymentView(userInterface);
         }
             
         public RestaurantView RestaurantView { get { return _restaurantView; } }
@@ -43,6 +43,6 @@ namespace RestaurantSystem
         public ManageOrdersView ManageOrdersView { get { return _manageOrdersView; } }
         public ManageTablesView ManageTablesView { get { return _manageTablesView; } }
         public CreateReservationView CreateReservationView { get { return _createReservationView; } }
-        public OrderPaymentView OrderPaymentView { get { return _orderPaymentView; } }
+        public PaymentView PaymentView { get { return _paymentView; } }
     }
 }

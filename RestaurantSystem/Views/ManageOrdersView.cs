@@ -49,7 +49,7 @@ namespace RestaurantSystem
 
         private void BtnHandlePayment_Click(object sender, EventArgs e)
         {
-            _userInterface.StateMachine.PushState(_userInterface.StateFactory.OrderPaymentView);
+            _userInterface.StateMachine.PushState(_userInterface.StateFactory.PaymentView);
         }
     }
 }

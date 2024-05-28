@@ -1,6 +1,6 @@
 ﻿namespace RestaurantSystem.Interfaces
 {
-    partial class OrderPaymentView
+    partial class PaymentView
     {
         /// <summary>
         /// Required designer variable.

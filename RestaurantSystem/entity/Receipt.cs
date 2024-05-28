@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public class OrderPaymentService
+    public class Receipt
     {
     }
 }
