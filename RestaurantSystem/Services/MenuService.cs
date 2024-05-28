@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantSystem.Services
+namespace RestaurantSystem
 {
     public class MenuService
     {

@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Interfaces\DeliveryStaffView.cs">
+    <Compile Update="Views\DeliveryStaffView.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
