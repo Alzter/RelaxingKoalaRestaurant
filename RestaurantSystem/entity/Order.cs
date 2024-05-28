@@ -59,12 +59,19 @@ namespace RestaurantSystem
 
         public string? Address
         {
-            get { return _address; }
+            get {
+                if (_address == null) { throw new NullReferenceException("Order does not have an address."); }
+                return _address;
+            }
         }
 
         public int? TableNumber
         {
-            get { return _tableNumber; }
+            get {
+
+                if (_tableNumber == null) { throw new NullReferenceException("Order does not have a table number."); }
+                return _tableNumber;
+            }
         }
 
         public int ID { get { return _id; } }
