@@ -9,14 +9,15 @@ namespace RestaurantSystem
     public static class RepositoryInterface
     {
         // Menus - Save / Load
-        public static Menu GetMenus()
+        public static List<Menu> GetMenus()
         {
-            throw new NotImplementedException();
+            var menus = MenuRepository.LoadMenus("MenuData.json");
+            return menus;
         }
 
         public static void SaveMenus(List<Menu> menus) 
         {
-            throw new NotImplementedException();
+            MenuRepository.SaveMenus("MenuData.json", menus);
         }
 
         // Reservations - Save / Load
