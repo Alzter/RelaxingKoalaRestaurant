@@ -13,7 +13,7 @@ namespace RestaurantSystem
         public static List<Menu> LoadItems(string filePath)
         {
             // Read the JSON file
-            var json = File.ReadAllText("MenuData.json");
+            var json = File.ReadAllText(filePath);
             // Deserialise the JSON data
             var data = JsonSerializer.Deserialize<JsonMenuData>(json);
 
