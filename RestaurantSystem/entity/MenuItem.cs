@@ -53,30 +53,41 @@ namespace RestaurantSystem
 
         public void AddIngredient(Ingredient item)
         {
+            if (!_addableIngredients.Contains(item)){
+                throw new ArgumentException($"Ingredient {item.Name} isn't addable for menu item: {this.Name}.");
+            }
+            if (_ingredients.Contains(item))
+            {
+                throw new ArgumentException($"Ingredient {item.Name} is already present for menu item: {this.Name}.");
+            }
             _ingredients.Add(item);
         }
 
         public void RemoveIngredient(int id)
         {
-            _ingredients.RemoveAt(id);
+            Ingredient i = Ingredients[id];
+            RemoveIngredient(i);
         }
 
         public void RemoveIngredient(Ingredient item)
         {
+            if (!_ingredients.Contains(item))
+            {
+                throw new ArgumentException($"Ingredient {item.Name} isn't removable for menu item: {this.Name}.");
+            }
             _ingredients.Remove(item);
         }
 
         public Ingredient GetAddableIngredient(int id)
         {
-            if (_addableIngredients == null) { throw new NullReferenceException("No addable ingredients list to reference"); }
-            if (id < 1 || id > _addableIngredients.Count) { throw new IndexOutOfRangeException("Addable ingredient out of range"); }
-            return _addableIngredients[id];
+            if (id < 1 || id > AddableIngredients.Count) { throw new IndexOutOfRangeException("Addable ingredient out of range"); }
+            return AddableIngredients[id];
         }
 
         public Ingredient GetIngredient(int id)
         {
-            if (id < 1 || id > _ingredients.Count) { throw new IndexOutOfRangeException("Ingredient out of range"); }
-            return _ingredients[id];
+            if (id < 1 || id > Ingredients.Count) { throw new IndexOutOfRangeException("Ingredient out of range"); }
+            return Ingredients[id];
         }
 
         public string Name { get { return _name; } }
@@ -113,7 +124,23 @@ namespace RestaurantSystem
         {
             get
             {
-                return _addableIngredients;
+                List<Ingredient> extras = new List<Ingredient>();
+
+                // Add all base ingredients which were removed from the item.
+                extras.AddRange(_baseIngredients);
+
+                // Add all extra ingredients which have not been added to the item.
+                extras.AddRange(_addableIngredients);
+
+                foreach (Ingredient i in extras)
+                {
+                    if (_ingredients.Contains(i))
+                    {
+                        extras.Remove(i);
+                    }
+                }
+
+                return extras;
 
             }
         }
