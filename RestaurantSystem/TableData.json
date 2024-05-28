@@ -2,7 +2,7 @@
   "tables": [
     {
       "tableNumber": 1,
-      "status": "Available"
+      "status": "Empty"
     },
     {
       "tableNumber": 2,
@@ -14,7 +14,7 @@
     },
     {
       "tableNumber": 4,
-      "status": "Available"
+      "status": "NeedsCleaning"
     },
     {
       "tableNumber": 5,
@@ -22,7 +22,7 @@
     },
     {
       "tableNumber": 6,
-      "status": "Available"
+      "status": "Empty"
     },
     {
       "tableNumber": 7,
@@ -30,7 +30,7 @@
     },
     {
       "tableNumber": 8,
-      "status": "Available"
+      "status": "NeedsCleaning"
     },
     {
       "tableNumber": 9,
@@ -38,7 +38,7 @@
     },
     {
       "tableNumber": 10,
-      "status": "Available"
+      "status": "Empty"
     }
   ]
 }
