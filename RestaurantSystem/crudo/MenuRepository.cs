@@ -56,9 +56,11 @@ namespace RestaurantSystem
 
         public static void SaveMenus(string filePath, List<Menu> menus)
         {
+            // For holding ingredient data as JSON
             var ingredientsSet = new HashSet<Ingredient>();
             var jsonIngredients = new List<JsonIngredient>();
 
+            // Convert all ingredients to JSON ingredients
             foreach (var menu in menus)
             {
                 foreach (var menuItem in menu.Items)
@@ -81,6 +83,7 @@ namespace RestaurantSystem
                 }
             }
 
+            // Convert Menus and MenuItems to JSON
             var jsonMenus = new List<JsonMenu>();
 
             foreach (var menu in menus)
@@ -118,13 +121,16 @@ namespace RestaurantSystem
                 });
             }
 
+            // Create JsonMenuData object with the ingredients, menus and menu items data
             var data = new JsonMenuData
             {
                 Ingredients = jsonIngredients,
                 Menus = jsonMenus
             };
 
+            // Serialize the data
             var json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+            // Write to file
             File.WriteAllText(filePath, json);
         }
 

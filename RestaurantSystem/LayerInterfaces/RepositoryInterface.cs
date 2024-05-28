@@ -23,12 +23,13 @@ namespace RestaurantSystem
         // Reservations - Save / Load
         public static List<Reservation> GetReservations()
         {
-            throw new NotImplementedException();
+            var reservations = ReservationRepository.LoadReservations("ReservationData.json");
+            return reservations;
         }
 
         public static void SaveReservations(List<Reservation> reservations) 
         {
-            throw new NotImplementedException();
+            ReservationRepository.SaveReservations("ReservationData.json", reservations);
         }
 
         // Orders - Save / Load
