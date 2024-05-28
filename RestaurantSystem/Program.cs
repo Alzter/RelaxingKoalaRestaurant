@@ -11,13 +11,18 @@ namespace RestaurantSystem
         [STAThread]
         static void Main()
         {
-            // Loading JSON data for menus, menu items, and ingredients
-            var menus = MenuRepository.LoadMenus("MenuData.json");
-            // Testing saved menus
-            MenuRepository.SaveMenus("MenuData.json", menus);
-            var menus2 = MenuRepository.LoadMenus("MenuData.json");
+            // ------------------------------------------------------------------------------------------
+            // TESTING REPOSITORIES - WILL DELETE LATER
 
-            // Testing if it worked
+            // MENUS
+            // Load
+            var menus = RepositoryInterface.GetMenus();
+            // Save
+            RepositoryInterface.SaveMenus(menus);
+            // Reload (check save worked)
+            var menus2 = RepositoryInterface.GetMenus();
+
+            // Test
             foreach (var menu in menus2)
             {
                 Console.WriteLine($"{menu.Name}:");
@@ -26,6 +31,25 @@ namespace RestaurantSystem
                     Console.WriteLine($"  {item.Name}: ${item.Price}");
                 }
             }
+
+            // RESERVATIONS
+            // Load
+            var reservations = RepositoryInterface.GetReservations();
+            // Save
+            RepositoryInterface.SaveReservations(reservations);
+            // Reload (check save worked)
+            var reservations2 = RepositoryInterface.GetReservations();
+
+            // Test
+            foreach (var reservation in reservations2)
+            {
+                Console.WriteLine($"Customer Name: {reservation.CustomerName}, " +
+                                  $"Start Time: {reservation.StartTime}, " +
+                                  $"End Time: {reservation.EndTime}, " +
+                                  $"Table Number: {reservation.TableNumber}, " +
+                                  $"Guests: {reservation.NumberOfGuests}");
+            }
+            // ------------------------------------------------------------------------------------------
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
