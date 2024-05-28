@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public class Receipt
+    public class Receipt : TransactionRecord
     {
+        public Receipt(int orderID, double price, DateTime dateIssued) : base(orderID, price, dateIssued)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -9,32 +9,35 @@ namespace RestaurantSystem
     public class Order : MenuItemContainer
     {
         private OrderStatus _status;
+        private List<MenuItem> _items;
         private DateTime _creationTime;
         private DateTime _estimatedCompletionTime;
         private DateTime _completionTime;
-        private bool isPaid;
+        private bool _isPaid;
         private string? _address;
         private int? _tableNumber;
         private int _id;
 
-        public Order(List<MenuItem> items, int tableNumber) : this(items)
+        public Order(List<MenuItem> items, int id, int tableNumber) : this(items, id)
         {
-            throw new NotImplementedException();
+            _tableNumber = tableNumber;
         }
 
-        public Order(List<MenuItem> items, string address) : this(items)
+        public Order(List<MenuItem> items, int id, string address) : this(items, id)
         {
-            throw new NotImplementedException();
+            _address = address;
         }
 
-        public Order(List<MenuItem> items) : base(items)
+        public Order(List<MenuItem> items, int id) : base(items)
         {
-            throw new NotImplementedException();
+            _isPaid = false;
+            _id = id;
         }
 
-        public void PayForOrder()
+        public Receipt PayForOrder()
         {
-            throw new NotImplementedException();
+            _isPaid = true;
+            throw new NotImplementedException("TODO: Add receipt returning functionality");
         }
 
         public OrderStatus Status
@@ -53,7 +56,12 @@ namespace RestaurantSystem
         {
             get
             {
-                throw new NotImplementedException();
+                double total = 0;
+                foreach (MenuItem i in Items)
+                {
+                    total += i.Price;
+                }
+                return total;
             }
         }
 
@@ -75,5 +83,7 @@ namespace RestaurantSystem
         }
 
         public int ID { get { return _id; } }
+
+        public bool IsPaid { get { return _isPaid; } }
     }
 }

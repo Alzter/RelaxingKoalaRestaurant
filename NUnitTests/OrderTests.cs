@@ -43,9 +43,9 @@ namespace RestaurantTests
                 }
             );
 
-            dineInOrder = new Order(new List<MenuItem> { pizza }, 12);
-            takeAwayOrder = new Order(new List<MenuItem> { beefKebab });
-            deliveryOrder = new Order(new List<MenuItem> { pizza }, "22122B2222221 St.");
+            dineInOrder = new Order(new List<MenuItem> { pizza }, 1, 12);
+            takeAwayOrder = new Order(new List<MenuItem> { beefKebab }, 2);
+            deliveryOrder = new Order(new List<MenuItem> { pizza, beefKebab }, 3, "22122B2222221 St.");
         }
 
         [Test]
@@ -86,7 +86,7 @@ namespace RestaurantTests
         }
 
         public int? getTakeAwayOrderTableNumber() { return takeAwayOrder.TableNumber; }
-        public int? getDeliveryOrderTableNumber() { return dineInOrder.TableNumber; }
+        public int? getDeliveryOrderTableNumber() { return deliveryOrder.TableNumber; }
         public string? getTakeAwayOrderAddress() { return takeAwayOrder.Address; }
         public string? getDineInOrderAddress() { return dineInOrder.Address; }
 
@@ -103,6 +103,31 @@ namespace RestaurantTests
         {
             Assert.Throws<NullReferenceException>(() => getTakeAwayOrderAddress(), "Attempting to get the address from a take-away order should create a NullReferenceException.");
             Assert.Throws<NullReferenceException>(() => getDineInOrderAddress(), "Attempting to get the address from a dine-in order should create a NullReferenceException.");
+        }
+
+        [Test]
+        public void TestPayOrder()
+        {
+            Assert.IsFalse(deliveryOrder.IsPaid, "Instantiated orders should have the IsPaid flag set to false by default.");
+            deliveryOrder.PayForOrder();
+            Assert.IsTrue(deliveryOrder.IsPaid, "Paying for an order should set the IsPaid flag to true.");
+        }
+
+        [Test]
+        public void TestPayingForOrderReturnsReceipt()
+        {
+            Receipt r = deliveryOrder.PayForOrder();
+            Assert.IsNotNull(r, "Paying for an order should return a Receipt object");
+
+        }
+
+        [Test]
+        public void TestOrderReceiptIsCorrect()
+        {
+            Receipt r = deliveryOrder.PayForOrder();
+            Assert.AreEqual(r.Price, (12.80 + 14.5), "An order receipt's total price should be equal to the price of an order.");
+            Assert.AreEqual(r.DateIssued, DateTime.Now, "When an order receipt is issued, its date and time should be the time it was issued.");
+            Assert.AreEqual(r.OrderID, 3, "An order's receipt should have a copy of the Order ID.");
         }
     }
 }

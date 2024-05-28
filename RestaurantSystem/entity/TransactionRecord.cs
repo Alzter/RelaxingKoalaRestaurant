@@ -17,13 +17,12 @@ namespace RestaurantSystem
             _orderID = orderID;
             _price = price;
             _dateIssued = dateIssued;
-
         }
 
-        public override string ToString()
-        {
-            throw new NotImplementedException();
-        }
+        //public override string ToString()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public double Price { get { return _price; } }
         public double OrderID { get { return _orderID; } }
