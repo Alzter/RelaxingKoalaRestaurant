@@ -56,13 +56,14 @@ namespace RestaurantSystem
 
         // Tables - Save / Load
         public static List<Table> GetTables() 
-        { 
-            throw new NotImplementedException();
+        {
+            var tables = TableRepository.LoadItems("TableData.json");
+            return tables;
         }
 
         public static void SaveTables(List<Table> tables) 
-        { 
-            throw new NotImplementedException();
+        {
+            TableRepository.SaveItems("TableData.json", tables);
         }
 
         // Reservation - Create 

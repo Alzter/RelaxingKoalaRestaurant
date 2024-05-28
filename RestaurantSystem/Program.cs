@@ -48,6 +48,17 @@ namespace RestaurantSystem
                                   $"Table Number: {reservation.TableNumber}, " +
                                   $"Guests: {reservation.NumberOfGuests}");
             }
+
+            // TABLES
+            // Load
+            var tables = RepositoryInterface.GetTables();
+
+            // Test
+            foreach (var table in tables)
+            {
+                Console.WriteLine($"Table Number: {table.Number}," +
+                                  $"Table Status: {table.Status}");
+            }
             // ------------------------------------------------------------------------------------------
 
             // To customize application configuration such as set high DPI settings or default font,
