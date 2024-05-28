@@ -19,13 +19,15 @@ namespace RestaurantSystem
         public void AddReservation(DateTime startTime, int durationMinutes, int tableNum, string customerName, int numOfGuests) 
         {
             // Create Reservation object using CRUDO interface
+            throw new NotImplementedException();
         }
-        
+
         // QUESTION: Is this used to cancel a reservation? Or to move a completed reservation to the past reservations list?
         public void RemoveReservation(Reservation r)
         {
             // Find reservation in Reservations list?
             // Add to past reservations? Or delete it?
+            throw new NotImplementedException();
         }
     }
 }
