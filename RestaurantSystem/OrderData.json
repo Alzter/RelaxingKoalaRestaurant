@@ -12,7 +12,8 @@
       "items": [
         {
           "name": "Hawaiian Pizza",
-          "basePrice": 18.0,
+          "basePrice": 18.0, // should be a total price not a base price
+          // shouldnt need these, should only store the ingredients that were ordered
           "addableIngredients": [ "Olives", "Tomato" ],
           "removableIngredients": [ "Tomato Sauce", "Ham", "Pineapple", "Mozzarella" ]
         }
