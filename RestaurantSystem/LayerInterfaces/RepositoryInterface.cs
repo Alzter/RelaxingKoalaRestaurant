@@ -66,14 +66,14 @@ namespace RestaurantSystem
         }
 
         // Reservation - Create 
-        public static void CreateReservation(int tableNumber, DateTime dateTime)
+        public static void CreateReservation(DateTime dateTime, int durationMinutes, int tableNumber, string customerName, int numberOfGuests)
         {
-            throw new NotImplementedException();
+            ReservationRepository.CreateReservation(dateTime, durationMinutes, tableNumber, customerName, numberOfGuests);
         }
 
         // Order - Create
         // Delivery
-        public static void CreateOrder(List<MenuItem> menuItems, string address, string name) 
+        public static void CreateOrder(List<MenuItem> menuItems, string address, string customerName, int numberOfGuests) 
         {
             throw new NotImplementedException();
         }

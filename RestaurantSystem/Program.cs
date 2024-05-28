@@ -33,15 +33,14 @@ namespace RestaurantSystem
             }
 
             // RESERVATIONS
+            // Create
+            DateTime dt = new DateTime(2024, 05, 30, 18, 30, 00);
+            RepositoryInterface.CreateReservation(dt, 90, 12, "Steve MC", 3);
             // Load
             var reservations = RepositoryInterface.GetReservations();
-            // Save
-            RepositoryInterface.SaveReservations(reservations);
-            // Reload (check save worked)
-            var reservations2 = RepositoryInterface.GetReservations();
-
+ 
             // Test
-            foreach (var reservation in reservations2)
+            foreach (var reservation in reservations)
             {
                 Console.WriteLine($"Customer Name: {reservation.CustomerName}, " +
                                   $"Start Time: {reservation.StartTime}, " +

@@ -62,5 +62,22 @@ namespace RestaurantSystem
             // Write to the file
             File.WriteAllText(filePath, json);
         }
+
+        public static void CreateReservation(DateTime dateTime, int durationMinutes, int tableNumber, string customerName, int numberOfGuests)
+        {
+            // Load reservations
+            var reservations = LoadReservations("ReservationData.json");
+            // Add the new reservation
+            reservations.Add(new Reservation
+                (
+                dateTime,
+                durationMinutes,
+                tableNumber,
+                customerName,
+                numberOfGuests
+                ));
+            // Save reservations 
+            SaveReservations("ReservationData.json", reservations);
+        }
     }
 }
