@@ -158,6 +158,7 @@
             BtnIngredients.TabIndex = 27;
             BtnIngredients.Text = "Alter Ingredients";
             BtnIngredients.UseVisualStyleBackColor = true;
+            BtnIngredients.Click += BtnIngredients_Click;
             // 
             // CreateOrderView
             // 

@@ -53,6 +53,7 @@
             BtnBack.TabIndex = 1;
             BtnBack.Text = "Back";
             BtnBack.UseVisualStyleBackColor = true;
+            BtnBack.Click += BtnBack_Click;
             // 
             // BtnAddMenuItem
             // 
@@ -63,6 +64,7 @@
             BtnAddMenuItem.TabIndex = 3;
             BtnAddMenuItem.Text = "Add Menu Item";
             BtnAddMenuItem.UseVisualStyleBackColor = true;
+            BtnAddMenuItem.Click += BtnAddMenuItem_Click;
             // 
             // ListBAddIngredients
             // 
@@ -149,7 +151,6 @@
             TxtBTotal.ReadOnly = true;
             TxtBTotal.Size = new Size(135, 33);
             TxtBTotal.TabIndex = 28;
-            TxtBTotal.TextChanged += TxtBTotal_TextChanged;
             // 
             // TxtTotal
             // 
@@ -160,7 +161,6 @@
             TxtTotal.Size = new Size(71, 25);
             TxtTotal.TabIndex = 27;
             TxtTotal.Text = "Total: $";
-            TxtTotal.Click += this.TextTotal_Click;
             // 
             // IngredientsView
             // 

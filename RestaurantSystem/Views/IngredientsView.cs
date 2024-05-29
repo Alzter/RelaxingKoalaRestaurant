@@ -12,14 +12,22 @@ namespace RestaurantSystem.Views
 {
     public partial class IngredientsView : Form
     {
-        public IngredientsView()
+        private UserInterface _userInterface;
+
+        public IngredientsView(UserInterface userInterface)
         {
             InitializeComponent();
+            _userInterface = userInterface;
         }
 
-        private void TxtBTotal_TextChanged(object sender, EventArgs e)
+        private void BtnAddMenuItem_Click(object sender, EventArgs e)
         {
+            _userInterface.StateMachine.PopState();
+        }
 
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            _userInterface.StateMachine.PopState();
         }
     }
 }
