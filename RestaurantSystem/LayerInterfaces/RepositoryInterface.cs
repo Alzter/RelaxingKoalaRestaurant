@@ -75,19 +75,19 @@ namespace RestaurantSystem
 
         // Order - Create
         // Delivery
-        public static void CreateOrder(List<MenuItem> menuItems, string address, string customerName, int numberOfGuests) 
+        public static void CreateOrder(List<MenuItem> menuItems, string address, string customerName) 
         {
-            throw new NotImplementedException();
+            OrderRepository.CreateOrder(menuItems, address, customerName);
         }
         // Dine-In
         public static void CreateOrder(List<MenuItem> menuItems, int tableNumber)
         {
-            throw new NotImplementedException();
+            OrderRepository.CreateOrder(menuItems, tableNumber);
         }
         // TakeAway
         public static void CreateOrder(List<MenuItem> menuItems, string name)
         {
-            throw new NotImplementedException();
+            OrderRepository.CreateOrder(menuItems, name);
         }
     }
 }

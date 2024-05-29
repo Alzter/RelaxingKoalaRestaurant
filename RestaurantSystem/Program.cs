@@ -50,6 +50,8 @@ namespace RestaurantSystem
             }
 
             // TABLES
+            // Create
+
             // Load
             var tables = RepositoryInterface.GetTables();
 

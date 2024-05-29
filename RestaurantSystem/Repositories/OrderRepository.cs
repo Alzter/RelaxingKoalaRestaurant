@@ -102,5 +102,46 @@ namespace RestaurantSystem
             // Write to file
             File.WriteAllText(filePath, json);
         }
+
+        // Create Order Methods
+        // Delivery
+        public static void CreateOrder(List<MenuItem> menuItems, string address, string customerName)
+        {
+            var filePath = "OrderData.json"; 
+            var orders = LoadItems(filePath); // Load current orders
+
+            int newId = orders.Count > 0 ? orders.Max(o => o.ID) + 1 : 1; // Create a new order ID that is unique (Max ID + 1)
+            var newOrder = new Order(menuItems, newId, address, OrderStatus.Waiting, false, DateTime.Now, default); // Create a new order object with passed in data and ID
+
+            // Add new order to the orders list then save the list to the JSON file
+            orders.Add(newOrder);
+            SaveItems(filePath, orders);
+        }
+
+        // Dine-In
+        public static void CreateOrder(List<MenuItem> menuItems, int tableNumber)
+        {
+            var filePath = "OrderData.json";
+            var orders = LoadItems(filePath);
+
+            int newId = orders.Count > 0 ? orders.Max(o => o.ID) + 1 : 1;
+            var newOrder = new Order(menuItems, newId, tableNumber, OrderStatus.Waiting, false, DateTime.Now, default);
+
+            orders.Add(newOrder);
+            SaveItems(filePath, orders);
+        }
+
+        // TakeAway
+        public static void CreateOrder(List<MenuItem> menuItems, string name)
+        {
+            var filePath = "OrderData.json";
+            var orders = LoadItems(filePath);
+
+            int newId = orders.Count > 0 ? orders.Max(o => o.ID) + 1 : 1;
+            var newOrder = new Order(menuItems, newId, OrderStatus.Waiting, false, DateTime.Now, default);
+
+            orders.Add(newOrder);
+            SaveItems(filePath, orders);
+        }
     }
 }
