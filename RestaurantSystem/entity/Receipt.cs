@@ -12,5 +12,15 @@ namespace RestaurantSystem
         {
             
         }
+        
+        public override string ToString()
+        {
+            return
+                $"Relaxing Koala Receipt:\n" +
+                $"Order ID: {OrderID}\n" +
+                $"Date: {DateString}, {TimeString}\n" +
+                $"Paid: {PriceString}\n" +
+                $"Items:\n{ItemStrings}";
+        }
     }
 }
