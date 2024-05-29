@@ -41,12 +41,14 @@ namespace RestaurantSystem
         // Add MenuItem to order
         private void BtnAddToOrder_Click(object sender, EventArgs e)
         {
+            // Update UI
             ListBOrder.Items.Add(ListBMenu.SelectedItem);
         }
 
         // Remove MenuItem from order
         private void BtnRemoveFromOrder_Click(object sender, EventArgs e)
         {
+            // Update UI
             ListBOrder.Items.Remove(ListBOrder.SelectedItem);
         }
 

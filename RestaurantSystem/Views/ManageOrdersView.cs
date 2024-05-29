@@ -38,9 +38,18 @@ namespace RestaurantSystem
         {
             // To get the item selected:
             //_orderSelected = ListBOrders.SelectedItem;
-            
-            // To change the text to show order ID:
+
+            // Update TextBox to show order ID selected:
             //TxtBSelected.Text = _orderSelected.ID.ToString();
+
+            // Update the ListBox to show the MenuItems in the Order
+            //ListBOrderDetails.Items.AddRange(_orderSelected.MenuItems); 
+
+            // Update TextBox to show Order Status
+            //TxtBStatus.Text = _orderSelected.Status.ToString();
+
+            // Update TextBox to show Order Price Total
+            //TxtBTotal.Text = _orderSelected.Price.ToString();
         }
 
         // Change order selected's status to InProgress
@@ -65,21 +74,6 @@ namespace RestaurantSystem
         private void BtnServed_Click(object sender, EventArgs e)
         {
             //_orderSelected.Status = OrderStatus.Served;
-        }
-
-        private void BtnWaiting_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnReady_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnServed_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
