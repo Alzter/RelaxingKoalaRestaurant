@@ -77,19 +77,24 @@ namespace RestaurantSystem
 
         // Order - Create
         // Delivery
-        public static void CreateOrder(List<MenuItem> menuItems, string address, string customerName) 
+        public static Order CreateOrder(List<MenuItem> menuItems, string address) 
         {
-            OrderRepository.CreateOrder(menuItems, address, customerName);
+            return OrderRepository.CreateOrder(menuItems, address);
         }
         // Dine-In
-        public static void CreateOrder(List<MenuItem> menuItems, int tableNumber)
+        public static Order CreateOrder(List<MenuItem> menuItems, int tableNumber)
         {
-            OrderRepository.CreateOrder(menuItems, tableNumber);
+            return OrderRepository.CreateOrder(menuItems, tableNumber);
         }
         // TakeAway
-        public static void CreateOrder(List<MenuItem> menuItems, string name)
+        public static Order CreateOrder(List<MenuItem> menuItems)
         {
-            OrderRepository.CreateOrder(menuItems, name);
+            return OrderRepository.CreateOrder(menuItems);
+        }
+
+        public static void AddOrder(Order o)
+        {
+            OrderRepository.AddOrder(o);
         }
 
         // Transaction - Add
