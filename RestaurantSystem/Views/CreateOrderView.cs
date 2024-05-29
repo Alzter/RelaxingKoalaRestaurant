@@ -30,5 +30,10 @@ namespace RestaurantSystem
         {
 
         }
+
+        private void BtnIngredients_Click(object sender, EventArgs e)
+        {
+            _userInterface.StateMachine.PushState(_userInterface.StateFactory.IngredientsView);
+        }
     }
 }

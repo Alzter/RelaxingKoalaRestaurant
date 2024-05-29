@@ -1,4 +1,5 @@
 ﻿using RestaurantSystem.Interfaces;
+using RestaurantSystem.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace RestaurantSystem
         private ManageTablesView _manageTablesView;
         private CreateReservationView _createReservationView;
         private PaymentView _paymentView;
+        private IngredientsView _ingredientsView;
 
         public StateFactory(UserInterface userInterface)
         {
@@ -32,6 +34,7 @@ namespace RestaurantSystem
             _manageTablesView = new ManageTablesView(userInterface);
             _createReservationView = new CreateReservationView(userInterface);
             _paymentView = new PaymentView(userInterface);
+            _ingredientsView = new IngredientsView(userInterface);
         }
             
         public RestaurantView RestaurantView { get { return _restaurantView; } }
@@ -44,5 +47,6 @@ namespace RestaurantSystem
         public ManageTablesView ManageTablesView { get { return _manageTablesView; } }
         public CreateReservationView CreateReservationView { get { return _createReservationView; } }
         public PaymentView PaymentView { get { return _paymentView; } }
+        public IngredientsView IngredientsView { get { return _ingredientsView; } }
     }
 }

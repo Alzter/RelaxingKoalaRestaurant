@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             BtnBack = new Button();
-            TextTotal = new Label();
+            TxtTotal = new Label();
             TxtMenu = new Label();
             BtnCreateOrder = new Button();
             BtnRemoveFromOrder = new Button();
@@ -39,6 +39,7 @@
             TxtBMenu = new TextBox();
             TxtOrder = new Label();
             TxtBTotal = new TextBox();
+            BtnIngredients = new Button();
             SuspendLayout();
             // 
             // BtnBack
@@ -52,15 +53,15 @@
             BtnBack.UseVisualStyleBackColor = true;
             BtnBack.Click += BtnBack_Click;
             // 
-            // TextTotal
+            // TxtTotal
             // 
-            TextTotal.AutoSize = true;
-            TextTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            TextTotal.Location = new Point(546, 374);
-            TextTotal.Name = "TextTotal";
-            TextTotal.Size = new Size(71, 25);
-            TextTotal.TabIndex = 22;
-            TextTotal.Text = "Total: $";
+            TxtTotal.AutoSize = true;
+            TxtTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtTotal.Location = new Point(546, 374);
+            TxtTotal.Name = "TxtTotal";
+            TxtTotal.Size = new Size(71, 25);
+            TxtTotal.TabIndex = 22;
+            TxtTotal.Text = "Total: $";
             // 
             // TxtMenu
             // 
@@ -126,6 +127,7 @@
             TxtBMenu.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             TxtBMenu.Location = new Point(135, 32);
             TxtBMenu.Name = "TxtBMenu";
+            TxtBMenu.ReadOnly = true;
             TxtBMenu.Size = new Size(182, 39);
             TxtBMenu.TabIndex = 24;
             // 
@@ -144,18 +146,30 @@
             TxtBTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
             TxtBTotal.Location = new Point(623, 371);
             TxtBTotal.Name = "TxtBTotal";
+            TxtBTotal.ReadOnly = true;
             TxtBTotal.Size = new Size(135, 33);
             TxtBTotal.TabIndex = 26;
+            // 
+            // BtnIngredients
+            // 
+            BtnIngredients.Location = new Point(364, 231);
+            BtnIngredients.Name = "BtnIngredients";
+            BtnIngredients.Size = new Size(133, 23);
+            BtnIngredients.TabIndex = 27;
+            BtnIngredients.Text = "Alter Ingredients";
+            BtnIngredients.UseVisualStyleBackColor = true;
+            BtnIngredients.Click += BtnIngredients_Click;
             // 
             // CreateOrderView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(807, 485);
+            Controls.Add(BtnIngredients);
             Controls.Add(TxtBTotal);
             Controls.Add(TxtOrder);
             Controls.Add(TxtBMenu);
-            Controls.Add(TextTotal);
+            Controls.Add(TxtTotal);
             Controls.Add(TxtMenu);
             Controls.Add(BtnCreateOrder);
             Controls.Add(BtnRemoveFromOrder);
@@ -172,7 +186,7 @@
         #endregion
 
         private Button BtnBack;
-        private Label TextTotal;
+        private Label TxtTotal;
         private Label TxtMenu;
         private Button BtnCreateOrder;
         private Button BtnRemoveFromOrder;
@@ -182,5 +196,6 @@
         private TextBox TxtBMenu;
         private Label TxtOrder;
         private TextBox TxtBTotal;
+        private Button BtnIngredients;
     }
 }
