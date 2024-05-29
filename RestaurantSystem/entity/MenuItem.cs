@@ -14,6 +14,7 @@ namespace RestaurantSystem
         private double _basePrice;
         private string _name;
         private int _id;
+        private bool _isOrdered;
 
         public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients, List<Ingredient> addableIngredients)
         {
@@ -25,6 +26,7 @@ namespace RestaurantSystem
 
             _ingredients = new List<Ingredient>();
             _ingredients.AddRange(_baseIngredients);
+            _isOrdered = false;
         }
 
         public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients)
@@ -132,13 +134,17 @@ namespace RestaurantSystem
                 // Add all extra ingredients which have not been added to the item.
                 extras.AddRange(_addableIngredients);
 
+                List<Ingredient> itemsToRemove = new List<Ingredient>();
+
                 foreach (Ingredient i in extras)
                 {
                     if (_ingredients.Contains(i))
                     {
-                        extras.Remove(i);
+                        itemsToRemove.Add(i);
                     }
                 }
+
+                foreach (Ingredient i in itemsToRemove) { extras.Remove(i); }
 
                 return extras;
 
