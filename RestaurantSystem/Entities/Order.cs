@@ -31,6 +31,8 @@ namespace RestaurantSystem
         {
             _isPaid = false;
             _id = id;
+            _creationTime = DateTime.Now;
+            _status = OrderStatus.Waiting;
         }
 
         public Order(List<MenuItem> items, int id, OrderStatus status, bool isPaid, DateTime creationTime, DateTime completionTime) : base(items)

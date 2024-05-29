@@ -105,42 +105,56 @@ namespace RestaurantSystem
 
         // Create Order Methods
         // Delivery
-        public static void CreateOrder(List<MenuItem> menuItems, string address, string customerName)
+        public static Order CreateOrder(List<MenuItem> menuItems, string address)
         {
             var filePath = "OrderData.json"; 
             var orders = LoadItems(filePath); // Load current orders
 
             int newId = orders.Count > 0 ? orders.Max(o => o.ID) + 1 : 1; // Create a new order ID that is unique (Max ID + 1)
-            var newOrder = new Order(menuItems, newId, address, OrderStatus.Waiting, false, DateTime.Now, default); // Create a new order object with passed in data and ID
+            var newOrder = new Order(menuItems, newId, address); // Create a new order object with passed in data and ID
 
             // Add new order to the orders list then save the list to the JSON file
-            orders.Add(newOrder);
-            SaveItems(filePath, orders);
+            //orders.Add(newOrder);
+            //SaveItems(filePath, orders);
+
+            return newOrder;
         }
 
         // Dine-In
-        public static void CreateOrder(List<MenuItem> menuItems, int tableNumber)
+        public static Order CreateOrder(List<MenuItem> menuItems, int tableNumber)
         {
             var filePath = "OrderData.json";
             var orders = LoadItems(filePath);
 
             int newId = orders.Count > 0 ? orders.Max(o => o.ID) + 1 : 1;
-            var newOrder = new Order(menuItems, newId, tableNumber, OrderStatus.Waiting, false, DateTime.Now, default);
+            var newOrder = new Order(menuItems, newId, tableNumber);
 
-            orders.Add(newOrder);
-            SaveItems(filePath, orders);
+            //orders.Add(newOrder);
+            //SaveItems(filePath, orders);
+
+            return newOrder;
         }
 
         // TakeAway
-        public static void CreateOrder(List<MenuItem> menuItems, string name)
+        public static Order CreateOrder(List<MenuItem> menuItems)
         {
             var filePath = "OrderData.json";
             var orders = LoadItems(filePath);
 
             int newId = orders.Count > 0 ? orders.Max(o => o.ID) + 1 : 1;
-            var newOrder = new Order(menuItems, newId, OrderStatus.Waiting, false, DateTime.Now, default);
+            var newOrder = new Order(menuItems, newId);
 
-            orders.Add(newOrder);
+            //orders.Add(newOrder);
+            //SaveItems(filePath, orders);
+
+            return newOrder;
+        }
+
+        public static void AddOrder(Order order)
+        {
+            var filePath = "OrderData.json";
+            var orders = LoadItems(filePath);
+            orders.Add(order);
             SaveItems(filePath, orders);
         }
     }
