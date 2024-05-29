@@ -20,19 +20,9 @@ namespace RestaurantSystem
             _userInterface = userInterface;
         }
 
-        private void BtnMarkAsDelivered_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void BtnBack_Click(object sender, EventArgs e)
         {
             _userInterface.StateMachine.PopState();
-        }
-
-        private void ListBMenuItems_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void BtnHandlePayment_Click(object sender, EventArgs e)
@@ -40,7 +30,27 @@ namespace RestaurantSystem
             _userInterface.StateMachine.PushState(_userInterface.StateFactory.PaymentView);
         }
 
+        private void ListBOrders_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void BtnInProgress_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnWaiting_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnReady_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnServed_Click(object sender, EventArgs e)
         {
 
         }
