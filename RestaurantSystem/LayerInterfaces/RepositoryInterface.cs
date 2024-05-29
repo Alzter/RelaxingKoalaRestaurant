@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -47,12 +48,13 @@ namespace RestaurantSystem
         // Transactions - Save / Load
         public static List<TransactionRecord> GetTransactions() 
         {
-            throw new NotImplementedException();
+            var transactions = TransactionRepository.LoadItems("TransactionData.json");
+            return transactions;
         }
 
         public static void SaveTransactions(List<TransactionRecord> transactions) 
         { 
-            throw new NotImplementedException();
+            TransactionRepository.SaveItems("TransactionData.json", transactions);
         }
 
         // Tables - Save / Load
@@ -93,6 +95,14 @@ namespace RestaurantSystem
         public static void AddOrder(Order o)
         {
             OrderRepository.AddOrder(o);
+        }
+
+        // Transaction - Add
+        public static TransactionRecord AddTransaction(TransactionRecord transaction)
+        {
+            string filePath = "TransactionData.json";
+            TransactionRepository.AddTransactionRecord(filePath, transaction);
+            return transaction;
         }
     }
 }

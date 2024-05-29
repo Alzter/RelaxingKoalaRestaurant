@@ -50,8 +50,6 @@ namespace RestaurantSystem
             }
 
             // TABLES
-            // Create
-
             // Load
             var tables = RepositoryInterface.GetTables();
 
@@ -109,6 +107,27 @@ namespace RestaurantSystem
                 }
                 Console.WriteLine();
             
+            }
+
+            // Transaction
+            // Load
+            var transactions = RepositoryInterface.GetTransactions();
+
+            //Test
+            foreach (var transaction in transactions)
+            {
+                Console.WriteLine("Transaction Record:");
+                Console.WriteLine($"Order ID: {transaction.OrderID}");
+                Console.WriteLine($"Price: {transaction.PriceString}");
+                Console.WriteLine($"Date Issued: {transaction.DateString} {transaction.TimeString}");
+                Console.WriteLine($"Is Paid: {transaction.IsPaid}");
+                Console.WriteLine("Items:");
+                foreach (var item in transaction.ItemStringList)
+                {
+                    Console.WriteLine($"  - Name: {item.Item1}");
+                    Console.WriteLine($"    Price: {item.Item2}");
+                }
+                Console.WriteLine();
             }
             // ------------------------------------------------------------------------------------------
 
