@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public class MenuItemContainer
+    public abstract class MenuItemContainer
     {
         private List<MenuItem> _items;
 
@@ -15,12 +15,7 @@ namespace RestaurantSystem
             _items = items;
         }
 
-        public MenuItem AddItem(MenuItem m)
-        {
-            _items.Add(m);
-
-            return m;
-        }
+        public abstract MenuItem AddItem(MenuItem m);
 
         public MenuItem GetItem(int id)
         {
@@ -31,12 +26,14 @@ namespace RestaurantSystem
             return _items[id];
         }
 
-        public MenuItem GetItem(string name)
+        public MenuItem? GetItem(string name)
         {
             foreach (MenuItem m in _items)
             {
                 if (m.Name == name) return m;
             }
+
+            throw new NullReferenceException($"Menu Item {name} was not found.");
             return null;
         }
 
@@ -48,6 +45,14 @@ namespace RestaurantSystem
 
         public void RemoveItem(MenuItem m)
         {
+            if (!Items.Contains(m)) {
+                try
+                {
+                    m = GetItem(m.Name);
+                } catch {
+                    throw new NullReferenceException($"Menu Item {m.Name} was not in the Order.");
+                }
+            }
             _items.Remove(m);
         }
 

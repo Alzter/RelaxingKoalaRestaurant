@@ -33,8 +33,15 @@ namespace RestaurantTests
         [Test]
         public void TestPrintReceipt()
         {
-            Assert.AreEqual(r.ToString(), "Relaxing Koala Receipt:\nOrder ID: 12\nDate: 29/05/2024, 10:37 AM\nOwed: $25.30");
-            Assert.AreEqual(r.ToString(), "Relaxing Koala Invoice:\nOrder ID: 1\nDate: 1/10/2002, 4:20 PM\nPaid: $1.90");
+            Assert.AreEqual(r.ToString(), "Relaxing Koala Receipt:\nOrder ID: 12\nDate: 29/05/2024, 10:37 AM\nOwed: $25.30\n" +
+                "Items:\nPizza: $12.80\nSpaghetti Bolognese: $11.1\nTacos: $1.40");
+        }
+
+        [Test]
+        public void TestPrintInvoice()
+        {
+            Assert.AreEqual(r.ToString(), "Relaxing Koala Invoice:\nOrder ID: 1\nDate: 1/10/2002, 4:20 PM\nPaid: $1.90\n" +
+                "Items:\nNachos: $0.50\nTacos: $1.40");
         }
     }
 }

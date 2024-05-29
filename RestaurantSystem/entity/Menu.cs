@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,14 @@ namespace RestaurantSystem
         public string Name
         {
             get { return _name; }
+        }
+
+        // Add the menu item to the menu without cloning it.
+        public override MenuItem AddItem(MenuItem m)
+        {
+            if (Items.Contains(m)) throw new DuplicateNameException($"Menu Item {m.Name} already exists in Menu.");
+            Items.Add(m);
+            return m;
         }
 
     }

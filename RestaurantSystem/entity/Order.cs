@@ -9,7 +9,6 @@ namespace RestaurantSystem
     public class Order : MenuItemContainer
     {
         private OrderStatus _status;
-        private List<MenuItem> _items;
         private DateTime _creationTime;
         private DateTime _estimatedCompletionTime;
         private DateTime _completionTime;
@@ -34,10 +33,20 @@ namespace RestaurantSystem
             _id = id;
         }
 
+        // Add a shallow copy of the menu item to the Order and return the copy for future reference.
+        public override MenuItem AddItem(MenuItem m)
+        {
+            MenuItem localItem = (MenuItem)m.Clone();
+            Items.Add(localItem);
+
+            return localItem;
+        }
+
         public Receipt PayForOrder()
         {
             _isPaid = true;
-            throw new NotImplementedException("TODO: Add receipt returning functionality");
+            Receipt r = new Receipt(ID, Items, DateTime.Now);
+            return r;
         }
 
         public OrderStatus Status

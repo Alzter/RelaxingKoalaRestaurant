@@ -49,10 +49,27 @@ namespace RestaurantTests
         }
 
         [Test]
+        public void TestGetItem()
+        {
+            Assert.AreEqual(beefKebab, deliveryOrder.GetItem(1), "Getting Menu Items by ID should return the proper item.");
+            Assert.AreEqual(beefKebab, deliveryOrder.GetItem("Beef Kebab"), "Getting Menu Items by ID should return the proper item.");
+        }
+
+        [Test]
+        public void TestGetItemFailCreatesException()
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => deliveryOrder.GetItem(2), "Attempting to get a Menu Item using an ID outside of the range of possible IDs should throw an exception.");
+            Assert.Throws<IndexOutOfRangeException>(() => deliveryOrder.GetItem(-1), "Attempting to get a Menu Item using an ID outside of the range of possible IDs should throw an exception.");
+            Assert.Throws<IndexOutOfRangeException>(() => deliveryOrder.GetItem(1234), "Attempting to get a Menu Item using an ID outside of the range of possible IDs should throw an exception.");
+            Assert.Throws<NullReferenceException>(() => deliveryOrder.GetItem("ABCDEF"), "Attempting to get a Menu Item by String that isn't found should return a Null reference exception.");
+            Assert.Throws<NullReferenceException>(() => dineInOrder.RemoveItem(beefKebab), "Attempting to remove a Menu Item not in an order should throw a Null reference exception.");
+        }
+
+        [Test]
         public void TestAddItem()
         {
             MenuItem orderBeefKebab = dineInOrder.AddItem(beefKebab);
-            CollectionAssert.AreEquivalent(new List<MenuItem> { pizza, beefKebab }, dineInOrder.Items, "Adding a Menu Item to an order should add it to the Items list.");
+            CollectionAssert.AreEquivalent(new List<MenuItem> { pizza, orderBeefKebab }, dineInOrder.Items, "Adding a Menu Item to an order should add it to the Items list.");
         }
 
         [Test]
@@ -139,7 +156,11 @@ namespace RestaurantTests
         {
             Receipt r = deliveryOrder.PayForOrder();
             Assert.AreEqual(r.Price, (12.80 + 14.5), "An order receipt's total price should be equal to the price of an order.");
-            Assert.AreEqual(r.DateIssued, DateTime.Now, "When an order receipt is issued, its date and time should be the time it was issued.");
+            Assert.AreEqual(r.DateIssued.Year, DateTime.Now.Year, "When an order receipt is issued, its date and time should be the time it was issued.");
+            Assert.AreEqual(r.DateIssued.Month, DateTime.Now.Month, "When an order receipt is issued, its date and time should be the time it was issued.");
+            Assert.AreEqual(r.DateIssued.Day, DateTime.Now.Day, "When an order receipt is issued, its date and time should be the time it was issued.");
+            Assert.AreEqual(r.DateIssued.Minute, DateTime.Now.Minute, "When an order receipt is issued, its date and time should be the time it was issued.");
+            Assert.AreEqual(r.DateIssued.Day, DateTime.Now.Day, "When an order receipt is issued, its date and time should be the time it was issued.");
             Assert.AreEqual(r.OrderID, 3, "An order's receipt should have a copy of the Order ID.");
         }
 

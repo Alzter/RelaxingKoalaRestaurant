@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public class MenuItem
+    public class MenuItem : ICloneable
     {
         private List<Ingredient> _baseIngredients;
         private List<Ingredient> _addableIngredients;
@@ -14,7 +14,6 @@ namespace RestaurantSystem
         private double _basePrice;
         private string _name;
         private int _id;
-        private bool _isOrdered;
 
         public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients, List<Ingredient> addableIngredients)
         {
@@ -26,7 +25,17 @@ namespace RestaurantSystem
 
             _ingredients = new List<Ingredient>();
             _ingredients.AddRange(_baseIngredients);
-            _isOrdered = false;
+        }
+
+        public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients, List<Ingredient> addableIngredients, List<Ingredient> ingredients)
+        {
+            _addableIngredients = addableIngredients;
+            _baseIngredients = baseIngredients;
+
+            _name = name;
+            _basePrice = basePrice;
+
+            _ingredients = ingredients;
         }
 
         public MenuItem(string name, double basePrice, List<Ingredient> baseIngredients)
@@ -90,6 +99,23 @@ namespace RestaurantSystem
         {
             if (id < 1 || id > Ingredients.Count) { throw new IndexOutOfRangeException("Ingredient out of range"); }
             return Ingredients[id];
+        }
+
+        // Creates a shallow copy of the menu item.
+        public object Clone()
+        {
+            // We must copy all the ingredients lists so they are unique.
+            List<Ingredient> baseIngredients = new List<Ingredient>();
+            baseIngredients.AddRange(_baseIngredients);
+
+            List<Ingredient> addableIngredients = new List<Ingredient>();
+            addableIngredients.AddRange(_addableIngredients);
+
+            List<Ingredient> ingredients = new List<Ingredient>();
+            ingredients.AddRange(_ingredients);
+
+            MenuItem newItem = new MenuItem(_name, _basePrice, baseIngredients, addableIngredients, ingredients);
+            return newItem;
         }
 
         public string Name { get { return _name; } }
