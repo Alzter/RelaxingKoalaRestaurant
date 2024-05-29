@@ -106,6 +106,7 @@
             ListBRemoveIngredients.Name = "ListBRemoveIngredients";
             ListBRemoveIngredients.Size = new Size(248, 349);
             ListBRemoveIngredients.TabIndex = 5;
+            ListBRemoveIngredients.SelectedIndexChanged += ListBRemoveIngredients_SelectedIndexChanged;
             // 
             // BtnAddIngredient
             // 
@@ -115,6 +116,7 @@
             BtnAddIngredient.TabIndex = 8;
             BtnAddIngredient.Text = "Add Ingredient";
             BtnAddIngredient.UseVisualStyleBackColor = true;
+            BtnAddIngredient.Click += BtnAddIngredient_Click;
             // 
             // BtnRemoveIngredient
             // 
@@ -124,6 +126,7 @@
             BtnRemoveIngredient.TabIndex = 9;
             BtnRemoveIngredient.Text = "Remove Ingredient";
             BtnRemoveIngredient.UseVisualStyleBackColor = true;
+            BtnRemoveIngredient.Click += BtnRemoveIngredient_Click;
             // 
             // TxtBMenuItem
             // 

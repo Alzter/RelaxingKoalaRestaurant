@@ -25,5 +25,30 @@ namespace RestaurantSystem
         {
             _userInterface.StateMachine.PopState();
         }
+
+        private void ListBTables_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnEmpty_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnOccupied_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnNeedsCleaning_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnReserved_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -24,5 +24,15 @@ namespace RestaurantSystem.Interfaces
         {
             _userInterface.StateMachine.PopState();
         }
+
+        private void BtnPay_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnReceipt_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

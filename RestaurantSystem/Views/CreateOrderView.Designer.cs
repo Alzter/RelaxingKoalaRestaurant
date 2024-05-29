@@ -91,6 +91,7 @@
             BtnRemoveFromOrder.TabIndex = 16;
             BtnRemoveFromOrder.Text = "Remove From Order";
             BtnRemoveFromOrder.UseVisualStyleBackColor = true;
+            BtnRemoveFromOrder.Click += BtnRemoveFromOrder_Click;
             // 
             // BtnAddToOrder
             // 
@@ -100,6 +101,7 @@
             BtnAddToOrder.TabIndex = 15;
             BtnAddToOrder.Text = "Add To Order";
             BtnAddToOrder.UseVisualStyleBackColor = true;
+            BtnAddToOrder.Click += BtnAddToOrder_Click;
             // 
             // ListBOrder
             // 
@@ -110,6 +112,7 @@
             ListBOrder.Name = "ListBOrder";
             ListBOrder.Size = new Size(245, 256);
             ListBOrder.TabIndex = 14;
+            ListBOrder.SelectedIndexChanged += ListBOrder_SelectedIndexChanged;
             // 
             // ListBMenu
             // 
@@ -121,6 +124,7 @@
             ListBMenu.Name = "ListBMenu";
             ListBMenu.Size = new Size(309, 256);
             ListBMenu.TabIndex = 13;
+            ListBMenu.SelectedIndexChanged += ListBMenu_SelectedIndexChanged;
             // 
             // TxtBMenu
             // 
@@ -178,7 +182,7 @@
             Controls.Add(ListBMenu);
             Controls.Add(BtnBack);
             Name = "CreateOrderView";
-            Text = "CreateOrdersController";
+            Text = "Create Orders";
             ResumeLayout(false);
             PerformLayout();
         }

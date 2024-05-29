@@ -34,5 +34,20 @@ namespace RestaurantSystem.Views
         {
 
         }
+
+        private void BtnAddIngredient_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnRemoveIngredient_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListBRemoveIngredients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

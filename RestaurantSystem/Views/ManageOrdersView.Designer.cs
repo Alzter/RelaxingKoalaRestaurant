@@ -76,6 +76,7 @@
             ListBOrders.ScrollAlwaysVisible = true;
             ListBOrders.Size = new Size(264, 550);
             ListBOrders.TabIndex = 7;
+            ListBOrders.SelectedIndexChanged += ListBOrders_SelectedIndexChanged;
             // 
             // BtnWaiting
             // 
@@ -85,6 +86,7 @@
             BtnWaiting.TabIndex = 8;
             BtnWaiting.Text = "Waiting";
             BtnWaiting.UseVisualStyleBackColor = true;
+            BtnWaiting.Click += BtnWaiting_Click;
             // 
             // TxtOrders
             // 
@@ -143,6 +145,7 @@
             BtnReady.TabIndex = 16;
             BtnReady.Text = "Ready";
             BtnReady.UseVisualStyleBackColor = true;
+            BtnReady.Click += BtnReady_Click;
             // 
             // BtnServed
             // 
@@ -152,6 +155,7 @@
             BtnServed.TabIndex = 17;
             BtnServed.Text = "Served";
             BtnServed.UseVisualStyleBackColor = true;
+            BtnServed.Click += BtnServed_Click;
             // 
             // ListBOrderDetails
             // 
