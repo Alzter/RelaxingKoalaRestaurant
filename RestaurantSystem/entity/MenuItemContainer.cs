@@ -15,9 +15,11 @@ namespace RestaurantSystem
             _items = items;
         }
 
-        public void AddItem(MenuItem m)
+        public MenuItem AddItem(MenuItem m)
         {
             _items.Add(m);
+
+            return m;
         }
 
         public MenuItem GetItem(int id)
@@ -29,13 +31,19 @@ namespace RestaurantSystem
             return _items[id];
         }
 
+        public MenuItem GetItem(string name)
+        {
+            foreach (MenuItem m in _items)
+            {
+                if (m.Name == name) return m;
+            }
+            return null;
+        }
+
         public void RemoveItem(int id)
         {
-            if (id < 0 || id >= _items.Count)
-            {
-                throw new IndexOutOfRangeException($"Cannot access MenuItem at index {id}.");
-            }
-            _items.RemoveAt(id);
+            MenuItem item = GetItem(id);
+            RemoveItem(item);
         }
 
         public void RemoveItem(MenuItem m)

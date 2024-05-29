@@ -51,26 +51,39 @@ namespace RestaurantTests
         [Test]
         public void TestAddItem()
         {
-            dineInOrder.AddItem(beefKebab);
+            MenuItem orderBeefKebab = dineInOrder.AddItem(beefKebab);
             CollectionAssert.AreEquivalent(new List<MenuItem> { pizza, beefKebab }, dineInOrder.Items, "Adding a Menu Item to an order should add it to the Items list.");
         }
+
         [Test]
         public void TestRemoveItem()
         {
-            TestAddItem();
+            MenuItem orderBeefKebab = dineInOrder.AddItem(beefKebab);
+            dineInOrder.RemoveItem(orderBeefKebab);
+            CollectionAssert.AreEquivalent(new List<MenuItem> { pizza }, dineInOrder.Items, "Removing a Menu Item from an order should remove it from the Items list.");
+        }
+
+        [Test]
+        public void TestRemoveUsingMenuReference()
+        {
+            dineInOrder.AddItem(beefKebab);
             dineInOrder.RemoveItem(beefKebab);
-            CollectionAssert.AreEquivalent(new List<MenuItem> { pizza }, dineInOrder.Items, "Removing a Menu Item frpm an order should remove it from the Items list.");
+            CollectionAssert.AreEquivalent(new List<MenuItem> { pizza }, dineInOrder.Items, "Removing a Menu Item from an order should remove it from the Items list.");
         }
 
         [Test]
         public void TestOrderPriceIsTotalOfIngredients()
         {
             Assert.AreEqual(dineInOrder.Price, 12.80);
-            dineInOrder.AddItem(beefKebab);
+
+            MenuItem orderBeefKebab = dineInOrder.AddItem(beefKebab);
+
             Assert.AreEqual(dineInOrder.Price, (12.80 + 14.5));
-            beefKebab.AddIngredient(extraCheese);
+
+            orderBeefKebab.AddIngredient(extraCheese);
             Assert.AreEqual(dineInOrder.Price, (12.80 + 14.5 + 0.5));
-            dineInOrder.RemoveItem(beefKebab);
+
+            dineInOrder.RemoveItem(orderBeefKebab);
             Assert.AreEqual(dineInOrder.Price, 12.80);
         }
 
@@ -128,6 +141,20 @@ namespace RestaurantTests
             Assert.AreEqual(r.Price, (12.80 + 14.5), "An order receipt's total price should be equal to the price of an order.");
             Assert.AreEqual(r.DateIssued, DateTime.Now, "When an order receipt is issued, its date and time should be the time it was issued.");
             Assert.AreEqual(r.OrderID, 3, "An order's receipt should have a copy of the Order ID.");
+        }
+
+
+        [Test]
+        public void TestAddingMenuItemsDuplicatesThem()
+        {
+            CollectionAssert.AreEquivalent(new List<Ingredient> { beefFilling, garlicSauce, chilliSauce }, beefKebab.Ingredients);
+            MenuItem orderBeefKebab = dineInOrder.AddItem(beefKebab);
+
+            orderBeefKebab.RemoveIngredient(garlicSauce);
+            orderBeefKebab.AddIngredient(extraCheese);
+
+            CollectionAssert.AreEquivalent(new List<Ingredient> { beefFilling, chilliSauce, extraCheese }, orderBeefKebab.Ingredients, "Modifying a menu item in an order should change the order's copy of the menu item.");
+            CollectionAssert.AreEquivalent(new List<Ingredient> { beefFilling, garlicSauce, chilliSauce }, beefKebab.Ingredients, "Modifying a menu item in an order should not change the original menu item.");
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public class Receipt : TransactionRecord
+    public class Invoice : TransactionRecord
     {
-        public Receipt(int orderID, List<MenuItem> items, DateTime dateIssued) : base(orderID, items, dateIssued)
+        public Invoice(int orderID, List<MenuItem> items, DateTime dateIssued) : base(orderID, items, dateIssued)
         {
             
         }

@@ -11,11 +11,16 @@ namespace RestaurantSystem
         private int _orderID;
         private double _price;
         private DateTime _dateIssued;
+        private List<MenuItem> _items;
 
-        public TransactionRecord(int orderID, double price, DateTime dateIssued)
+        public TransactionRecord(int orderID, List<MenuItem> items, DateTime dateIssued)
         {
             _orderID = orderID;
-            _price = price;
+            _items = items;
+
+            // Set the price to the total price of all menu items.
+            _price = 0.0; foreach (MenuItem m in _items) { _price += m.Price; }
+
             _dateIssued = dateIssued;
         }
 
