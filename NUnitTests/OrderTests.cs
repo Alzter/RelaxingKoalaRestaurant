@@ -146,7 +146,7 @@ namespace RestaurantTests
         [Test]
         public void TestPayingForOrderReturnsReceipt()
         {
-            Receipt r = deliveryOrder.PayForOrder();
+            TransactionRecord r = deliveryOrder.PayForOrder();
             Assert.IsNotNull(r, "Paying for an order should return a Receipt object");
 
         }
@@ -154,7 +154,7 @@ namespace RestaurantTests
         [Test]
         public void TestOrderReceiptIsCorrect()
         {
-            Receipt r = deliveryOrder.PayForOrder();
+            TransactionRecord r = deliveryOrder.PayForOrder();
             Assert.AreEqual(r.Price, (12.80 + 14.5), "An order receipt's total price should be equal to the price of an order.");
             Assert.AreEqual(r.DateIssued.Year, DateTime.Now.Year, "When an order receipt is issued, its date and time should be the time it was issued.");
             Assert.AreEqual(r.DateIssued.Month, DateTime.Now.Month, "When an order receipt is issued, its date and time should be the time it was issued.");

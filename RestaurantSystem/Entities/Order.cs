@@ -31,6 +31,8 @@ namespace RestaurantSystem
         {
             _isPaid = false;
             _id = id;
+            _creationTime = DateTime.Now;
+            _status = OrderStatus.Waiting;
         }
 
         public Order(List<MenuItem> items, int id, OrderStatus status, bool isPaid, DateTime creationTime, DateTime completionTime) : base(items)
@@ -61,10 +63,10 @@ namespace RestaurantSystem
             return localItem;
         }
 
-        public Receipt PayForOrder()
+        public TransactionRecord PayForOrder()
         {
             _isPaid = true;
-            Receipt r = new Receipt(ID, Items, DateTime.Now);
+            TransactionRecord r = new TransactionRecord(true, ID, Items, DateTime.Now);
             return r;
         }
 

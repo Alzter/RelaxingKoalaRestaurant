@@ -6,17 +6,41 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public class PaymentService
+    public static class PaymentService
     {
-        private List<Receipt> _receipts;
-
-        public PaymentService() { }
-
-        public Receipt PayForOrder(Order o)
+        public static TransactionRecord PayForOrder(Order o)
         {
-            // Call on CRUDO layer to retrieve order specified
-            // Call on CRUDO layer to create Receipt using order
-            throw new NotImplementedException();
+
+            List<Order> orders = RepositoryInterface.GetOrders();
+            Order orderObject;
+
+            foreach (Order order in orders) { if (order.ID == o.ID)
+                {
+                    orderObject = order;
+
+                    TransactionRecord receipt = o.PayForOrder();
+
+                    // Replace the saved order object with the local one.
+                    orders[orders.IndexOf(orderObject)] = o;
+
+                    RepositoryInterface.AddTransaction(receipt);
+
+                    RepositoryInterface.SaveOrders(orders);
+
+                    return receipt;
+                }
+            }
+
+            throw new NullReferenceException("Could not find Order in Order list. Was the order added to the queue?");
+
+        }
+
+        public static List<TransactionRecord> TransactionRecords
+        {
+            get
+            {
+                return RepositoryInterface.GetTransactions();
+            }
         }
     }
 }

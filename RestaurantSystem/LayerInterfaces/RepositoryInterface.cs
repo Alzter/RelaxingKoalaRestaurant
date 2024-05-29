@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -47,12 +48,13 @@ namespace RestaurantSystem
         // Transactions - Save / Load
         public static List<TransactionRecord> GetTransactions() 
         {
-            throw new NotImplementedException();
+            var transactions = TransactionRepository.LoadItems("TransactionData.json");
+            return transactions;
         }
 
         public static void SaveTransactions(List<TransactionRecord> transactions) 
         { 
-            throw new NotImplementedException();
+            TransactionRepository.SaveItems("TransactionData.json", transactions);
         }
 
         // Tables - Save / Load
@@ -75,19 +77,32 @@ namespace RestaurantSystem
 
         // Order - Create
         // Delivery
-        public static void CreateOrder(List<MenuItem> menuItems, string address, string customerName) 
+        public static Order CreateOrder(List<MenuItem> menuItems, string address) 
         {
-            OrderRepository.CreateOrder(menuItems, address, customerName);
+            return OrderRepository.CreateOrder(menuItems, address);
         }
         // Dine-In
-        public static void CreateOrder(List<MenuItem> menuItems, int tableNumber)
+        public static Order CreateOrder(List<MenuItem> menuItems, int tableNumber)
         {
-            OrderRepository.CreateOrder(menuItems, tableNumber);
+            return OrderRepository.CreateOrder(menuItems, tableNumber);
         }
         // TakeAway
-        public static void CreateOrder(List<MenuItem> menuItems, string name)
+        public static Order CreateOrder(List<MenuItem> menuItems)
         {
-            OrderRepository.CreateOrder(menuItems, name);
+            return OrderRepository.CreateOrder(menuItems);
+        }
+
+        public static void AddOrder(Order o)
+        {
+            OrderRepository.AddOrder(o);
+        }
+
+        // Transaction - Add
+        public static TransactionRecord AddTransaction(TransactionRecord transaction)
+        {
+            string filePath = "TransactionData.json";
+            TransactionRepository.AddTransactionRecord(filePath, transaction);
+            return transaction;
         }
     }
 }

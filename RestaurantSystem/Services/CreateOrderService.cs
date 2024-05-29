@@ -6,7 +6,31 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public class CreateOrderService
+    public static class CreateOrderService
     {
+        public static Order CreateTakeAwayOrder(List<MenuItem> items)
+        {
+            return RepositoryInterface.CreateOrder(items);
+        }
+        public static Order CreateDeliveryOrder(List<MenuItem> items, string address)
+        {
+            return RepositoryInterface.CreateOrder(items, address);
+        }
+
+        public static Order CreateDineInOrder(List<MenuItem> items, int tableNumber)
+        {
+            return RepositoryInterface.CreateOrder(items, tableNumber);
+        }
+
+        public static void AddItem(Order o, MenuItem m)
+        {
+            o.AddItem(m);
+        }
+
+        public static void AddOrderToQueue(Order o)
+        {
+            RepositoryInterface.AddOrder(o);
+        }
+
     }
 }

@@ -66,5 +66,20 @@ namespace RestaurantSystem
         {
             //_orderSelected.Status = OrderStatus.Served;
         }
+
+        private void BtnWaiting_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnReady_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnServed_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
