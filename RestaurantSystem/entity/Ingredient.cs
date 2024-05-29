@@ -17,6 +17,11 @@ namespace RestaurantSystem
             _name = name;
             _extraPrice = extraPrice;
         }
+        public Ingredient(string name)
+        {
+            _name = name;
+            _extraPrice = 0.0;
+        }
 
         public string Name { get { return _name; } }
 
