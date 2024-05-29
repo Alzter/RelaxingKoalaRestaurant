@@ -80,6 +80,7 @@
             BtnCreateOrder.TabIndex = 17;
             BtnCreateOrder.Text = "Create Order";
             BtnCreateOrder.UseVisualStyleBackColor = true;
+            BtnCreateOrder.Click += BtnCreateOrder_Click;
             // 
             // BtnRemoveFromOrder
             // 

@@ -25,5 +25,10 @@ namespace RestaurantSystem
         {
             _userInterface.StateMachine.PopState();
         }
+
+        private void BtnCreateOrder_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
