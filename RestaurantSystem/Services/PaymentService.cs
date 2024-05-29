@@ -39,7 +39,7 @@ namespace RestaurantSystem
         {
             get
             {
-                throw new NotImplementedException();
+                return RepositoryInterface.GetTransactions();
             }
         }
     }
