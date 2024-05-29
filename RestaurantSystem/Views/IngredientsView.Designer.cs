@@ -44,6 +44,26 @@
             TxtRemoveIngredients = new Label();
             SuspendLayout();
             // 
+            // TxtAddIngredients
+            // 
+            TxtAddIngredients.AutoSize = true;
+            TxtAddIngredients.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtAddIngredients.Location = new Point(77, 93);
+            TxtAddIngredients.Name = "TxtAddIngredients";
+            TxtAddIngredients.Size = new Size(149, 21);
+            TxtAddIngredients.TabIndex = 6;
+            TxtAddIngredients.Text = "Addable Ingredients";
+            // 
+            // TxtRemoveIngredients
+            // 
+            TxtRemoveIngredients.AutoSize = true;
+            TxtRemoveIngredients.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtRemoveIngredients.Location = new Point(496, 93);
+            TxtRemoveIngredients.Name = "TxtRemoveIngredients";
+            TxtRemoveIngredients.Size = new Size(170, 21);
+            TxtRemoveIngredients.TabIndex = 7;
+            TxtRemoveIngredients.Text = "Removable Ingredients";
+            // 
             // BtnBack
             // 
             BtnBack.Location = new Point(11, 569);
@@ -75,6 +95,7 @@
             ListBAddIngredients.Name = "ListBAddIngredients";
             ListBAddIngredients.Size = new Size(248, 349);
             ListBAddIngredients.TabIndex = 4;
+            ListBAddIngredients.SelectedIndexChanged += ListBAddIngredients_SelectedIndexChanged;
             // 
             // ListBRemoveIngredients
             // 
@@ -85,26 +106,6 @@
             ListBRemoveIngredients.Name = "ListBRemoveIngredients";
             ListBRemoveIngredients.Size = new Size(248, 349);
             ListBRemoveIngredients.TabIndex = 5;
-            // 
-            // TxtAddIngredients
-            // 
-            TxtAddIngredients.AutoSize = true;
-            TxtAddIngredients.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtAddIngredients.Location = new Point(77, 93);
-            TxtAddIngredients.Name = "TxtAddIngredients";
-            TxtAddIngredients.Size = new Size(149, 21);
-            TxtAddIngredients.TabIndex = 6;
-            TxtAddIngredients.Text = "Addable Ingredients";
-            // 
-            // TxtRemoveIngredients
-            // 
-            TxtRemoveIngredients.AutoSize = true;
-            TxtRemoveIngredients.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtRemoveIngredients.Location = new Point(496, 93);
-            TxtRemoveIngredients.Name = "TxtRemoveIngredients";
-            TxtRemoveIngredients.Size = new Size(170, 21);
-            TxtRemoveIngredients.TabIndex = 7;
-            TxtRemoveIngredients.Text = "Removable Ingredients";
             // 
             // BtnAddIngredient
             // 

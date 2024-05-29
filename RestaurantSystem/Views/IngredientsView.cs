@@ -29,5 +29,10 @@ namespace RestaurantSystem.Views
         {
             _userInterface.StateMachine.PopState();
         }
+
+        private void ListBAddIngredients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
