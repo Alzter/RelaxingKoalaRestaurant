@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public abstract class TransactionRecord
+    public class TransactionRecord
     {
         private int _orderID;
         private double _price;
         private DateTime _dateIssued;
         private List<MenuItem> _items;
+        private bool _isPaid;
 
-        public TransactionRecord(int orderID, List<MenuItem> items, DateTime dateIssued)
+        public TransactionRecord(bool isPaid, int orderID, List<MenuItem> items, DateTime dateIssued)
         {
+            _isPaid = isPaid;
             _orderID = orderID;
             _items = items;
 
@@ -24,10 +26,15 @@ namespace RestaurantSystem
             _dateIssued = dateIssued;
         }
 
-        //public override string ToString()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public override string ToString()
+        {
+            return
+                $"Relaxing Koala {(_isPaid ? "Receipt" : "Invoice")}:\n" +
+                $"Order ID: {OrderID}\n" +
+                $"Date: {DateString}, {TimeString}\n" +
+                $"{(_isPaid ? "Paid" : "Owed")}: {PriceString}\n" +
+                $"Items:\n{ItemStrings}";
+        }
 
         public double Price { get { return _price; } }
         public double OrderID { get { return _orderID; } }
@@ -37,6 +44,7 @@ namespace RestaurantSystem
         public string TimeString { get { return _dateIssued.ToString("h:mm tt"); } }
 
         public string PriceString { get { return Price.ToString("C"); } }
+        public bool IsPaid { get { return _isPaid; } }
 
         /// <summary>
         /// Returns each item as a String tuple with the format: name, price

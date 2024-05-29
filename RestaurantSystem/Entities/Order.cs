@@ -61,10 +61,10 @@ namespace RestaurantSystem
             return localItem;
         }
 
-        public Receipt PayForOrder()
+        public TransactionRecord PayForOrder()
         {
             _isPaid = true;
-            Receipt r = new Receipt(ID, Items, DateTime.Now);
+            TransactionRecord r = new TransactionRecord(true, ID, Items, DateTime.Now);
             return r;
         }
 
