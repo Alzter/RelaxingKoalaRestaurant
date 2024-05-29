@@ -16,5 +16,10 @@ namespace RestaurantSystem.Views
         {
             InitializeComponent();
         }
+
+        private void TxtBTotal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
