@@ -111,6 +111,7 @@
             TxtBSelected.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             TxtBSelected.Location = new Point(559, 17);
             TxtBSelected.Name = "TxtBSelected";
+            TxtBSelected.ReadOnly = true;
             TxtBSelected.Size = new Size(100, 39);
             TxtBSelected.TabIndex = 13;
             // 
@@ -180,6 +181,7 @@
             TxtBStatus.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             TxtBStatus.Location = new Point(534, 366);
             TxtBStatus.Name = "TxtBStatus";
+            TxtBStatus.ReadOnly = true;
             TxtBStatus.Size = new Size(135, 39);
             TxtBStatus.TabIndex = 22;
             // 
@@ -198,6 +200,7 @@
             TxtBTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             TxtBTotal.Location = new Point(520, 576);
             TxtBTotal.Name = "TxtBTotal";
+            TxtBTotal.ReadOnly = true;
             TxtBTotal.Size = new Size(152, 39);
             TxtBTotal.TabIndex = 24;
             // 
