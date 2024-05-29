@@ -37,6 +37,18 @@ namespace RestaurantSystem.crudo
         public int? TableNumber { get; set; }
 
         [JsonPropertyName("items")]
-        public List<JsonMenuItem> Items { get; set; }
+        public List<JsonOrderMenuItem> Items { get; set; }
+    }
+
+    public class JsonOrderMenuItem
+    {
+        [JsonPropertyName("name")]
+        public string Name { get; set; }
+
+        [JsonPropertyName("basePrice")]
+        public double BasePrice { get; set; }
+
+        [JsonPropertyName("baseIngredients")]
+        public List<string> BaseIngredients { get; set; }
     }
 }

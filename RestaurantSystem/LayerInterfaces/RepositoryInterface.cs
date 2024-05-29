@@ -35,12 +35,13 @@ namespace RestaurantSystem
         // Orders - Save / Load
         public static List<Order> GetOrders() 
         {
-            throw new NotImplementedException();
+            var orders = OrderRepository.LoadItems("OrderData.json");
+            return orders;
         }
 
         public static void SaveOrders(List<Order> orders) 
         {
-            throw new NotImplementedException();
+            OrderRepository.SaveItems("OrderData.json", orders);
         }
 
         // Transactions - Save / Load

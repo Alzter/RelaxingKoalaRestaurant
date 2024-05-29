@@ -59,6 +59,55 @@ namespace RestaurantSystem
                 Console.WriteLine($"Table Number: {table.Number}," +
                                   $"Table Status: {table.Status}");
             }
+
+            // ORDERS
+            // Load
+            var orders = RepositoryInterface.GetOrders();
+
+            // Test
+            foreach (var order in orders)
+            {
+                Console.WriteLine($"Order ID: {order.ID}");
+                Console.WriteLine($"Status: {order.Status}");
+                Console.WriteLine($"Creation Time: {order.CreationTime}");
+                Console.WriteLine($"Estimated Completion Time: {order.EstimatedCompletionTime}");
+                Console.WriteLine($"Completion Time: {(order.CompletionTime != default ? order.CompletionTime.ToString() : "N/A")}");
+                Console.WriteLine($"Is Paid: {order.IsPaid}");
+
+                // Address can be null
+                try 
+                {
+                    Console.WriteLine($"Address: {order.Address}");
+                }
+                catch (NullReferenceException)
+                {
+                    Console.WriteLine("Address: N/A");
+                }
+
+                // Table number can be null
+                try
+                {
+                    Console.WriteLine($"Table Number: {order.TableNumber}");
+                }
+                catch (NullReferenceException)
+                {
+                    Console.WriteLine("Table Number: N/A");
+                }
+
+                Console.WriteLine("Items:");
+                foreach (var item in order.Items)
+                {
+                    Console.WriteLine($"  - Name: {item.Name}");
+                    Console.WriteLine($"    Base Price: {item.Price}");
+                    Console.WriteLine("    Base Ingredients:");
+                    foreach (var ingredient in item.Ingredients)
+                    {
+                        Console.WriteLine($"      * {ingredient.Name}");
+                    }
+                }
+                Console.WriteLine();
+            
+            }
             // ------------------------------------------------------------------------------------------
 
             // To customize application configuration such as set high DPI settings or default font,
