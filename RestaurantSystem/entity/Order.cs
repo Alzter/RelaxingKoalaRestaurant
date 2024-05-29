@@ -33,6 +33,25 @@ namespace RestaurantSystem
             _id = id;
         }
 
+        public Order(List<MenuItem> items, int id, OrderStatus status, bool isPaid, DateTime creationTime, DateTime completionTime) : base(items)
+        {
+            _id = id;
+            _status = status;
+            _isPaid = isPaid;
+            _creationTime = creationTime;
+            _completionTime = completionTime;
+        }
+
+        public Order(List<MenuItem> items, int id, string address, OrderStatus status, bool isPaid, DateTime creationTime, DateTime completionTime) : this(items, id, status, isPaid, creationTime, completionTime)
+        {
+            _address = address;
+        }
+
+        public Order(List<MenuItem> items, int id, int tableNumber, OrderStatus status, bool isPaid, DateTime creationTime, DateTime completionTime) : this(items, id, status, isPaid, creationTime, completionTime)
+        {
+            _tableNumber = tableNumber;
+        }
+
         // Add a shallow copy of the menu item to the Order and return the copy for future reference.
         public override MenuItem AddItem(MenuItem m)
         {
@@ -52,14 +71,27 @@ namespace RestaurantSystem
         public OrderStatus Status
         {
             get { return _status; }
-            set { _status = value; }
+            set {
+
+                // Set completion time to now once the order's status is set to 'ready'
+                if (value == OrderStatus.Ready && (_status == OrderStatus.InProgress || _status == OrderStatus.Waiting))
+                {
+                    _completionTime = DateTime.Now;
+                }
+
+                _status = value;
+            }
         }
+
+        public DateTime CreationTime { get { return _creationTime; } }
 
         public DateTime EstimatedCompletionTime
         {
             get { return _estimatedCompletionTime; }
             set { _estimatedCompletionTime = value; }
         }
+
+        public DateTime CompletionTime { get { return _completionTime; } set { _completionTime = value; } }
 
         public double Price
         {
