@@ -37,7 +37,8 @@ namespace RestaurantSystem
         }
 
         public double Price { get { return _price; } }
-        public double OrderID { get { return _orderID; } }
+        public int OrderID { get { return _orderID; } }
+        public List <MenuItem> Items { get { return _items; } }
         public DateTime DateIssued { get { return _dateIssued; } }
 
         public string DateString { get { return _dateIssued.ToString("d/MM/yyyy"); } }
