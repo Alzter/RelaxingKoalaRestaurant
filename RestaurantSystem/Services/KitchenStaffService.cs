@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace RestaurantSystem
 {
-    public class KitchenStaffService
+    public static class KitchenStaffServiceInterface
     {
+
     }
 }
