@@ -64,7 +64,7 @@ namespace RestaurantSystem
 
         public void AddIngredient(Ingredient item)
         {
-            if (!_addableIngredients.Contains(item)){
+            if (!_addableIngredients.Contains(item) && !_baseIngredients.Contains(item)){
                 throw new ArgumentException($"Ingredient {item.Name} isn't addable for menu item: {this.Name}.");
             }
             if (_ingredients.Contains(item))
