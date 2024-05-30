@@ -29,5 +29,10 @@ namespace RestaurantSystem
             return m;
         }
 
+        public override string ToString()
+        {
+            return Name;
+        }
+
     }
 }

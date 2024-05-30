@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace RestaurantSystem.Service
@@ -13,7 +14,9 @@ namespace RestaurantSystem.Service
         {
             get
             {
-                return Menus.Find((Menu m) => { return m.Name.ToLower().Replace("-", "").Replace(" ", "").Trim() == "takeaway"; });
+                Menu takeAwayMenu = Menus.Find((Menu m) => { return Regex.IsMatch(m.Name, "take(\\s||\\-)*away", RegexOptions.IgnoreCase); });
+                if (takeAwayMenu == null) { throw new NullReferenceException("Could not find take-away menu."); }
+                return takeAwayMenu;
             }
         }
 
@@ -21,7 +24,9 @@ namespace RestaurantSystem.Service
         {
             get
             {
-                return Menus.Find((Menu m) => { return m.Name.ToLower().Replace("-", "").Replace(" ", "").Trim() == "dinein"; });
+                Menu dineInMenu = Menus.Find((Menu m) => { return Regex.IsMatch(m.Name, "dine(\\s||\\-)*in", RegexOptions.IgnoreCase); });
+                if (dineInMenu == null) { throw new NullReferenceException("Could not find dine-in menu."); }
+                return dineInMenu;
             }
         }
 
