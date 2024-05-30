@@ -10,9 +10,20 @@ namespace RestaurantSystem.Service
     {
         public static void UpdateTableStatus(int tableNumber, TableStatus status)
         {
+
+            List<Table> tables = RepositoryInterface.GetTables();
+
+            int tableIndex = tables.FindIndex((Table t) => t.Number == tableNumber);
+
             Table t = GetTable(tableNumber);
 
             t.Status = status;
+
+            tables[tableIndex] = t;
+
+            // Console.WriteLine($"{t.Number}: {t.Status}");
+
+            RepositoryInterface.SaveTables(tables);
         }
 
         public static Table GetTable(int tableNumber)

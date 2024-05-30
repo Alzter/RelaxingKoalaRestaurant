@@ -60,7 +60,8 @@ namespace RestaurantSystem
         {
             int index = ListBTables.SelectedIndex;
             _table = WaitStaffServiceInterface.Tables[index];
-            Console.WriteLine(TableNumber);
+            // Console.WriteLine(TableNumber);
+            // Console.WriteLine(_table.Status);
         }
 
         // Update Table Status to Empty
