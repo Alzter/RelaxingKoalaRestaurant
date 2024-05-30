@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantSystem
+namespace RestaurantSystem.Service
 {
     public static class CreateOrderService
     {

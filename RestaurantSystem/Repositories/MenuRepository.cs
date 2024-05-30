@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using RestaurantSystem.crudo;
 
-namespace RestaurantSystem
+namespace RestaurantSystem.CRUDO
 {
     public static class MenuRepository
     {

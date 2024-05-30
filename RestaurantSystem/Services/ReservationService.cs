@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RestaurantSystem;
 
-namespace RestaurantSystem
+namespace RestaurantSystem.Service
 {
     public static class ReservationService
     {

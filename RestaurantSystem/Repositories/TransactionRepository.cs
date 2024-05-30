@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using RestaurantSystem.crudo;
 
-namespace RestaurantSystem
+namespace RestaurantSystem.CRUDO
 {
     public static class TransactionRepository
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace RestaurantSystem.crudo
+namespace RestaurantSystem.CRUDO
 {
     public class JsonReservationData
     {
