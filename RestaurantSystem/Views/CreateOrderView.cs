@@ -14,40 +14,49 @@ namespace RestaurantSystem
     {
         private UserInterface _userInterface;
 
-        private Menu _menu;
-
         private Menu DineInMenu { get { return WaitStaffServiceInterface.DineInMenu; } }
         private Menu TakeAwayMenu { get { return WaitStaffServiceInterface.TakeAwayMenu; } }
         private List<Menu> Menus { get { return new List<Menu> { DineInMenu, TakeAwayMenu }; } }
+        private Menu SelectedMenu { get { return Menus[MenuBox.SelectedIndex]; } }
+
+        private MenuItem SelectedMenuItem { get { return SelectedMenu.GetItem(ListBMenu.SelectedIndex); } }
+
+        private Order order;
 
         public CreateOrderView(UserInterface userInterface)
         {
+            order = WaitStaffServiceInterface.CreateTakeAwayOrder(new List<MenuItem> { });
+
             InitializeComponent();
             _userInterface = userInterface;
 
             MenuBox.DataSource = new List<String> { "Dine-in", "Take-away" };
-            _menu = Menus[0];
-            UpdateMenuBox(_menu);
+            UpdateListBMenu();
         }
 
         private void MenuBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _menu = Menus[MenuBox.SelectedIndex];
-
-            UpdateMenuBox(_menu);
+            ListBMenu.SelectedIndex = 0; // Reset the selected index of the Menu Item list when changing Menus.
+            UpdateListBMenu();
         }
 
-        private List<String> GetMenuItemStrings(Menu menu)
+        private List<String> GetMenuItemStrings(MenuItemContainer container)
         {
-            List<MenuItem> items = menu.Items;
+            List<MenuItem> items = container.Items;
             List<String> strings = new List<String>();
             foreach (MenuItem m in items) { strings.Add(m.Name); }
             return strings;
         }
 
-        private void UpdateMenuBox(Menu menu)
+        // Update ListBMenu to contain all menu items from the currently selected menu.
+        private void UpdateListBMenu()
         {
-            ListBMenu.DataSource = GetMenuItemStrings(menu);
+            ListBMenu.DataSource = GetMenuItemStrings(SelectedMenu);
+        }
+
+        private void UpdateListBOrder()
+        {
+            ListBOrder.DataSource = GetMenuItemStrings(order);
         }
 
         // Return to WaitStaff View
@@ -72,14 +81,22 @@ namespace RestaurantSystem
         private void BtnAddToOrder_Click(object sender, EventArgs e)
         {
             // Update UI
-            ListBOrder.Items.Add(ListBMenu.SelectedItem);
+
+            WaitStaffServiceInterface.AddItem(order, SelectedMenuItem);
+            UpdateListBOrder();
+
+            //ListBOrder.Items.Add(ListBMenu.SelectedItem);
         }
 
         // Remove MenuItem from order
         private void BtnRemoveFromOrder_Click(object sender, EventArgs e)
         {
+
+            //WaitStaffServiceInterface.AddItem(order, SelectedMenuItem);
+            UpdateListBOrder();
+
             // Update UI
-            ListBOrder.Items.Remove(ListBOrder.SelectedItem);
+            //ListBOrder.Items.Remove(ListBOrder.SelectedItem);
         }
 
         // On selection of MenuItem in Menu List
