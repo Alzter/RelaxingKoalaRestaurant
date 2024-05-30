@@ -86,28 +86,28 @@ namespace RestaurantSystem
 
         public static void AddIngredient(Order o, MenuItem m, Ingredient i)
         {
-            List<Order> orders = GetOrders();
+            //List<Order> orders = GetOrders();
 
-            int orderIndex = orders.FindIndex((Order order) => { return order.ID == o.ID; });
+            //int orderIndex = orders.FindIndex((Order order) => { return order.ID == o.ID; });
 
             m.AddIngredient(i);
 
-            orders[orderIndex] = o;
+            //orders[orderIndex] = o;
 
-            SaveOrders(orders);
+            //SaveOrders(orders);
         }
 
         public static void RemoveIngredient(Order o, MenuItem m, Ingredient i)
         {
-            List<Order> orders = GetOrders();
+            //List<Order> orders = GetOrders();
 
-            int orderIndex = orders.FindIndex((Order order) => { return order.ID == o.ID; });
+            //int orderIndex = orders.FindIndex((Order order) => { return order.ID == o.ID; });
 
             m.RemoveIngredient(i);
 
-            orders[orderIndex] = o;
+            //orders[orderIndex] = o;
 
-            SaveOrders(orders);
+            //SaveOrders(orders);
         }
 
         // Transaction - Add

@@ -15,10 +15,15 @@ namespace RestaurantSystem.Views
     {
         private UserInterface _userInterface;
         private MenuItem _item;
+        private Order _order;
 
+        private Ingredient SelectedAddIngredient
+        {
+            get { return ListBAddIngredients.SelectedItem == null ? null : _item.AddableIngredients[ListBAddIngredients.SelectedIndex]; }
+        }
         private Ingredient SelectedIngredient
         {
-            get { return null; }
+            get { return ListBRemoveIngredients.SelectedItem == null ? null : _item.Ingredients[ListBRemoveIngredients.SelectedIndex]; }
         }
 
         public IngredientsView(UserInterface userInterface)
@@ -40,7 +45,8 @@ namespace RestaurantSystem.Views
         public List<String> GetIngredientsStrings(List<Ingredient> ingredients, MenuItem m)
         {
             List<String> strings = new List<String>();
-            foreach (Ingredient i in ingredients) {
+            foreach (Ingredient i in ingredients)
+            {
                 if (m.BaseIngredients.Contains(i))
                 {
                     strings.Add(i.Name);
@@ -56,13 +62,24 @@ namespace RestaurantSystem.Views
         public void ReceiveMenuItem(MenuItem item, Order order)
         {
             _item = item;
+            _order = order;
 
             List<String> list = new List<String>();
+            UpdateIngredientsLists();
+            TxtBMenuItem.Text = _item.Name.ToString();
+            ListBAddIngredients.SelectedIndex = 0;
+        }
+
+        private void UpdateIngredientsLists()
+        {
             ListBAddIngredients.DataSource = GetAddableIngredientsStrings(_item);
             ListBRemoveIngredients.DataSource = GetIngredientsStrings(_item);
-            TxtBMenuItem.Text = _item.Name.ToString();
-            TxtBMenuItem.Text = _item.Name;
-            ListBAddIngredients.SelectedIndex = 0;
+            UpdateTotalPrice();
+        }
+
+        private void UpdateTotalPrice()
+        {
+            TxtBTotal.Text = _item.Price.ToString("C");
         }
 
         // Go back to CreateOrder View
@@ -94,7 +111,10 @@ namespace RestaurantSystem.Views
         {
             if (ListBAddIngredients.SelectedItems.Count != 0)
             {
-                //WaitStaffServiceInterface.AddIngredient()
+                WaitStaffServiceInterface.AddIngredient(_order, _item, SelectedAddIngredient);
+                UpdateIngredientsLists();
+                ListBRemoveIngredients.SelectedIndex = ListBRemoveIngredients.Items.Count - 1;
+
                 // Update the UI
                 //WaitStaffServiceInterface.AddItem(o, )
                 //ListBRemoveIngredients.Items.Add(ListBAddIngredients.SelectedItem);
@@ -107,6 +127,15 @@ namespace RestaurantSystem.Views
         {
             if (ListBRemoveIngredients.SelectedItems.Count != 0)
             {
+                int index = Math.Clamp(ListBRemoveIngredients.SelectedIndex - 1, 0, ListBRemoveIngredients.Items.Count);
+                WaitStaffServiceInterface.RemoveIngredient(_order, _item, SelectedIngredient);
+                UpdateIngredientsLists();
+
+                if (ListBRemoveIngredients.Items.Count > 0)
+                {
+                    ListBRemoveIngredients.SelectedIndex = index;
+                }
+
                 // Update the UI
                 //ListBAddIngredients.Items.Add(ListBRemoveIngredients.SelectedItem);
                 //ListBRemoveIngredients.Items.Remove(ListBRemoveIngredients.SelectedItem);

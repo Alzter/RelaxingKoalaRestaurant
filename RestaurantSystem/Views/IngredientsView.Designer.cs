@@ -30,7 +30,6 @@
         {
             Label TxtAddIngredients;
             Label TxtRemoveIngredients;
-            BtnBack = new Button();
             BtnAddMenuItem = new Button();
             ListBAddIngredients = new ListBox();
             ListBRemoveIngredients = new ListBox();
@@ -63,25 +62,14 @@
             TxtRemoveIngredients.TabIndex = 7;
             TxtRemoveIngredients.Text = "Removable Ingredients";
             // 
-            // BtnBack
-            // 
-            BtnBack.Location = new Point(13, 759);
-            BtnBack.Margin = new Padding(2, 1, 2, 1);
-            BtnBack.Name = "BtnBack";
-            BtnBack.Size = new Size(93, 29);
-            BtnBack.TabIndex = 1;
-            BtnBack.Text = "Back";
-            BtnBack.UseVisualStyleBackColor = true;
-            BtnBack.Click += BtnBack_Click;
-            // 
             // BtnAddMenuItem
             // 
-            BtnAddMenuItem.Location = new Point(659, 724);
+            BtnAddMenuItem.Location = new Point(32, 716);
             BtnAddMenuItem.Margin = new Padding(2, 1, 2, 1);
             BtnAddMenuItem.Name = "BtnAddMenuItem";
-            BtnAddMenuItem.Size = new Size(146, 64);
+            BtnAddMenuItem.Size = new Size(773, 64);
             BtnAddMenuItem.TabIndex = 3;
-            BtnAddMenuItem.Text = "Add Menu Item";
+            BtnAddMenuItem.Text = "Update Menu Item";
             BtnAddMenuItem.UseVisualStyleBackColor = true;
             BtnAddMenuItem.Click += BtnAddMenuItem_Click;
             // 
@@ -147,7 +135,7 @@
             // TxtBTotal
             // 
             TxtBTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBTotal.Location = new Point(140, 656);
+            TxtBTotal.Location = new Point(140, 662);
             TxtBTotal.Margin = new Padding(3, 4, 3, 4);
             TxtBTotal.Name = "TxtBTotal";
             TxtBTotal.ReadOnly = true;
@@ -158,7 +146,7 @@
             // 
             TxtTotal.AutoSize = true;
             TxtTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtTotal.Location = new Point(36, 659);
+            TxtTotal.Location = new Point(36, 665);
             TxtTotal.Name = "TxtTotal";
             TxtTotal.Size = new Size(70, 32);
             TxtTotal.TabIndex = 27;
@@ -179,7 +167,6 @@
             Controls.Add(ListBRemoveIngredients);
             Controls.Add(ListBAddIngredients);
             Controls.Add(BtnAddMenuItem);
-            Controls.Add(BtnBack);
             Margin = new Padding(3, 4, 3, 4);
             Name = "IngredientsView";
             Text = "IngredientsView";
@@ -188,8 +175,6 @@
         }
 
         #endregion
-
-        private Button BtnBack;
         private Button BtnAddMenuItem;
         private ListBox ListBAddIngredients;
         private ListBox ListBRemoveIngredients;

@@ -37,7 +37,12 @@ namespace RestaurantSystem
 
         public void CreateOrderView_Shown(object sender, EventArgs e)
         {
-            if (_order != null) return;
+            if (_order != null)
+            {
+                UpdateListBMenu();
+                UpdateListBOrder();
+                return;
+            }
             //Console.WriteLine("Create order");
             _order = WaitStaffServiceInterface.CreateTakeAwayOrder(new List<MenuItem> { });
             UpdateListBMenu();
