@@ -26,13 +26,27 @@ namespace RestaurantSystem
 
         public CreateOrderView(UserInterface userInterface)
         {
-            order = WaitStaffServiceInterface.CreateTakeAwayOrder(new List<MenuItem> { });
-
             InitializeComponent();
             _userInterface = userInterface;
 
             MenuBox.DataSource = new List<String> { "Dine-in", "Take-away" };
+
+            this.Activated += CreateOrderView_Shown;
+            this.Deactivate += CreateOrderView_Hidden;
+        }
+
+        public void CreateOrderView_Shown(object sender, EventArgs e)
+        {
+            Console.WriteLine("Create order");
+            order = WaitStaffServiceInterface.CreateTakeAwayOrder(new List<MenuItem> { });
             UpdateListBMenu();
+            UpdateListBOrder();
+        }
+
+        public void CreateOrderView_Hidden(object sender, EventArgs e)
+        {
+            Console.WriteLine("Delete order");
+            order = null; // Delete the order since we don't need it anymore.
         }
 
         private void MenuBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,11 +67,11 @@ namespace RestaurantSystem
         private void UpdateListBMenu()
         {
             ListBMenu.DataSource = GetMenuItemStrings(SelectedMenu);
-            UpdateTotalPrice();
         }
 
         private void UpdateListBOrder()
         {
+            if (order == null) return;
             ListBOrder.DataSource = GetMenuItemStrings(order);
             UpdateTotalPrice();
         }
