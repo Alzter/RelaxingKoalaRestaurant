@@ -47,6 +47,8 @@
             // 
             // CustomerInterface
             // 
+            CustomerInterface.Enabled = false;
+            CustomerInterface.ForeColor = SystemColors.AppWorkspace;
             CustomerInterface.Location = new Point(28, 231);
             CustomerInterface.Margin = new Padding(2, 1, 2, 1);
             CustomerInterface.Name = "CustomerInterface";
@@ -58,6 +60,8 @@
             // 
             // DeliveryInterface
             // 
+            DeliveryInterface.Enabled = false;
+            DeliveryInterface.ForeColor = SystemColors.AppWorkspace;
             DeliveryInterface.Location = new Point(442, 19);
             DeliveryInterface.Margin = new Padding(2, 1, 2, 1);
             DeliveryInterface.Name = "DeliveryInterface";
@@ -78,7 +82,7 @@
             KitchenInterface.UseVisualStyleBackColor = true;
             KitchenInterface.Click += KitchenInterface_Click;
             // 
-            // RestaurantController
+            // RestaurantView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -88,7 +92,7 @@
             Controls.Add(CustomerInterface);
             Controls.Add(WaitStaffInterface);
             Margin = new Padding(2, 1, 2, 1);
-            Name = "RestaurantController";
+            Name = "RestaurantView";
             Text = "RestaurantSystem";
             ResumeLayout(false);
         }
