@@ -14,6 +14,16 @@ namespace RestaurantSystem
     {
         private UserInterface _userInterface;
 
+        public ManageOrdersView(UserInterface userInterface)
+        {
+            InitializeComponent();
+            _userInterface = userInterface;
+            this.Activated += ManageOrdersView_Shown;
+
+            OrderStatusBox.DataSource = OrderStatusStrings;
+            //this.Deactivate += CreateOrderView_Hidden;
+        }
+
         private List<Order> Orders
         {
             get
@@ -37,12 +47,40 @@ namespace RestaurantSystem
             }
         }
 
-        public ManageOrdersView(UserInterface userInterface)
+        private Order SelectedOrder
         {
-            InitializeComponent();
-            _userInterface = userInterface;
-            this.Activated += ManageOrdersView_Shown;
-            //this.Deactivate += CreateOrderView_Hidden;
+            get
+            {
+                return Orders[ListBOrders.SelectedIndex];
+            }
+        }
+
+        private List<MenuItem> SelectedOrderItems { get { return SelectedOrder.Items; } }
+        private List<String> SelectedOrderItemStrings
+        {
+            get
+            {
+                List<String> strings = new List<String>();
+                foreach (MenuItem m in SelectedOrderItems)
+                {
+                    strings.Add(m.ToString());
+                }
+                return strings;
+            }
+        }
+
+        private List<String> OrderStatusStrings
+        {
+            get
+            {
+                List<OrderStatus> statuses = Enum.GetValues(typeof(OrderStatus)).Cast<OrderStatus>().ToList();
+                List<String> strings = new List<String>();
+                foreach (OrderStatus o in statuses)
+                {
+                    strings.Add(o.ToString());
+                }
+                return strings;
+            }
         }
 
         public void ManageOrdersView_Shown(object sender, EventArgs e)
@@ -71,20 +109,16 @@ namespace RestaurantSystem
         // On order selected change event (when list item is clicked)
         private void ListBOrders_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // To get the item selected:
-            //_orderSelected = ListBOrders.SelectedItem;
-
             // Update TextBox to show order ID selected:
-            //TxtBSelected.Text = _orderSelected.ID.ToString();
+            TxtBSelected.Text = SelectedOrder.ID.ToString();
 
             // Update the ListBox to show the MenuItems in the Order
-            //ListBOrderDetails.Items.AddRange(_orderSelected.MenuItems); 
+            ListBOrderItems.DataSource = SelectedOrderItemStrings;
 
-            // Update TextBox to show Order Status
-            //TxtBStatus.Text = _orderSelected.Status.ToString();
+            // Update ComboBox to show Order Status
+            //OrderStatusBox.
 
             // Update TextBox to show Order Price Total
-            //TxtBTotal.Text = _orderSelected.Price.ToString();
         }
 
         // Change order selected's status to InProgress
@@ -109,6 +143,16 @@ namespace RestaurantSystem
         private void BtnServed_Click(object sender, EventArgs e)
         {
             //_orderSelected.Status = OrderStatus.Served;
+        }
+
+        private void TxtTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

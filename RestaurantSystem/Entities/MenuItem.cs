@@ -120,6 +120,8 @@ namespace RestaurantSystem
 
         public string Name { get { return _name; } }
 
+        public override string ToString() { return Name; }
+
         public double Price
         {
             get
