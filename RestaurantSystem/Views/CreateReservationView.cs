@@ -27,7 +27,6 @@ namespace RestaurantSystem.Interfaces
             _time = DateTimeSelection.Value;
             _date = CalendarBooking.SelectionStart;
             CombineDateTime();
-
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
@@ -94,6 +93,7 @@ namespace RestaurantSystem.Interfaces
         {
             // Need to do data sanitisation/checking here            
             WaitStaffServiceInterface.AddReservation(_dateTime, 90, _tableNum, _name, _numGuests);
+            _userInterface.StateMachine.PopState();
         }
     }
 }
