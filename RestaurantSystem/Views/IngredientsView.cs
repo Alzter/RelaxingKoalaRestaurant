@@ -43,13 +43,14 @@ namespace RestaurantSystem.Views
             return strings;
         }
 
-        public void ReceiveMenuItem(MenuItem item)
+        public void ReceiveMenuItem(MenuItem item, Order order)
         {
             _item = item;
 
             List<String> list = new List<String>();
             ListBAddIngredients.DataSource = GetAddableIngredientsStrings(_item);
             ListBRemoveIngredients.DataSource = GetIngredientsStrings(_item);
+            TxtBMenuItem.Text = _item.Name.ToString();
         }
 
         // Go back to CreateOrder View
