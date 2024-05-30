@@ -63,7 +63,7 @@ namespace RestaurantSystem
             RepositoryInterface.AddReservation(startTime, durationMinutes, tableNum, customerName, numOfGuests);
         }
 
-        // QUESTION: Is this used to cancel a reservation? Or to move a completed reservation to the past reservations list?
+        // Remove a reservation from the list.
         public static void RemoveReservation(Reservation r)
         {
             RepositoryInterface.RemoveReservation(r);
