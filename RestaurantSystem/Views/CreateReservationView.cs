@@ -27,6 +27,7 @@ namespace RestaurantSystem.Interfaces
             _time = DateTimeSelection.Value;
             _date = CalendarBooking.SelectionStart;
             CombineDateTime();
+
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
