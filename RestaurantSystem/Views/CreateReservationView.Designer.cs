@@ -36,12 +36,14 @@
             TxtGuests = new Label();
             TxtName = new Label();
             TxtBName = new TextBox();
+            TxtTable = new Label();
+            CBoxTable = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)NumGuests).BeginInit();
             SuspendLayout();
             // 
             // BtnBack
             // 
-            BtnBack.Location = new Point(11, 400);
+            BtnBack.Location = new Point(11, 438);
             BtnBack.Margin = new Padding(2, 1, 2, 1);
             BtnBack.Name = "BtnBack";
             BtnBack.Size = new Size(70, 22);
@@ -65,24 +67,28 @@
             // 
             DateTimeSelection.CalendarFont = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             DateTimeSelection.Checked = false;
+            DateTimeSelection.CustomFormat = "HH:mm";
             DateTimeSelection.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            DateTimeSelection.Format = DateTimePickerFormat.Time;
-            DateTimeSelection.Location = new Point(162, 202);
+            DateTimeSelection.Format = DateTimePickerFormat.Custom;
+            DateTimeSelection.Location = new Point(201, 202);
             DateTimeSelection.MaxDate = new DateTime(2050, 12, 31, 0, 0, 0, 0);
             DateTimeSelection.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             DateTimeSelection.Name = "DateTimeSelection";
-            DateTimeSelection.Size = new Size(163, 29);
+            DateTimeSelection.ShowUpDown = true;
+            DateTimeSelection.Size = new Size(82, 29);
             DateTimeSelection.TabIndex = 5;
+            DateTimeSelection.Value = new DateTime(2024, 5, 30, 13, 18, 0, 0);
             DateTimeSelection.ValueChanged += DateTimeSelection_ValueChanged;
             // 
             // BtnCreateReservation
             // 
-            BtnCreateReservation.Location = new Point(180, 370);
+            BtnCreateReservation.Location = new Point(350, 408);
             BtnCreateReservation.Name = "BtnCreateReservation";
             BtnCreateReservation.Size = new Size(120, 50);
             BtnCreateReservation.TabIndex = 6;
             BtnCreateReservation.Text = "Create Reservation";
             BtnCreateReservation.UseVisualStyleBackColor = true;
+            BtnCreateReservation.Click += BtnCreateReservation_Click;
             // 
             // NumGuests
             // 
@@ -125,11 +131,33 @@
             TxtBName.TabIndex = 10;
             TxtBName.TextChanged += TxtBName_TextChanged;
             // 
+            // TxtTable
+            // 
+            TxtTable.AutoSize = true;
+            TxtTable.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtTable.Location = new Point(86, 360);
+            TxtTable.Name = "TxtTable";
+            TxtTable.Size = new Size(48, 21);
+            TxtTable.TabIndex = 11;
+            TxtTable.Text = "Table:";
+            // 
+            // CBoxTable
+            // 
+            CBoxTable.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            CBoxTable.FormattingEnabled = true;
+            CBoxTable.Location = new Point(162, 357);
+            CBoxTable.Name = "CBoxTable";
+            CBoxTable.Size = new Size(121, 29);
+            CBoxTable.TabIndex = 12;
+            CBoxTable.SelectedIndexChanged += CBoxTable_SelectedIndexChanged;
+            // 
             // CreateReservationView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(482, 432);
+            ClientSize = new Size(482, 470);
+            Controls.Add(CBoxTable);
+            Controls.Add(TxtTable);
             Controls.Add(TxtBName);
             Controls.Add(TxtName);
             Controls.Add(TxtGuests);
@@ -155,5 +183,7 @@
         private Label TxtGuests;
         private Label TxtName;
         private TextBox TxtBName;
+        private Label TxtTable;
+        private ComboBox CBoxTable;
     }
 }
