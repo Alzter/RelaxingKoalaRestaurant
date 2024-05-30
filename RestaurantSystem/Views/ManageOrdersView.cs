@@ -110,6 +110,7 @@ namespace RestaurantSystem
         // Go to PaymentView
         private void BtnHandlePayment_Click(object sender, EventArgs e)
         {
+            _userInterface.StateFactory.PaymentView.ReceiveOrder(SelectedOrder);
             _userInterface.StateMachine.PushState(_userInterface.StateFactory.PaymentView);
             // Somehow need to make sure payment view has the order selected
         }

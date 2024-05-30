@@ -106,7 +106,7 @@ namespace RestaurantSystem
         private void BtnIngredients_Click(object sender, EventArgs e)
         {
             if (ListBOrder.SelectedItem == null) return;
-            _userInterface.StateFactory.IngredientsView.ReceiveMenuItem(_order.GetItem(ListBOrder.SelectedIndex));
+            _userInterface.StateFactory.IngredientsView.ReceiveMenuItem(_order.GetItem(ListBOrder.SelectedIndex), _order);
             _userInterface.StateMachine.PushState(_userInterface.StateFactory.IngredientsView);
         }
 
