@@ -11,6 +11,7 @@ namespace RestaurantSystem.Service
         public static void UpdateTableStatus(int tableNumber, TableStatus status)
         {
             Table t = GetTable(tableNumber);
+
             t.Status = status;
         }
 
