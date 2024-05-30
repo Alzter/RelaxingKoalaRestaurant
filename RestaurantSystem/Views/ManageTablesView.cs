@@ -17,8 +17,10 @@ namespace RestaurantSystem
 
         private Table _table;
 
-        private int? TableNumber {
-            get {
+        private int? TableNumber
+        {
+            get
+            {
                 if (_table == null) return null;
                 return _table.Number;
             }
@@ -42,12 +44,26 @@ namespace RestaurantSystem
                 return tableStrings;
             }
         }
+        private List<String> TableStatusStrings
+        {
+            get
+            {
+                List<TableStatus> statuses = Enum.GetValues(typeof(TableStatus)).Cast<TableStatus>().ToList();
+                List<String> strings = new List<String>();
+                foreach (TableStatus o in statuses)
+                {
+                    strings.Add(o.ToString());
+                }
+                return strings;
+            }
+        }
 
         public ManageTablesView(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;
             ListBTables.DataSource = TableStrings;
+            TableStatusBox.DataSource = TableStatusStrings;
         }
 
         // Return to WaitStaff Interface
@@ -72,33 +88,34 @@ namespace RestaurantSystem
             if (_table != null)
             {
                 TxtBSelected.Text = TableNumber.ToString();
-                TxtBStatus.Text = _table.Status.ToString();
+                if (TableStatusBox.SelectedItem != null) { TableStatusBox.SelectedIndex = (int)_table.Status; }
+                //TxtBStatus.Text = _table.Status.ToString();
             }
         }
 
         // Update Table Status to Empty
-        private void BtnEmpty_Click(object sender, EventArgs e)
-        {
-            UpdateTableStatus(TableNumber, TableStatus.Empty);
-        }
+        //private void BtnEmpty_Click(object sender, EventArgs e)
+        //{
+        //    UpdateTableStatus(TableNumber, TableStatus.Empty);
+        //}
 
-        // Update Table Status to Occupied
-        private void BtnOccupied_Click(object sender, EventArgs e)
-        {
-            UpdateTableStatus(TableNumber, TableStatus.Occupied);
-        }
+        //// Update Table Status to Occupied
+        //private void BtnOccupied_Click(object sender, EventArgs e)
+        //{
+        //    UpdateTableStatus(TableNumber, TableStatus.Occupied);
+        //}
 
-        // Update Table Status to NeedsCleaning
-        private void BtnNeedsCleaning_Click(object sender, EventArgs e)
-        {
-            UpdateTableStatus(TableNumber, TableStatus.NeedsCleaning);
-        }
+        //// Update Table Status to NeedsCleaning
+        //private void BtnNeedsCleaning_Click(object sender, EventArgs e)
+        //{
+        //    UpdateTableStatus(TableNumber, TableStatus.NeedsCleaning);
+        //}
 
-        // Update Table Status to Reserved
-        private void BtnReserved_Click(object sender, EventArgs e)
-        {
-            UpdateTableStatus(TableNumber, TableStatus.Reserved);
-        }
+        //// Update Table Status to Reserved
+        //private void BtnReserved_Click(object sender, EventArgs e)
+        //{
+        //    UpdateTableStatus(TableNumber, TableStatus.Reserved);
+        //}
 
         private void UpdateTableStatus(int? tableNumber, TableStatus status)
         {
@@ -107,6 +124,21 @@ namespace RestaurantSystem
             ListBTables.DataSource = TableStrings;
             ListBTables.SelectedIndex = index;
             UpdateSelectedTable();
+        }
+
+        private void TableStatusBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (_table == null) return;
+
+            int index = TableStatusBox.SelectedIndex;
+            TableStatus selectedStatus = (TableStatus)index;
+
+            // Do nothing if the Table Status of the Table is equal to the Table Status of the Combo Box.
+            if (_table.Status == selectedStatus) return;
+
+            // Change the status of the table to the selected status.
+            UpdateTableStatus(TableNumber, selectedStatus);
         }
     }
 }

@@ -129,6 +129,8 @@ namespace RestaurantSystem
 
             // Update TextBox to show Order Price Total
             TxtBTotal.Text = SelectedOrderPrice;
+
+            BtnHandlePayment.Enabled = !SelectedOrder.IsPaid;
         }
 
         private void OrderStatusBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,7 +143,7 @@ namespace RestaurantSystem
             // Do nothing if the Order Status of the Order is equal to the Order Status of the Combo Box.
             if (SelectedOrder.Status == selectedStatus) return;
 
-            //TODO: Change the status of the order to the selected status.
+            // Change the status of the order to the selected status.
             WaitStaffServiceInterface.SetOrderStatus(SelectedOrder, selectedStatus);
             UpdateListBOrders();
         }
