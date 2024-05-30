@@ -63,6 +63,12 @@ namespace RestaurantSystem
             return localItem;
         }
 
+        public void SetETA(int etaMinutes)
+        {
+            DateTime eta = _creationTime.AddMinutes(etaMinutes);
+            EstimatedCompletionTime = eta;
+        }
+
         public TransactionRecord PayForOrder()
         {
             _isPaid = true;

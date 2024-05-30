@@ -25,6 +25,11 @@ namespace RestaurantSystem
             o.Status = status;
         }
 
+        public static void SetOrderETA(Order o, int etaMinutes)
+        {
+            o.SetETA(etaMinutes);
+        }
+
         public static List<Order> Orders
         {
             get
