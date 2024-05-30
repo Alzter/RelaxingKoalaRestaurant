@@ -20,6 +20,7 @@ namespace RestaurantSystem
         private Menu SelectedMenu { get { return Menus[MenuBox.SelectedIndex]; } }
 
         private MenuItem SelectedMenuItem { get { return SelectedMenu.GetItem(ListBMenu.SelectedIndex); } }
+        private MenuItem SelectedOrderItem { get { return order.GetItem(ListBOrder.SelectedIndex); } }
 
         private Order order;
 
@@ -80,23 +81,24 @@ namespace RestaurantSystem
         // Add MenuItem to order
         private void BtnAddToOrder_Click(object sender, EventArgs e)
         {
-            // Update UI
+            if (ListBMenu.SelectedItem == null) return;
 
             WaitStaffServiceInterface.AddItem(order, SelectedMenuItem);
             UpdateListBOrder();
-
-            //ListBOrder.Items.Add(ListBMenu.SelectedItem);
+            ListBOrder.SelectedIndex = ListBOrder.Items.Count - 1;
         }
 
         // Remove MenuItem from order
         private void BtnRemoveFromOrder_Click(object sender, EventArgs e)
         {
+            int index = Math.Clamp(ListBOrder.SelectedIndex - 1, 0, ListBOrder.SelectedItems.Count);
 
-            //WaitStaffServiceInterface.AddItem(order, SelectedMenuItem);
+            if (ListBOrder.SelectedItem == null) return;
+
+            WaitStaffServiceInterface.RemoveItem(order, ListBOrder.SelectedIndex);
             UpdateListBOrder();
 
-            // Update UI
-            //ListBOrder.Items.Remove(ListBOrder.SelectedItem);
+            if (ListBOrder.SelectedItems.Count > 0) ListBOrder.SelectedIndex = index;
         }
 
         // On selection of MenuItem in Menu List

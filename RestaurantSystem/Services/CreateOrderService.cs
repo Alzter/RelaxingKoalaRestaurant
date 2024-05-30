@@ -27,6 +27,11 @@ namespace RestaurantSystem.Service
             o.AddItem(m);
         }
 
+        public static void RemoveItem(Order o, int index)
+        {
+            o.RemoveItem(index);
+        }
+
         public static void AddOrderToQueue(Order o)
         {
             RepositoryInterface.AddOrder(o);
