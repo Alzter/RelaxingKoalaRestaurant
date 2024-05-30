@@ -67,6 +67,11 @@ namespace RestaurantSystem
             return ManageTablesService.GetTablesByStatus(status);
         }
 
+        public static List<Table> GetFreeTables(DateTime time)
+        {
+            return ManageTablesService.GetFreeTables(time);
+        }
+
         public static Menu DineInMenu { get { return MenuService.DineInMenu; } }
         public static Menu TakeAwayMenu { get { return MenuService.TakeAwayMenu; } }
         public static List<Reservation> Reservations { get { return ReservationService.PresentReservations; } }

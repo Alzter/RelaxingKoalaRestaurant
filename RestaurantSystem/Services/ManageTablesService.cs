@@ -51,6 +51,29 @@ namespace RestaurantSystem.Service
             return tables;
         }
 
+        // For a given date and time, get all tables which are not reserved.
+        public static List<Table> GetFreeTables(DateTime time)
+        {
+            List<Reservation> reservations = ReservationService.PresentReservations;
+            List<Table> reservedTables = new List<Table>();
+
+            foreach (Reservation r in reservations)
+            {
+                if (time >= r.StartTime && time < r.EndTime)
+                {
+                    Table table = GetTable(r.TableNumber);
+
+                    reservedTables.Add(table);
+                }
+            }
+
+            List<Table> freeTables = Tables;
+
+            foreach (Table t in reservedTables) freeTables.Remove(t);
+
+            return freeTables;
+        }
+
         public static List<Table> Tables
         {
             get
