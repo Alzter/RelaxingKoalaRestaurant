@@ -117,7 +117,7 @@ namespace RestaurantSystem
         public string? Address
         {
             get {
-                if (_address == null) { throw new NullReferenceException("Order does not have an address."); }
+                //if (_address == null) { throw new NullReferenceException("Order does not have an address."); }
                 return _address;
             }
         }
@@ -126,7 +126,7 @@ namespace RestaurantSystem
         {
             get {
 
-                if (_tableNumber == null) { throw new NullReferenceException("Order does not have a table number."); }
+                //if (_tableNumber == null) { throw new NullReferenceException("Order does not have a table number."); }
                 return _tableNumber;
             }
         }

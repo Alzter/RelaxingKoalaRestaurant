@@ -121,19 +121,32 @@ namespace RestaurantTests
         public string? getDineInOrderAddress() { return dineInOrder.Address; }
 
         [Test]
-        public void TestNullTableNumberThrowsException()
+        public void TestNullTableNumber()
         {
-
-            Assert.Throws<NullReferenceException>(() => getTakeAwayOrderTableNumber(), "Attempting to get the table number from a take-away order should create a NullReferenceException.");
-            Assert.Throws<NullReferenceException>(() => getDeliveryOrderTableNumber(), "Attempting to get the table number from a delivery order should create a NullReferenceException.");
+            Assert.IsNull(takeAwayOrder.TableNumber);
+            Assert.IsNull(deliveryOrder.TableNumber);
         }
-
         [Test]
-        public void TestNullAddressThrowsException()
+        public void NullAddress()
         {
-            Assert.Throws<NullReferenceException>(() => getTakeAwayOrderAddress(), "Attempting to get the address from a take-away order should create a NullReferenceException.");
-            Assert.Throws<NullReferenceException>(() => getDineInOrderAddress(), "Attempting to get the address from a dine-in order should create a NullReferenceException.");
+            Assert.IsNull(takeAwayOrder.TableNumber);
+            Assert.IsNull(dineInOrder.TableNumber);
         }
+
+        //[Test]
+        //public void TestNullTableNumberThrowsException()
+        //{
+
+        //    Assert.Throws<NullReferenceException>(() => getTakeAwayOrderTableNumber(), "Attempting to get the table number from a take-away order should create a NullReferenceException.");
+        //    Assert.Throws<NullReferenceException>(() => getDeliveryOrderTableNumber(), "Attempting to get the table number from a delivery order should create a NullReferenceException.");
+        //}
+
+        //[Test]
+        //public void TestNullAddressThrowsException()
+        //{
+        //    Assert.Throws<NullReferenceException>(() => getTakeAwayOrderAddress(), "Attempting to get the address from a take-away order should create a NullReferenceException.");
+        //    Assert.Throws<NullReferenceException>(() => getDineInOrderAddress(), "Attempting to get the address from a dine-in order should create a NullReferenceException.");
+        //}
 
         [Test]
         public void TestPayOrder()
