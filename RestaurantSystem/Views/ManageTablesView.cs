@@ -25,5 +25,35 @@ namespace RestaurantSystem
         {
             _userInterface.StateMachine.PopState();
         }
+
+        // On Table selection change
+        private void ListBTables_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        // Update Table Status to Empty
+        private void BtnEmpty_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Update Table Status to Occupied
+        private void BtnOccupied_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Update Table Status to NeedsCleaning
+        private void BtnNeedsCleaning_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Update Table Status to Reserved
+        private void BtnReserved_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

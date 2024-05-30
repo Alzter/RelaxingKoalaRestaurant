@@ -63,6 +63,7 @@
             ListBTables.ScrollAlwaysVisible = true;
             ListBTables.Size = new Size(251, 279);
             ListBTables.TabIndex = 2;
+            ListBTables.SelectedIndexChanged += ListBTables_SelectedIndexChanged;
             // 
             // TxtTables
             // 
@@ -120,6 +121,7 @@
             BtnReserved.TabIndex = 26;
             BtnReserved.Text = "Reserved";
             BtnReserved.UseVisualStyleBackColor = true;
+            BtnReserved.Click += BtnReserved_Click;
             // 
             // BtnNeedsCleaning
             // 
@@ -129,6 +131,7 @@
             BtnNeedsCleaning.TabIndex = 25;
             BtnNeedsCleaning.Text = "Needs Cleaning";
             BtnNeedsCleaning.UseVisualStyleBackColor = true;
+            BtnNeedsCleaning.Click += BtnNeedsCleaning_Click;
             // 
             // BtnEmpty
             // 
@@ -138,6 +141,7 @@
             BtnEmpty.TabIndex = 24;
             BtnEmpty.Text = "Empty";
             BtnEmpty.UseVisualStyleBackColor = true;
+            BtnEmpty.Click += BtnEmpty_Click;
             // 
             // BtnOccupied
             // 
@@ -147,6 +151,7 @@
             BtnOccupied.TabIndex = 23;
             BtnOccupied.Text = "Occupied";
             BtnOccupied.UseVisualStyleBackColor = true;
+            BtnOccupied.Click += BtnOccupied_Click;
             // 
             // ManageTablesView
             // 

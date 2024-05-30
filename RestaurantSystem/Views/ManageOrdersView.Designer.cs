@@ -49,10 +49,9 @@
             // 
             // BtnHandlePayment
             // 
-            BtnHandlePayment.Location = new Point(845, 1361);
-            BtnHandlePayment.Margin = new Padding(6);
+            BtnHandlePayment.Location = new Point(455, 638);
             BtnHandlePayment.Name = "BtnHandlePayment";
-            BtnHandlePayment.Size = new Size(240, 119);
+            BtnHandlePayment.Size = new Size(129, 56);
             BtnHandlePayment.TabIndex = 3;
             BtnHandlePayment.Text = "Handle Payment";
             BtnHandlePayment.UseVisualStyleBackColor = true;
@@ -61,32 +60,29 @@
             // TxtCost
             // 
             TxtCost.AutoSize = true;
-            TxtCost.Location = new Point(760, 683);
-            TxtCost.Margin = new Padding(6, 0, 6, 0);
+            TxtCost.Location = new Point(409, 320);
             TxtCost.Name = "TxtCost";
-            TxtCost.Size = new Size(0, 32);
+            TxtCost.Size = new Size(0, 15);
             TxtCost.TabIndex = 6;
             // 
             // ListBOrders
             // 
             ListBOrders.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ListBOrders.FormattingEnabled = true;
-            ListBOrders.ItemHeight = 45;
+            ListBOrders.ItemHeight = 21;
             ListBOrders.Items.AddRange(new object[] { "Order 56 - Table 5 - Waiting", "Order 57 - Table 10 - Ready", "Order 58 - Table 3 - Served" });
-            ListBOrders.Location = new Point(65, 145);
-            ListBOrders.Margin = new Padding(6);
+            ListBOrders.Location = new Point(35, 68);
             ListBOrders.Name = "ListBOrders";
             ListBOrders.ScrollAlwaysVisible = true;
-            ListBOrders.Size = new Size(487, 1129);
+            ListBOrders.Size = new Size(264, 529);
             ListBOrders.TabIndex = 7;
             ListBOrders.SelectedIndexChanged += ListBOrders_SelectedIndexChanged;
             // 
             // BtnWaiting
             // 
-            BtnWaiting.Location = new Point(988, 907);
-            BtnWaiting.Margin = new Padding(6);
+            BtnWaiting.Location = new Point(532, 425);
             BtnWaiting.Name = "BtnWaiting";
-            BtnWaiting.Size = new Size(215, 109);
+            BtnWaiting.Size = new Size(116, 51);
             BtnWaiting.TabIndex = 8;
             BtnWaiting.Text = "Waiting";
             BtnWaiting.UseVisualStyleBackColor = true;
@@ -96,10 +92,9 @@
             // 
             TxtOrders.AutoSize = true;
             TxtOrders.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtOrders.Location = new Point(225, 41);
-            TxtOrders.Margin = new Padding(6, 0, 6, 0);
+            TxtOrders.Location = new Point(121, 19);
             TxtOrders.Name = "TxtOrders";
-            TxtOrders.Size = new Size(171, 65);
+            TxtOrders.Size = new Size(85, 32);
             TxtOrders.TabIndex = 11;
             TxtOrders.Text = "Orders";
             // 
@@ -107,40 +102,36 @@
             // 
             TxtSelected.AutoSize = true;
             TxtSelected.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtSelected.Location = new Point(689, 38);
-            TxtSelected.Margin = new Padding(6, 0, 6, 0);
+            TxtSelected.Location = new Point(371, 18);
             TxtSelected.Name = "TxtSelected";
-            TxtSelected.Size = new Size(353, 65);
+            TxtSelected.Size = new Size(178, 32);
             TxtSelected.TabIndex = 12;
             TxtSelected.Text = "Order Selected:";
             // 
             // TxtBSelected
             // 
             TxtBSelected.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBSelected.Location = new Point(1038, 36);
-            TxtBSelected.Margin = new Padding(6);
+            TxtBSelected.Location = new Point(559, 17);
             TxtBSelected.Name = "TxtBSelected";
             TxtBSelected.ReadOnly = true;
-            TxtBSelected.Size = new Size(182, 71);
+            TxtBSelected.Size = new Size(100, 39);
             TxtBSelected.TabIndex = 13;
             // 
             // TxtUpdateStatus
             // 
             TxtUpdateStatus.AutoSize = true;
             TxtUpdateStatus.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtUpdateStatus.Location = new Point(966, 644);
-            TxtUpdateStatus.Margin = new Padding(6, 0, 6, 0);
+            TxtUpdateStatus.Location = new Point(520, 302);
             TxtUpdateStatus.Name = "TxtUpdateStatus";
-            TxtUpdateStatus.Size = new Size(219, 45);
+            TxtUpdateStatus.Size = new Size(106, 21);
             TxtUpdateStatus.TabIndex = 14;
             TxtUpdateStatus.Text = "Update Status";
             // 
             // BtnInProgress
             // 
-            BtnInProgress.Location = new Point(713, 907);
-            BtnInProgress.Margin = new Padding(6);
+            BtnInProgress.Location = new Point(384, 425);
             BtnInProgress.Name = "BtnInProgress";
-            BtnInProgress.Size = new Size(215, 109);
+            BtnInProgress.Size = new Size(116, 51);
             BtnInProgress.TabIndex = 15;
             BtnInProgress.Text = "In Progress";
             BtnInProgress.UseVisualStyleBackColor = true;
@@ -148,10 +139,9 @@
             // 
             // BtnReady
             // 
-            BtnReady.Location = new Point(717, 1041);
-            BtnReady.Margin = new Padding(6);
+            BtnReady.Location = new Point(386, 488);
             BtnReady.Name = "BtnReady";
-            BtnReady.Size = new Size(212, 109);
+            BtnReady.Size = new Size(114, 51);
             BtnReady.TabIndex = 16;
             BtnReady.Text = "Ready";
             BtnReady.UseVisualStyleBackColor = true;
@@ -159,10 +149,9 @@
             // 
             // BtnServed
             // 
-            BtnServed.Location = new Point(988, 1041);
-            BtnServed.Margin = new Padding(6);
+            BtnServed.Location = new Point(532, 488);
             BtnServed.Name = "BtnServed";
-            BtnServed.Size = new Size(215, 109);
+            BtnServed.Size = new Size(116, 51);
             BtnServed.TabIndex = 17;
             BtnServed.Text = "Served";
             BtnServed.UseVisualStyleBackColor = true;
@@ -172,21 +161,20 @@
             // 
             ListBOrderDetails.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ListBOrderDetails.FormattingEnabled = true;
-            ListBOrderDetails.ItemHeight = 45;
+            ListBOrderDetails.ItemHeight = 21;
             ListBOrderDetails.Items.AddRange(new object[] { "Pizza - $12", "Chips - $5", "Soda - $3" });
-            ListBOrderDetails.Location = new Point(631, 145);
-            ListBOrderDetails.Margin = new Padding(6);
+            ListBOrderDetails.Location = new Point(340, 68);
             ListBOrderDetails.Name = "ListBOrderDetails";
             ListBOrderDetails.ScrollAlwaysVisible = true;
-            ListBOrderDetails.Size = new Size(680, 544);
+            ListBOrderDetails.Size = new Size(368, 256);
             ListBOrderDetails.TabIndex = 19;
             // 
             // BtnBack
             // 
-            BtnBack.Location = new Point(20, 1459);
-            BtnBack.Margin = new Padding(4, 2, 4, 2);
+            BtnBack.Location = new Point(11, 684);
+            BtnBack.Margin = new Padding(2, 1, 2, 1);
             BtnBack.Name = "BtnBack";
-            BtnBack.Size = new Size(150, 47);
+            BtnBack.Size = new Size(81, 22);
             BtnBack.TabIndex = 20;
             BtnBack.Text = "Back";
             BtnBack.UseVisualStyleBackColor = true;
@@ -195,50 +183,46 @@
             // TxtBStatus
             // 
             TxtBStatus.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBStatus.Location = new Point(992, 781);
-            TxtBStatus.Margin = new Padding(6);
+            TxtBStatus.Location = new Point(534, 366);
             TxtBStatus.Name = "TxtBStatus";
             TxtBStatus.ReadOnly = true;
-            TxtBStatus.Size = new Size(247, 71);
+            TxtBStatus.Size = new Size(135, 39);
             TxtBStatus.TabIndex = 22;
             // 
             // TxtStatus
             // 
             TxtStatus.AutoSize = true;
             TxtStatus.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtStatus.Location = new Point(682, 787);
-            TxtStatus.Margin = new Padding(6, 0, 6, 0);
+            TxtStatus.Location = new Point(367, 369);
             TxtStatus.Name = "TxtStatus";
-            TxtStatus.Size = new Size(301, 65);
+            TxtStatus.Size = new Size(151, 32);
             TxtStatus.TabIndex = 21;
             TxtStatus.Text = "Order Status:";
             // 
             // TxtBTotal
             // 
             TxtBTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBTotal.Location = new Point(966, 1229);
-            TxtBTotal.Margin = new Padding(6);
+            TxtBTotal.Location = new Point(520, 576);
             TxtBTotal.Name = "TxtBTotal";
             TxtBTotal.ReadOnly = true;
-            TxtBTotal.Size = new Size(279, 71);
+            TxtBTotal.Size = new Size(152, 39);
             TxtBTotal.TabIndex = 24;
             // 
             // TxtTotal
             // 
             TxtTotal.AutoSize = true;
             TxtTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtTotal.Location = new Point(682, 1235);
-            TxtTotal.Margin = new Padding(6, 0, 6, 0);
+            TxtTotal.Location = new Point(356, 579);
             TxtTotal.Name = "TxtTotal";
-            TxtTotal.Size = new Size(274, 65);
+            TxtTotal.Size = new Size(158, 32);
             TxtTotal.TabIndex = 23;
-            TxtTotal.Text = "Order Total:";
+            TxtTotal.Text = "Order Total: $";
             // 
             // ManageOrdersView
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1361, 1527);
+            ClientSize = new Size(733, 723);
             Controls.Add(TxtBTotal);
             Controls.Add(TxtTotal);
             Controls.Add(TxtBStatus);
@@ -256,7 +240,6 @@
             Controls.Add(ListBOrders);
             Controls.Add(TxtCost);
             Controls.Add(BtnHandlePayment);
-            Margin = new Padding(6);
             Name = "ManageOrdersView";
             Text = "Manage Orders";
             ResumeLayout(false);

@@ -32,11 +32,11 @@
             CalendarBooking = new MonthCalendar();
             DateTimeSelection = new DateTimePicker();
             BtnCreateReservation = new Button();
-            numericUpDown1 = new NumericUpDown();
+            NumGuests = new NumericUpDown();
             TxtGuests = new Label();
             TxtName = new Label();
             TxtBName = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NumGuests).BeginInit();
             SuspendLayout();
             // 
             // BtnBack
@@ -59,6 +59,7 @@
             CalendarBooking.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
             CalendarBooking.Name = "CalendarBooking";
             CalendarBooking.TabIndex = 4;
+            CalendarBooking.DateChanged += CalendarBooking_DateChanged;
             // 
             // DateTimeSelection
             // 
@@ -72,6 +73,7 @@
             DateTimeSelection.Name = "DateTimeSelection";
             DateTimeSelection.Size = new Size(163, 29);
             DateTimeSelection.TabIndex = 5;
+            DateTimeSelection.ValueChanged += DateTimeSelection_ValueChanged;
             // 
             // BtnCreateReservation
             // 
@@ -82,13 +84,17 @@
             BtnCreateReservation.Text = "Create Reservation";
             BtnCreateReservation.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown1
+            // NumGuests
             // 
-            numericUpDown1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            numericUpDown1.Location = new Point(233, 250);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 29);
-            numericUpDown1.TabIndex = 7;
+            NumGuests.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            NumGuests.Location = new Point(233, 250);
+            NumGuests.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
+            NumGuests.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            NumGuests.Name = "NumGuests";
+            NumGuests.Size = new Size(120, 29);
+            NumGuests.TabIndex = 7;
+            NumGuests.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            NumGuests.ValueChanged += NumGuests_ValueChanged;
             // 
             // TxtGuests
             // 
@@ -117,6 +123,7 @@
             TxtBName.Name = "TxtBName";
             TxtBName.Size = new Size(227, 29);
             TxtBName.TabIndex = 10;
+            TxtBName.TextChanged += TxtBName_TextChanged;
             // 
             // CreateReservationView
             // 
@@ -126,14 +133,14 @@
             Controls.Add(TxtBName);
             Controls.Add(TxtName);
             Controls.Add(TxtGuests);
-            Controls.Add(numericUpDown1);
+            Controls.Add(NumGuests);
             Controls.Add(BtnCreateReservation);
             Controls.Add(DateTimeSelection);
             Controls.Add(CalendarBooking);
             Controls.Add(BtnBack);
             Name = "CreateReservationView";
             Text = "Create Reservation";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NumGuests).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -144,7 +151,7 @@
         private MonthCalendar CalendarBooking;
         private DateTimePicker DateTimeSelection;
         private Button BtnCreateReservation;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown NumGuests;
         private Label TxtGuests;
         private Label TxtName;
         private TextBox TxtBName;
