@@ -63,7 +63,7 @@ namespace RestaurantSystem
             File.WriteAllText(filePath, json);
         }
 
-        public static void CreateReservation(DateTime dateTime, int durationMinutes, int tableNumber, string customerName, int numberOfGuests)
+        public static void AddReservation(DateTime dateTime, int durationMinutes, int tableNumber, string customerName, int numberOfGuests)
         {
             // Load reservations
             var reservations = LoadItems("ReservationData.json");
@@ -76,6 +76,20 @@ namespace RestaurantSystem
                 customerName,
                 numberOfGuests
                 ));
+            // Save reservations 
+            SaveItems("ReservationData.json", reservations);
+        }
+
+        public static void RemoveReservation(Reservation reservation)
+        {
+            // Load reservations
+            var reservations = LoadItems("ReservationData.json");
+
+            // Remove all reservations which have the same time and customer.
+            reservations.RemoveAll((Reservation r) => { return (r.StartTime == reservation.StartTime) && (r.CustomerName == reservation.CustomerName); });
+
+            reservations.Remove(reservation);
+
             // Save reservations 
             SaveItems("ReservationData.json", reservations);
         }

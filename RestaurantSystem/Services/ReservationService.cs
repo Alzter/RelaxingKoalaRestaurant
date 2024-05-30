@@ -10,33 +10,63 @@ namespace RestaurantSystem
     {
 
 
-        public static List<Reservation> Reservations
+        public static List<Reservation> PresentReservations
         {
             get
             {
-                throw new NotImplementedException();
+                List<Reservation> reservations = Reservations;
+                List<Reservation> reservationsList = new List<Reservation>();
+
+                foreach (Reservation r in reservations)
+                {
+                    if (r.StartTime > DateTime.Now)
+                    {
+                        reservationsList.Add(r);
+                    }
+                }
+
+                return reservationsList;
             }
         }
+
         public static List<Reservation> PastReservations
         {
             get
             {
-                throw new NotImplementedException();
+                List<Reservation> reservations = Reservations;
+                List<Reservation> reservationsList = new List<Reservation>();
+
+                foreach (Reservation r in reservations)
+                {
+                    if (r.StartTime <= DateTime.Now)
+                    {
+                        reservationsList.Add(r);
+                    }
+                }
+
+                return reservationsList;
+            }
+        }
+
+        public static List<Reservation> Reservations
+        {
+            get
+            {
+                return RepositoryInterface.GetReservations();
             }
         }
 
         public static void AddReservation(DateTime startTime, int durationMinutes, int tableNum, string customerName, int numOfGuests) 
         {
             // Create Reservation object using CRUDO interface
-            throw new NotImplementedException();
+
+            RepositoryInterface.AddReservation(startTime, durationMinutes, tableNum, customerName, numOfGuests);
         }
 
         // QUESTION: Is this used to cancel a reservation? Or to move a completed reservation to the past reservations list?
         public static void RemoveReservation(Reservation r)
         {
-            // Find reservation in Reservations list?
-            // Add to past reservations? Or delete it?
-            throw new NotImplementedException();
+            RepositoryInterface.RemoveReservation(r);
         }
     }
 }

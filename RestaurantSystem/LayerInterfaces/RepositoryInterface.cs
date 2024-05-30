@@ -21,6 +21,13 @@ namespace RestaurantSystem
             MenuRepository.SaveItems("MenuData.json", menus);
         }
 
+
+        // Reservation - Create and Add
+        public static void AddReservation(DateTime dateTime, int durationMinutes, int tableNumber, string customerName, int numberOfGuests)
+        {
+            ReservationRepository.AddReservation(dateTime, durationMinutes, tableNumber, customerName, numberOfGuests);
+        }
+
         // Reservations - Save / Load
         public static List<Reservation> GetReservations()
         {
@@ -33,6 +40,37 @@ namespace RestaurantSystem
             ReservationRepository.SaveItems("ReservationData.json", reservations);
         }
 
+        // Reservation - Remove from list
+        public static void RemoveReservation(Reservation reservation)
+        {
+            ReservationRepository.RemoveReservation(reservation);
+        }
+
+
+        // Order - Create
+        // Delivery
+        public static Order CreateOrder(List<MenuItem> menuItems, string address)
+        {
+            return OrderRepository.CreateOrder(menuItems, address);
+        }
+        // Dine-In
+        public static Order CreateOrder(List<MenuItem> menuItems, int tableNumber)
+        {
+            return OrderRepository.CreateOrder(menuItems, tableNumber);
+        }
+        // TakeAway
+        public static Order CreateOrder(List<MenuItem> menuItems)
+        {
+            return OrderRepository.CreateOrder(menuItems);
+        }
+
+        // Order - Add
+        public static void AddOrder(Order o)
+        {
+            OrderRepository.AddOrder(o);
+        }
+
+
         // Orders - Save / Load
         public static List<Order> GetOrders() 
         {
@@ -43,6 +81,14 @@ namespace RestaurantSystem
         public static void SaveOrders(List<Order> orders) 
         {
             OrderRepository.SaveItems("OrderData.json", orders);
+        }
+
+        // Transaction - Add
+        public static TransactionRecord AddTransaction(TransactionRecord transaction)
+        {
+            string filePath = "TransactionData.json";
+            TransactionRepository.AddTransactionRecord(filePath, transaction);
+            return transaction;
         }
 
         // Transactions - Save / Load
@@ -67,42 +113,6 @@ namespace RestaurantSystem
         public static void SaveTables(List<Table> tables) 
         {
             TableRepository.SaveItems("TableData.json", tables);
-        }
-
-        // Reservation - Create 
-        public static void CreateReservation(DateTime dateTime, int durationMinutes, int tableNumber, string customerName, int numberOfGuests)
-        {
-            ReservationRepository.CreateReservation(dateTime, durationMinutes, tableNumber, customerName, numberOfGuests);
-        }
-
-        // Order - Create
-        // Delivery
-        public static Order CreateOrder(List<MenuItem> menuItems, string address) 
-        {
-            return OrderRepository.CreateOrder(menuItems, address);
-        }
-        // Dine-In
-        public static Order CreateOrder(List<MenuItem> menuItems, int tableNumber)
-        {
-            return OrderRepository.CreateOrder(menuItems, tableNumber);
-        }
-        // TakeAway
-        public static Order CreateOrder(List<MenuItem> menuItems)
-        {
-            return OrderRepository.CreateOrder(menuItems);
-        }
-
-        public static void AddOrder(Order o)
-        {
-            OrderRepository.AddOrder(o);
-        }
-
-        // Transaction - Add
-        public static TransactionRecord AddTransaction(TransactionRecord transaction)
-        {
-            string filePath = "TransactionData.json";
-            TransactionRepository.AddTransactionRecord(filePath, transaction);
-            return transaction;
         }
     }
 }

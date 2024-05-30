@@ -35,7 +35,7 @@ namespace RestaurantSystem
             // RESERVATIONS
             // Create
             DateTime dt = new DateTime(2024, 05, 30, 18, 30, 00);
-            RepositoryInterface.CreateReservation(dt, 90, 12, "Steve MC", 3);
+            RepositoryInterface.AddReservation(dt, 90, 12, "Steve MC", 3);
             // Load
             var reservations = RepositoryInterface.GetReservations();
  
