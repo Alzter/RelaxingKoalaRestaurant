@@ -73,26 +73,9 @@ namespace RestaurantSystem
                 Console.WriteLine($"Estimated Completion Time: {order.EstimatedCompletionTime}");
                 Console.WriteLine($"Completion Time: {(order.CompletionTime != default ? order.CompletionTime.ToString() : "N/A")}");
                 Console.WriteLine($"Is Paid: {order.IsPaid}");
+                Console.WriteLine($"Address: {(order.Address == null ? "N/A" : order.Address)}");
+                Console.WriteLine($"Table Number: {(order.TableNumber == null ? "N/A" : order.TableNumber)}");
 
-                // Address can be null
-                try 
-                {
-                    Console.WriteLine($"Address: {order.Address}");
-                }
-                catch (NullReferenceException)
-                {
-                    Console.WriteLine("Address: N/A");
-                }
-
-                // Table number can be null
-                try
-                {
-                    Console.WriteLine($"Table Number: {order.TableNumber}");
-                }
-                catch (NullReferenceException)
-                {
-                    Console.WriteLine("Table Number: N/A");
-                }
 
                 Console.WriteLine("Items:");
                 foreach (var item in order.Items)
