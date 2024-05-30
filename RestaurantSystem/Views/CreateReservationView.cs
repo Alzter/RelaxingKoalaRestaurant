@@ -27,7 +27,6 @@ namespace RestaurantSystem.Interfaces
             _time = DateTimeSelection.Value;
             _date = CalendarBooking.SelectionStart;
             CombineDateTime();
-
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
@@ -70,7 +69,6 @@ namespace RestaurantSystem.Interfaces
         private void CBoxTable_SelectedIndexChanged(object sender, EventArgs e)
         {
             _tableNum = (int)CBoxTable.SelectedItem;
-            Console.WriteLine(_tableNum);
         }
 
         private void CombineDateTime()
@@ -92,8 +90,16 @@ namespace RestaurantSystem.Interfaces
         // Create reservation with the details inputted
         private void BtnCreateReservation_Click(object sender, EventArgs e)
         {
-            // Need to do data sanitisation/checking here            
-            WaitStaffServiceInterface.AddReservation(_dateTime, 90, _tableNum, _name, _numGuests);
+            // Need to do data sanitisation/checking here
+            if (DateTime.Compare(_dateTime, DateTime.Now) < 0)
+            {
+                throw new Exception("Booking cannot be earlier than current time.");
+            }
+            else
+            {
+                WaitStaffServiceInterface.AddReservation(_dateTime, 90, _tableNum, _name, _numGuests);
+                _userInterface.StateMachine.PopState();
+            } 
         }
     }
 }
