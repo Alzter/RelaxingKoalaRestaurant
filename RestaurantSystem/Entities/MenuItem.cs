@@ -149,6 +149,14 @@ namespace RestaurantSystem
 
             }
         }
+        public List<Ingredient> BaseIngredients
+        {
+            get
+            {
+                return _baseIngredients;
+
+            }
+        }
 
         public List<Ingredient> AddableIngredients
         {

@@ -84,6 +84,32 @@ namespace RestaurantSystem
             OrderRepository.SaveItems("OrderData.json", orders);
         }
 
+        public static void AddIngredient(Order o, MenuItem m, Ingredient i)
+        {
+            List<Order> orders = GetOrders();
+
+            int orderIndex = orders.FindIndex((Order order) => { return order.ID == o.ID; });
+
+            m.AddIngredient(i);
+
+            orders[orderIndex] = o;
+
+            SaveOrders(orders);
+        }
+
+        public static void RemoveIngredient(Order o, MenuItem m, Ingredient i)
+        {
+            List<Order> orders = GetOrders();
+
+            int orderIndex = orders.FindIndex((Order order) => { return order.ID == o.ID; });
+
+            m.RemoveIngredient(i);
+
+            orders[orderIndex] = o;
+
+            SaveOrders(orders);
+        }
+
         // Transaction - Add
         public static TransactionRecord AddTransaction(TransactionRecord transaction)
         {

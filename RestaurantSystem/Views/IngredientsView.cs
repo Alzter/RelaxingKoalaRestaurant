@@ -29,17 +29,27 @@ namespace RestaurantSystem.Views
 
         private List<String> GetIngredientsStrings(MenuItem item)
         {
-            List<Ingredient> ingredients = item.Ingredients;
-            List<String> strings = new List<String>();
-            foreach (Ingredient i in ingredients) { strings.Add($"{i.Name}"); }
-            return strings;
+            return GetIngredientsStrings(item.Ingredients, item);
         }
 
         private List<String> GetAddableIngredientsStrings(MenuItem item)
         {
-            List<Ingredient> ingredients = item.AddableIngredients;
+            return GetIngredientsStrings(item.AddableIngredients, item);
+        }
+
+        public List<String> GetIngredientsStrings(List<Ingredient> ingredients, MenuItem m)
+        {
             List<String> strings = new List<String>();
-            foreach (Ingredient i in ingredients) { strings.Add($"{i.Name}: {i.Price.ToString("C")}"); }
+            foreach (Ingredient i in ingredients) {
+                if (m.BaseIngredients.Contains(i))
+                {
+                    strings.Add(i.Name);
+                }
+                else
+                {
+                    strings.Add($"{i.Name}: {i.Price.ToString("C")}");
+                }
+            }
             return strings;
         }
 
@@ -50,6 +60,8 @@ namespace RestaurantSystem.Views
             List<String> list = new List<String>();
             ListBAddIngredients.DataSource = GetAddableIngredientsStrings(_item);
             ListBRemoveIngredients.DataSource = GetIngredientsStrings(_item);
+            TxtBMenuItem.Text = _item.Name;
+            ListBAddIngredients.SelectedIndex = 0;
         }
 
         // Go back to CreateOrder View
@@ -66,7 +78,14 @@ namespace RestaurantSystem.Views
 
         private void ListBAddIngredients_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (ListBAddIngredients.SelectedItem == null) { return; }
+            ListBRemoveIngredients.SelectedItem = null;
+        }
 
+        private void ListBRemoveIngredients_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ListBRemoveIngredients.SelectedItem == null) { return; }
+            ListBAddIngredients.SelectedItem = null;
         }
 
         // Add Ingredient to Menu Item
@@ -74,6 +93,7 @@ namespace RestaurantSystem.Views
         {
             if (ListBAddIngredients.SelectedItems.Count != 0)
             {
+                //WaitStaffServiceInterface.AddIngredient()
                 // Update the UI
                 //WaitStaffServiceInterface.AddItem(o, )
                 //ListBRemoveIngredients.Items.Add(ListBAddIngredients.SelectedItem);
@@ -89,12 +109,7 @@ namespace RestaurantSystem.Views
                 // Update the UI
                 //ListBAddIngredients.Items.Add(ListBRemoveIngredients.SelectedItem);
                 //ListBRemoveIngredients.Items.Remove(ListBRemoveIngredients.SelectedItem);
-            }       
-        }
-
-        private void ListBRemoveIngredients_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            }
         }
     }
 }

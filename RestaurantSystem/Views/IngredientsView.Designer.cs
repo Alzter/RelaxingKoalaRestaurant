@@ -37,7 +37,6 @@
             BtnAddIngredient = new Button();
             BtnRemoveIngredient = new Button();
             TxtBMenuItem = new TextBox();
-            TxtMenuItem = new Label();
             TxtBTotal = new TextBox();
             TxtTotal = new Label();
             TxtAddIngredients = new Label();
@@ -48,9 +47,9 @@
             // 
             TxtAddIngredients.AutoSize = true;
             TxtAddIngredients.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtAddIngredients.Location = new Point(77, 93);
+            TxtAddIngredients.Location = new Point(126, 75);
             TxtAddIngredients.Name = "TxtAddIngredients";
-            TxtAddIngredients.Size = new Size(149, 21);
+            TxtAddIngredients.Size = new Size(189, 28);
             TxtAddIngredients.TabIndex = 6;
             TxtAddIngredients.Text = "Addable Ingredients";
             // 
@@ -58,18 +57,18 @@
             // 
             TxtRemoveIngredients.AutoSize = true;
             TxtRemoveIngredients.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtRemoveIngredients.Location = new Point(496, 93);
+            TxtRemoveIngredients.Location = new Point(522, 75);
             TxtRemoveIngredients.Name = "TxtRemoveIngredients";
-            TxtRemoveIngredients.Size = new Size(170, 21);
+            TxtRemoveIngredients.Size = new Size(212, 28);
             TxtRemoveIngredients.TabIndex = 7;
             TxtRemoveIngredients.Text = "Removable Ingredients";
             // 
             // BtnBack
             // 
-            BtnBack.Location = new Point(11, 569);
+            BtnBack.Location = new Point(13, 759);
             BtnBack.Margin = new Padding(2, 1, 2, 1);
             BtnBack.Name = "BtnBack";
-            BtnBack.Size = new Size(81, 22);
+            BtnBack.Size = new Size(93, 29);
             BtnBack.TabIndex = 1;
             BtnBack.Text = "Back";
             BtnBack.UseVisualStyleBackColor = true;
@@ -77,10 +76,10 @@
             // 
             // BtnAddMenuItem
             // 
-            BtnAddMenuItem.Location = new Point(573, 534);
+            BtnAddMenuItem.Location = new Point(659, 724);
             BtnAddMenuItem.Margin = new Padding(2, 1, 2, 1);
             BtnAddMenuItem.Name = "BtnAddMenuItem";
-            BtnAddMenuItem.Size = new Size(128, 48);
+            BtnAddMenuItem.Size = new Size(146, 64);
             BtnAddMenuItem.TabIndex = 3;
             BtnAddMenuItem.Text = "Add Menu Item";
             BtnAddMenuItem.UseVisualStyleBackColor = true;
@@ -89,30 +88,33 @@
             // ListBAddIngredients
             // 
             ListBAddIngredients.FormattingEnabled = true;
-            ListBAddIngredients.ItemHeight = 15;
+            ListBAddIngredients.ItemHeight = 20;
             ListBAddIngredients.Items.AddRange(new object[] { "Cheese (+$1)", "Bacon (+$2)" });
-            ListBAddIngredients.Location = new Point(28, 127);
+            ListBAddIngredients.Location = new Point(32, 129);
+            ListBAddIngredients.Margin = new Padding(3, 4, 3, 4);
             ListBAddIngredients.Name = "ListBAddIngredients";
-            ListBAddIngredients.Size = new Size(248, 349);
+            ListBAddIngredients.Size = new Size(381, 464);
             ListBAddIngredients.TabIndex = 4;
             ListBAddIngredients.SelectedIndexChanged += ListBAddIngredients_SelectedIndexChanged;
             // 
             // ListBRemoveIngredients
             // 
             ListBRemoveIngredients.FormattingEnabled = true;
-            ListBRemoveIngredients.ItemHeight = 15;
+            ListBRemoveIngredients.ItemHeight = 20;
             ListBRemoveIngredients.Items.AddRange(new object[] { "Tomato", "BBQ Sauce", "Lettuce" });
-            ListBRemoveIngredients.Location = new Point(453, 127);
+            ListBRemoveIngredients.Location = new Point(462, 129);
+            ListBRemoveIngredients.Margin = new Padding(3, 4, 3, 4);
             ListBRemoveIngredients.Name = "ListBRemoveIngredients";
-            ListBRemoveIngredients.Size = new Size(248, 349);
+            ListBRemoveIngredients.Size = new Size(343, 464);
             ListBRemoveIngredients.TabIndex = 5;
             ListBRemoveIngredients.SelectedIndexChanged += ListBRemoveIngredients_SelectedIndexChanged;
             // 
             // BtnAddIngredient
             // 
-            BtnAddIngredient.Location = new Point(311, 173);
+            BtnAddIngredient.Location = new Point(32, 601);
+            BtnAddIngredient.Margin = new Padding(3, 4, 3, 4);
             BtnAddIngredient.Name = "BtnAddIngredient";
-            BtnAddIngredient.Size = new Size(103, 23);
+            BtnAddIngredient.Size = new Size(381, 47);
             BtnAddIngredient.TabIndex = 8;
             BtnAddIngredient.Text = "Add Ingredient";
             BtnAddIngredient.UseVisualStyleBackColor = true;
@@ -120,9 +122,10 @@
             // 
             // BtnRemoveIngredient
             // 
-            BtnRemoveIngredient.Location = new Point(311, 223);
+            BtnRemoveIngredient.Location = new Point(462, 601);
+            BtnRemoveIngredient.Margin = new Padding(3, 4, 3, 4);
             BtnRemoveIngredient.Name = "BtnRemoveIngredient";
-            BtnRemoveIngredient.Size = new Size(103, 41);
+            BtnRemoveIngredient.Size = new Size(343, 47);
             BtnRemoveIngredient.TabIndex = 9;
             BtnRemoveIngredient.Text = "Remove Ingredient";
             BtnRemoveIngredient.UseVisualStyleBackColor = true;
@@ -130,51 +133,45 @@
             // 
             // TxtBMenuItem
             // 
+            TxtBMenuItem.BorderStyle = BorderStyle.None;
             TxtBMenuItem.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBMenuItem.Location = new Point(322, 33);
+            TxtBMenuItem.Location = new Point(32, 13);
+            TxtBMenuItem.Margin = new Padding(3, 4, 3, 4);
             TxtBMenuItem.Name = "TxtBMenuItem";
             TxtBMenuItem.ReadOnly = true;
-            TxtBMenuItem.Size = new Size(263, 39);
+            TxtBMenuItem.Size = new Size(773, 40);
             TxtBMenuItem.TabIndex = 16;
-            // 
-            // TxtMenuItem
-            // 
-            TxtMenuItem.AutoSize = true;
-            TxtMenuItem.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtMenuItem.Location = new Point(167, 33);
-            TxtMenuItem.Name = "TxtMenuItem";
-            TxtMenuItem.Size = new Size(137, 32);
-            TxtMenuItem.TabIndex = 15;
-            TxtMenuItem.Text = "Menu Item:";
+            TxtBMenuItem.Text = "Menu Item Name";
+            TxtBMenuItem.TextAlign = HorizontalAlignment.Center;
             // 
             // TxtBTotal
             // 
             TxtBTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBTotal.Location = new Point(328, 540);
+            TxtBTotal.Location = new Point(140, 656);
+            TxtBTotal.Margin = new Padding(3, 4, 3, 4);
             TxtBTotal.Name = "TxtBTotal";
             TxtBTotal.ReadOnly = true;
-            TxtBTotal.Size = new Size(135, 33);
+            TxtBTotal.Size = new Size(665, 39);
             TxtBTotal.TabIndex = 28;
             // 
             // TxtTotal
             // 
             TxtTotal.AutoSize = true;
             TxtTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtTotal.Location = new Point(251, 543);
+            TxtTotal.Location = new Point(36, 659);
             TxtTotal.Name = "TxtTotal";
-            TxtTotal.Size = new Size(71, 25);
+            TxtTotal.Size = new Size(70, 32);
             TxtTotal.TabIndex = 27;
-            TxtTotal.Text = "Total: $";
+            TxtTotal.Text = "Total:";
             // 
             // IngredientsView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(730, 601);
+            ClientSize = new Size(834, 801);
             Controls.Add(TxtBTotal);
             Controls.Add(TxtTotal);
             Controls.Add(TxtBMenuItem);
-            Controls.Add(TxtMenuItem);
             Controls.Add(BtnRemoveIngredient);
             Controls.Add(BtnAddIngredient);
             Controls.Add(TxtRemoveIngredients);
@@ -183,6 +180,7 @@
             Controls.Add(ListBAddIngredients);
             Controls.Add(BtnAddMenuItem);
             Controls.Add(BtnBack);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "IngredientsView";
             Text = "IngredientsView";
             ResumeLayout(false);
@@ -198,7 +196,6 @@
         private Button BtnAddIngredient;
         private Button BtnRemoveIngredient;
         private TextBox TxtBMenuItem;
-        private Label TxtMenuItem;
         private TextBox TxtBTotal;
         private Label TxtTotal;
     }

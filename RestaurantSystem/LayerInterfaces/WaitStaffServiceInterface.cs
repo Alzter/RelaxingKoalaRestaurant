@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RestaurantSystem.Service;
+using RestaurantSystem.Services;
 
 namespace RestaurantSystem
 {
@@ -45,6 +46,16 @@ namespace RestaurantSystem
         public static void RemoveItem(Order o, int index)
         {
             CreateOrderService.RemoveItem(o, index);
+        }
+
+        public static void AddIngredient(Order o, MenuItem m, Ingredient i)
+        {
+            IngredientService.AddIngredient(o, m, i);
+        }
+
+        public static void RemoveIngredient(Order o, MenuItem m, Ingredient i)
+        {
+            IngredientService.RemoveIngredient(o, m, i);
         }
 
         public static List<Order> GetOrdersByStatus(OrderStatus status)
