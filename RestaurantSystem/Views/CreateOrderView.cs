@@ -32,22 +32,23 @@ namespace RestaurantSystem
             MenuBox.DataSource = new List<String> { "Dine-in", "Take-away" };
 
             this.Activated += CreateOrderView_Shown;
-            this.Deactivate += CreateOrderView_Hidden;
+            //this.Deactivate += CreateOrderView_Hidden;
         }
 
         public void CreateOrderView_Shown(object sender, EventArgs e)
         {
+            if (_order != null) return;
             //Console.WriteLine("Create order");
             _order = WaitStaffServiceInterface.CreateTakeAwayOrder(new List<MenuItem> { });
             UpdateListBMenu();
             UpdateListBOrder();
         }
 
-        public void CreateOrderView_Hidden(object sender, EventArgs e)
-        {
-            //Console.WriteLine("Delete order");
-            _order = null; // Delete the order since we don't need it anymore.
-        }
+        //public void CreateOrderView_Hidden(object sender, EventArgs e)
+        //{
+        //    //Console.WriteLine("Delete order");
+        //    _order = null; // Delete the order since we don't need it anymore.
+        //}
 
         private void MenuBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -90,6 +91,7 @@ namespace RestaurantSystem
         private void BtnBack_Click(object sender, EventArgs e)
         {
             _userInterface.StateMachine.PopState();
+            _order = null; // Delete the order since we don't need it anymore.
         }
 
         // Create Order
@@ -103,6 +105,7 @@ namespace RestaurantSystem
         // Go to Ingredients View
         private void BtnIngredients_Click(object sender, EventArgs e)
         {
+            if (ListBOrder.SelectedItem == null) return;
             _userInterface.StateFactory.IngredientsView.ReceiveMenuItem(_order.GetItem(ListBOrder.SelectedIndex));
             _userInterface.StateMachine.PushState(_userInterface.StateFactory.IngredientsView);
         }
@@ -144,6 +147,15 @@ namespace RestaurantSystem
             if (ListBOrder.SelectedItem == null) { return; }
 
             ListBMenu.SelectedItem = null; // Deselect any selected Order Items.
+        }
+
+        private void TxtBTotal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtTotal_Click(object sender, EventArgs e)
+        {
         }
     }
 }

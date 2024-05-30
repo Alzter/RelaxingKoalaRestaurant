@@ -57,17 +57,18 @@
             // 
             TxtTotal.AutoSize = true;
             TxtTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtTotal.Location = new Point(624, 499);
+            TxtTotal.Location = new Point(493, 534);
             TxtTotal.Name = "TxtTotal";
-            TxtTotal.Size = new Size(90, 32);
+            TxtTotal.Size = new Size(70, 32);
             TxtTotal.TabIndex = 22;
-            TxtTotal.Text = "Total: $";
+            TxtTotal.Text = "Total:";
+            TxtTotal.Click += TxtTotal_Click;
             // 
             // TxtMenu
             // 
             TxtMenu.AutoSize = true;
             TxtMenu.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtMenu.Location = new Point(26, 47);
+            TxtMenu.Location = new Point(26, 20);
             TxtMenu.Name = "TxtMenu";
             TxtMenu.Size = new Size(95, 41);
             TxtMenu.TabIndex = 20;
@@ -75,10 +76,10 @@
             // 
             // BtnCreateOrder
             // 
-            BtnCreateOrder.Location = new Point(663, 565);
+            BtnCreateOrder.Location = new Point(686, 578);
             BtnCreateOrder.Margin = new Padding(3, 4, 3, 4);
             BtnCreateOrder.Name = "BtnCreateOrder";
-            BtnCreateOrder.Size = new Size(185, 31);
+            BtnCreateOrder.Size = new Size(200, 55);
             BtnCreateOrder.TabIndex = 17;
             BtnCreateOrder.Text = "Create Order";
             BtnCreateOrder.UseVisualStyleBackColor = true;
@@ -86,10 +87,10 @@
             // 
             // BtnRemoveFromOrder
             // 
-            BtnRemoveFromOrder.Location = new Point(416, 237);
+            BtnRemoveFromOrder.Location = new Point(493, 485);
             BtnRemoveFromOrder.Margin = new Padding(3, 4, 3, 4);
             BtnRemoveFromOrder.Name = "BtnRemoveFromOrder";
-            BtnRemoveFromOrder.Size = new Size(152, 31);
+            BtnRemoveFromOrder.Size = new Size(185, 36);
             BtnRemoveFromOrder.TabIndex = 16;
             BtnRemoveFromOrder.Text = "Remove From Order";
             BtnRemoveFromOrder.UseVisualStyleBackColor = true;
@@ -97,10 +98,10 @@
             // 
             // BtnAddToOrder
             // 
-            BtnAddToOrder.Location = new Point(432, 176);
+            BtnAddToOrder.Location = new Point(26, 485);
             BtnAddToOrder.Margin = new Padding(3, 4, 3, 4);
             BtnAddToOrder.Name = "BtnAddToOrder";
-            BtnAddToOrder.Size = new Size(118, 31);
+            BtnAddToOrder.Size = new Size(427, 36);
             BtnAddToOrder.TabIndex = 15;
             BtnAddToOrder.Text = "Add To Order";
             BtnAddToOrder.UseVisualStyleBackColor = true;
@@ -111,10 +112,10 @@
             ListBOrder.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ListBOrder.FormattingEnabled = true;
             ListBOrder.ItemHeight = 28;
-            ListBOrder.Location = new Point(606, 125);
+            ListBOrder.Location = new Point(493, 79);
             ListBOrder.Margin = new Padding(3, 4, 3, 4);
             ListBOrder.Name = "ListBOrder";
-            ListBOrder.Size = new Size(279, 340);
+            ListBOrder.Size = new Size(393, 396);
             ListBOrder.TabIndex = 14;
             ListBOrder.SelectedIndexChanged += ListBOrder_SelectedIndexChanged;
             // 
@@ -124,10 +125,10 @@
             ListBMenu.FormattingEnabled = true;
             ListBMenu.ItemHeight = 28;
             ListBMenu.Items.AddRange(new object[] { "Burger", "Fries", "Soda", "Lasagna", "Salad" });
-            ListBMenu.Location = new Point(26, 121);
+            ListBMenu.Location = new Point(26, 79);
             ListBMenu.Margin = new Padding(3, 4, 3, 4);
             ListBMenu.Name = "ListBMenu";
-            ListBMenu.Size = new Size(353, 340);
+            ListBMenu.Size = new Size(427, 396);
             ListBMenu.TabIndex = 13;
             ListBMenu.SelectedIndexChanged += ListBMenu_SelectedIndexChanged;
             // 
@@ -135,7 +136,7 @@
             // 
             TxtOrder.AutoSize = true;
             TxtOrder.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtOrder.Location = new Point(673, 47);
+            TxtOrder.Location = new Point(610, 20);
             TxtOrder.Name = "TxtOrder";
             TxtOrder.Size = new Size(163, 41);
             TxtOrder.TabIndex = 25;
@@ -144,19 +145,20 @@
             // TxtBTotal
             // 
             TxtBTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBTotal.Location = new Point(712, 495);
+            TxtBTotal.Location = new Point(569, 531);
             TxtBTotal.Margin = new Padding(3, 4, 3, 4);
             TxtBTotal.Name = "TxtBTotal";
             TxtBTotal.ReadOnly = true;
-            TxtBTotal.Size = new Size(154, 39);
+            TxtBTotal.Size = new Size(317, 39);
             TxtBTotal.TabIndex = 26;
+            TxtBTotal.TextChanged += TxtBTotal_TextChanged;
             // 
             // BtnIngredients
             // 
-            BtnIngredients.Location = new Point(416, 308);
+            BtnIngredients.Location = new Point(701, 485);
             BtnIngredients.Margin = new Padding(3, 4, 3, 4);
             BtnIngredients.Name = "BtnIngredients";
-            BtnIngredients.Size = new Size(152, 31);
+            BtnIngredients.Size = new Size(185, 38);
             BtnIngredients.TabIndex = 27;
             BtnIngredients.Text = "Alter Ingredients";
             BtnIngredients.UseVisualStyleBackColor = true;
@@ -165,7 +167,7 @@
             // MenuBox
             // 
             MenuBox.FormattingEnabled = true;
-            MenuBox.Location = new Point(140, 60);
+            MenuBox.Location = new Point(140, 33);
             MenuBox.Name = "MenuBox";
             MenuBox.Size = new Size(239, 28);
             MenuBox.TabIndex = 28;

@@ -167,6 +167,7 @@
             OrderStatusBox.Name = "OrderStatusBox";
             OrderStatusBox.Size = new Size(170, 28);
             OrderStatusBox.TabIndex = 25;
+            OrderStatusBox.SelectedIndexChanged += OrderStatusBox_SelectedIndexChanged;
             // 
             // TxtTotal
             // 

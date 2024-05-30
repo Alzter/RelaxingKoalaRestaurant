@@ -51,11 +51,12 @@ namespace RestaurantSystem
         {
             get
             {
+                if (ListBOrders.SelectedIndex == -1) return null;
                 return Orders[ListBOrders.SelectedIndex];
             }
         }
 
-        private List<MenuItem> SelectedOrderItems { get { return SelectedOrder.Items; } }
+        private List<MenuItem> SelectedOrderItems { get { return SelectedOrder == null ? null : SelectedOrder.Items; } }
         private List<String> SelectedOrderItemStrings
         {
             get
@@ -68,6 +69,8 @@ namespace RestaurantSystem
                 return strings;
             }
         }
+
+        private String SelectedOrderPrice { get { return SelectedOrder == null ? null : SelectedOrder.Price.ToString("C"); } }
 
         private List<String> OrderStatusStrings
         {
@@ -90,7 +93,12 @@ namespace RestaurantSystem
 
         public void UpdateListBOrders()
         {
+            int index = ListBOrders.SelectedIndex;
             ListBOrders.DataSource = OrderStrings;
+
+            int newIndex = Math.Clamp(index, 0, ListBOrders.Items.Count);
+
+            ListBOrders.SelectedIndex = newIndex;
         }
 
         // Go to previous View
@@ -116,44 +124,26 @@ namespace RestaurantSystem
             // Update the ListBox to show the MenuItems in the Order
             ListBOrderItems.DataSource = SelectedOrderItemStrings;
 
-            // Update ComboBox to show Order Status
-            //OrderStatusBox.
+            // Update Order Status Combo Box to have the selected Order's status.
+            OrderStatusBox.SelectedIndex = (int)SelectedOrder.Status;
 
             // Update TextBox to show Order Price Total
+            TxtBTotal.Text = SelectedOrderPrice;
         }
 
-        // Change order selected's status to InProgress
-        private void BtnInProgress_Click(object sender, EventArgs e)
+        private void OrderStatusBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //_orderSelected.Status = OrderStatus.InProgress;
-        }
+            if (SelectedOrder == null) return;
 
-        // Change order selected's status to Waiting
-        private void BtnWaiting_Click(object sender, EventArgs e)
-        {
-            //_orderSelected.Status = OrderStatus.Waiting;
-        }
+            int index = OrderStatusBox.SelectedIndex;
+            OrderStatus selectedStatus = (OrderStatus)index;
 
-        // Change order selected's status to Ready
-        private void BtnReady_Click(object sender, EventArgs e)
-        {
-            //_orderSelected.Status = OrderStatus.Ready;
-        }
+            // Do nothing if the Order Status of the Order is equal to the Order Status of the Combo Box.
+            if (SelectedOrder.Status == selectedStatus) return;
 
-        // Change order selected's status to Served
-        private void BtnServed_Click(object sender, EventArgs e)
-        {
-            //_orderSelected.Status = OrderStatus.Served;
-        }
-
-        private void TxtTotal_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            //TODO: Change the status of the order to the selected status.
+            WaitStaffServiceInterface.SetOrderStatus(SelectedOrder, selectedStatus);
+            UpdateListBOrders();
         }
     }
 }
