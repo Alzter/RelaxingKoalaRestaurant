@@ -40,6 +40,8 @@
             TxtBTotal = new TextBox();
             BtnIngredients = new Button();
             MenuBox = new ComboBox();
+            label1 = new Label();
+            TableNumberBox = new ComboBox();
             SuspendLayout();
             // 
             // BtnBack
@@ -57,7 +59,7 @@
             // 
             TxtTotal.AutoSize = true;
             TxtTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtTotal.Location = new Point(493, 534);
+            TxtTotal.Location = new Point(493, 521);
             TxtTotal.Name = "TxtTotal";
             TxtTotal.Size = new Size(70, 32);
             TxtTotal.TabIndex = 22;
@@ -87,7 +89,7 @@
             // 
             // BtnRemoveFromOrder
             // 
-            BtnRemoveFromOrder.Location = new Point(493, 485);
+            BtnRemoveFromOrder.Location = new Point(493, 455);
             BtnRemoveFromOrder.Margin = new Padding(3, 4, 3, 4);
             BtnRemoveFromOrder.Name = "BtnRemoveFromOrder";
             BtnRemoveFromOrder.Size = new Size(185, 36);
@@ -98,7 +100,7 @@
             // 
             // BtnAddToOrder
             // 
-            BtnAddToOrder.Location = new Point(26, 485);
+            BtnAddToOrder.Location = new Point(26, 455);
             BtnAddToOrder.Margin = new Padding(3, 4, 3, 4);
             BtnAddToOrder.Name = "BtnAddToOrder";
             BtnAddToOrder.Size = new Size(427, 36);
@@ -115,7 +117,7 @@
             ListBOrder.Location = new Point(493, 79);
             ListBOrder.Margin = new Padding(3, 4, 3, 4);
             ListBOrder.Name = "ListBOrder";
-            ListBOrder.Size = new Size(393, 396);
+            ListBOrder.Size = new Size(393, 368);
             ListBOrder.TabIndex = 14;
             ListBOrder.SelectedIndexChanged += ListBOrder_SelectedIndexChanged;
             // 
@@ -128,7 +130,7 @@
             ListBMenu.Location = new Point(26, 79);
             ListBMenu.Margin = new Padding(3, 4, 3, 4);
             ListBMenu.Name = "ListBMenu";
-            ListBMenu.Size = new Size(427, 396);
+            ListBMenu.Size = new Size(427, 368);
             ListBMenu.TabIndex = 13;
             ListBMenu.SelectedIndexChanged += ListBMenu_SelectedIndexChanged;
             // 
@@ -145,7 +147,7 @@
             // TxtBTotal
             // 
             TxtBTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBTotal.Location = new Point(569, 531);
+            TxtBTotal.Location = new Point(569, 518);
             TxtBTotal.Margin = new Padding(3, 4, 3, 4);
             TxtBTotal.Name = "TxtBTotal";
             TxtBTotal.ReadOnly = true;
@@ -155,7 +157,7 @@
             // 
             // BtnIngredients
             // 
-            BtnIngredients.Location = new Point(701, 485);
+            BtnIngredients.Location = new Point(701, 455);
             BtnIngredients.Margin = new Padding(3, 4, 3, 4);
             BtnIngredients.Name = "BtnIngredients";
             BtnIngredients.Size = new Size(185, 38);
@@ -169,15 +171,36 @@
             MenuBox.FormattingEnabled = true;
             MenuBox.Location = new Point(140, 33);
             MenuBox.Name = "MenuBox";
-            MenuBox.Size = new Size(239, 28);
+            MenuBox.Size = new Size(313, 28);
             MenuBox.TabIndex = 28;
             MenuBox.SelectedIndexChanged += MenuBox_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(26, 518);
+            label1.Name = "label1";
+            label1.Size = new Size(211, 41);
+            label1.TabIndex = 29;
+            label1.Text = "Table Number:";
+            // 
+            // TableNumberBox
+            // 
+            TableNumberBox.FormattingEnabled = true;
+            TableNumberBox.Location = new Point(243, 525);
+            TableNumberBox.Name = "TableNumberBox";
+            TableNumberBox.Size = new Size(210, 28);
+            TableNumberBox.TabIndex = 30;
+            TableNumberBox.SelectedIndexChanged += TableNumberBox_SelectedIndexChanged;
             // 
             // CreateOrderView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(922, 647);
+            Controls.Add(TableNumberBox);
+            Controls.Add(label1);
             Controls.Add(MenuBox);
             Controls.Add(BtnIngredients);
             Controls.Add(TxtBTotal);
@@ -211,5 +234,7 @@
         private TextBox TxtBTotal;
         private Button BtnIngredients;
         private ComboBox MenuBox;
+        private Label label1;
+        private ComboBox TableNumberBox;
     }
 }

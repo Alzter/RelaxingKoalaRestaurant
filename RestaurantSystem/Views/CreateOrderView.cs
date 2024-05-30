@@ -24,12 +24,26 @@ namespace RestaurantSystem
 
         private Order _order;
 
+        private List<String> TableNumbers
+        {
+            get
+            {
+                List<String> numbers = new List<String>();
+                foreach (Table t in WaitStaffServiceInterface.GetFreeTables(DateTime.Now))
+                {
+                    numbers.Add(t.Number.ToString());
+                }
+                return numbers;
+            }
+        }
+
         public CreateOrderView(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;
 
             MenuBox.DataSource = new List<String> { "Dine-in", "Take-away" };
+            TableNumberBox.DataSource = TableNumbers;
 
             this.Activated += CreateOrderView_Shown;
             //this.Deactivate += CreateOrderView_Hidden;
@@ -43,8 +57,12 @@ namespace RestaurantSystem
                 UpdateListBOrder();
                 return;
             }
+
+            int tableNum = WaitStaffServiceInterface.GetFreeTables(DateTime.Now).First().Number;
+            TableNumberBox.DataSource = TableNumbers;
+
             //Console.WriteLine("Create order");
-            _order = WaitStaffServiceInterface.CreateTakeAwayOrder(new List<MenuItem> { });
+            _order = WaitStaffServiceInterface.CreateDineInOrder(new List<MenuItem> { }, tableNum);
             UpdateListBMenu();
             UpdateListBOrder();
         }
@@ -161,6 +179,17 @@ namespace RestaurantSystem
 
         private void TxtTotal_Click(object sender, EventArgs e)
         {
+        }
+
+        private void TableNumberBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_order == null) return;
+
+            if (TableNumberBox.SelectedItem == null) return;
+
+            int selectedTableNumber = Int32.Parse(TableNumberBox.SelectedItem.ToString());
+
+            _order.TableNumber = selectedTableNumber;
         }
     }
 }

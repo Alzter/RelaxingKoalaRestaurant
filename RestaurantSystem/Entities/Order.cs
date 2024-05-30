@@ -129,6 +129,10 @@ namespace RestaurantSystem
                 //if (_tableNumber == null) { throw new NullReferenceException("Order does not have a table number."); }
                 return _tableNumber;
             }
+            set
+            {
+                _tableNumber = value;
+            }
         }
 
         public int ID { get { return _id; } }
