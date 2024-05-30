@@ -49,6 +49,22 @@
       "basePrice": 2.0
     },
     {
+      "name": "Beef Patty",
+      "basePrice": 0.0
+    },
+    {
+      "name": "Vegetable Patty",
+      "basePrice": 0.0
+    },
+    {
+      "name": "Minced Beef Filling",
+      "basePrice": 0.0
+    },
+    {
+      "name": "Roasted Vegetable Filling",
+      "basePrice": 0.0
+    },
+    {
       "name": "Pasta",
       "basePrice": 6.0
     }
@@ -66,8 +82,8 @@
         {
           "name": "Burger",
           "basePrice": 14.0,
-          "addableIngredients": [ "Cheese", "Pineapple" ],
-          "removableIngredients": [ "Tomato", "Lettuce", "Onion", "Pickles", "Mayo" ]
+          "addableIngredients": [ "Cheese", "Pineapple", "Vegetable Patty" ],
+          "removableIngredients": [ "Tomato", "Lettuce", "Onion", "Pickles", "Mayo", "Beef Patty" ]
         }
       ]
     },
@@ -83,14 +99,14 @@
         {
           "name": "Gourmet Burger",
           "basePrice": 12.0,
-          "addableIngredients": [ "Cheese", "Pineapple" ],
-          "removableIngredients": [ "Tomato", "Lettuce", "Onion", "Pickles", "Mayo" ]
+          "addableIngredients": [ "Cheese", "Pineapple", "Vegetable Patty" ],
+          "removableIngredients": [ "Tomato", "Lettuce", "Onion", "Pickles", "Mayo", "Beef Patty" ]
         },
         {
           "name": "Lasagna",
           "basePrice": 18.0,
-          "addableIngredients": [ "Eggplant" ],
-          "removableIngredients": [ "Pasta", "Cheese" ]
+          "addableIngredients": [ "Eggplant", "Roasted Vegetable Filling" ],
+          "removableIngredients": [ "Pasta", "Cheese", "Minced Beef Filling" ]
         }
       ]
     }
