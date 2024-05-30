@@ -60,7 +60,5 @@ namespace RestaurantSystem
         {
             get { return _items; }
         }
-
-
     }
 }

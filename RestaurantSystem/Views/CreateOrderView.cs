@@ -45,7 +45,7 @@ namespace RestaurantSystem
         {
             List<MenuItem> items = container.Items;
             List<String> strings = new List<String>();
-            foreach (MenuItem m in items) { strings.Add(m.Name); }
+            foreach (MenuItem m in items) { strings.Add($"{m.Name}: {m.Price.ToString("C")}"); }
             return strings;
         }
 
@@ -53,11 +53,18 @@ namespace RestaurantSystem
         private void UpdateListBMenu()
         {
             ListBMenu.DataSource = GetMenuItemStrings(SelectedMenu);
+            UpdateTotalPrice();
         }
 
         private void UpdateListBOrder()
         {
             ListBOrder.DataSource = GetMenuItemStrings(order);
+            UpdateTotalPrice();
+        }
+
+        private void UpdateTotalPrice()
+        {
+            TxtBTotal.Text = order.Price.ToString("C");
         }
 
         // Return to WaitStaff View
