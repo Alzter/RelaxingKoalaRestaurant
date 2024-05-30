@@ -13,7 +13,7 @@ namespace RestaurantSystem
         {
             get
             {
-                throw new NotImplementedException();
+                return Menus.Find((Menu m) => { return m.Name.ToLower().Replace("-", "").Replace(" ", "").Trim() == "takeaway"; });
             }
         }
 
@@ -21,7 +21,7 @@ namespace RestaurantSystem
         {
             get
             {
-                throw new NotImplementedException();
+                return Menus.Find((Menu m) => { return m.Name.ToLower().Replace("-", "").Replace(" ", "").Trim() == "dinein"; });
             }
         }
 
