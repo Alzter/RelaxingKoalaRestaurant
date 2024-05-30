@@ -129,6 +129,8 @@ namespace RestaurantSystem
 
             // Update TextBox to show Order Price Total
             TxtBTotal.Text = SelectedOrderPrice;
+
+            BtnHandlePayment.Enabled = !SelectedOrder.IsPaid;
         }
 
         private void OrderStatusBox_SelectedIndexChanged(object sender, EventArgs e)
