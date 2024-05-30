@@ -85,12 +85,17 @@ namespace RestaurantSystem
         // On selection of MenuItem in Menu List
         private void ListBMenu_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (ListBMenu.SelectedItem == null) { return; }
+
+            ListBOrder.SelectedItem = null; // Deselect any selected Menu Items.
         }
 
         // On selection of MenuItem in New Order List
         private void ListBOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (ListBOrder.SelectedItem == null) { return; }
 
+            ListBMenu.SelectedItem = null; // Deselect any selected Order Items.
         }
     }
 }
