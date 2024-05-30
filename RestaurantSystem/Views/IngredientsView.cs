@@ -16,6 +16,11 @@ namespace RestaurantSystem.Views
         private UserInterface _userInterface;
         private MenuItem _item;
 
+        private Ingredient SelectedIngredient
+        {
+            get { return null; }
+        }
+
         public IngredientsView(UserInterface userInterface)
         {
             InitializeComponent();
@@ -70,8 +75,9 @@ namespace RestaurantSystem.Views
             if (ListBAddIngredients.SelectedItems.Count != 0)
             {
                 // Update the UI
-                ListBRemoveIngredients.Items.Add(ListBAddIngredients.SelectedItem);
-                ListBAddIngredients.Items.Remove(ListBAddIngredients.SelectedItem);
+                //WaitStaffServiceInterface.AddItem(o, )
+                //ListBRemoveIngredients.Items.Add(ListBAddIngredients.SelectedItem);
+                //ListBAddIngredients.Items.Remove(ListBAddIngredients.SelectedItem);
             }
         }
 
@@ -81,8 +87,8 @@ namespace RestaurantSystem.Views
             if (ListBRemoveIngredients.SelectedItems.Count != 0)
             {
                 // Update the UI
-                ListBAddIngredients.Items.Add(ListBRemoveIngredients.SelectedItem);
-                ListBRemoveIngredients.Items.Remove(ListBRemoveIngredients.SelectedItem);
+                //ListBAddIngredients.Items.Add(ListBRemoveIngredients.SelectedItem);
+                //ListBRemoveIngredients.Items.Remove(ListBRemoveIngredients.SelectedItem);
             }       
         }
 
