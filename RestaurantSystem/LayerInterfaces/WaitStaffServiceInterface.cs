@@ -84,5 +84,7 @@ namespace RestaurantSystem
 
         public static List<Table> Tables { get { return ManageTablesService.Tables; } }
 
+        public static List<Order> Orders { get { return ManageOrdersService.Orders; } }
+
     }
 }

@@ -14,10 +14,45 @@ namespace RestaurantSystem
     {
         private UserInterface _userInterface;
 
+        private List<Order> Orders
+        {
+            get
+            {
+                return WaitStaffServiceInterface.Orders;
+            }
+        }
+
+        private List<String> OrderStrings
+        {
+            get
+            {
+                List<String> strings = new List<String>();
+
+                foreach (Order o in Orders)
+                {
+                    strings.Add($"Order {o.ID} - Table {o.TableNumber} - {o.Status.ToString()}");
+                }
+
+                return strings;
+            }
+        }
+
         public ManageOrdersView(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;
+            this.Activated += ManageOrdersView_Shown;
+            //this.Deactivate += CreateOrderView_Hidden;
+        }
+
+        public void ManageOrdersView_Shown(object sender, EventArgs e)
+        {
+            UpdateListBOrders();
+        }
+
+        public void UpdateListBOrders()
+        {
+            ListBOrders.DataSource = OrderStrings;
         }
 
         // Go to previous View
