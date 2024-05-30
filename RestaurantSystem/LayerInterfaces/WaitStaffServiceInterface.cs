@@ -42,6 +42,11 @@ namespace RestaurantSystem
             CreateOrderService.AddItem(o, m);
         }
 
+        public static void RemoveItem(Order o, int index)
+        {
+            CreateOrderService.RemoveItem(o, index);
+        }
+
         public static List<Order> GetOrdersByStatus(OrderStatus status)
         {
             return ManageOrdersService.GetOrdersByStatus(status);

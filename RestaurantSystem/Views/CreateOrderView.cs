@@ -20,18 +20,33 @@ namespace RestaurantSystem
         private Menu SelectedMenu { get { return Menus[MenuBox.SelectedIndex]; } }
 
         private MenuItem SelectedMenuItem { get { return SelectedMenu.GetItem(ListBMenu.SelectedIndex); } }
+        private MenuItem SelectedOrderItem { get { return order.GetItem(ListBOrder.SelectedIndex); } }
 
         private Order order;
 
         public CreateOrderView(UserInterface userInterface)
         {
-            order = WaitStaffServiceInterface.CreateTakeAwayOrder(new List<MenuItem> { });
-
             InitializeComponent();
             _userInterface = userInterface;
 
             MenuBox.DataSource = new List<String> { "Dine-in", "Take-away" };
+
+            this.Activated += CreateOrderView_Shown;
+            this.Deactivate += CreateOrderView_Hidden;
+        }
+
+        public void CreateOrderView_Shown(object sender, EventArgs e)
+        {
+            Console.WriteLine("Create order");
+            order = WaitStaffServiceInterface.CreateTakeAwayOrder(new List<MenuItem> { });
             UpdateListBMenu();
+            UpdateListBOrder();
+        }
+
+        public void CreateOrderView_Hidden(object sender, EventArgs e)
+        {
+            Console.WriteLine("Delete order");
+            order = null; // Delete the order since we don't need it anymore.
         }
 
         private void MenuBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,7 +59,7 @@ namespace RestaurantSystem
         {
             List<MenuItem> items = container.Items;
             List<String> strings = new List<String>();
-            foreach (MenuItem m in items) { strings.Add(m.Name); }
+            foreach (MenuItem m in items) { strings.Add($"{m.Name}: {m.Price.ToString("C")}"); }
             return strings;
         }
 
@@ -56,7 +71,14 @@ namespace RestaurantSystem
 
         private void UpdateListBOrder()
         {
+            if (order == null) return;
             ListBOrder.DataSource = GetMenuItemStrings(order);
+            UpdateTotalPrice();
+        }
+
+        private void UpdateTotalPrice()
+        {
+            TxtBTotal.Text = order.Price.ToString("C");
         }
 
         // Return to WaitStaff View
@@ -80,23 +102,24 @@ namespace RestaurantSystem
         // Add MenuItem to order
         private void BtnAddToOrder_Click(object sender, EventArgs e)
         {
-            // Update UI
+            if (ListBMenu.SelectedItem == null) return;
 
             WaitStaffServiceInterface.AddItem(order, SelectedMenuItem);
             UpdateListBOrder();
-
-            //ListBOrder.Items.Add(ListBMenu.SelectedItem);
+            ListBOrder.SelectedIndex = ListBOrder.Items.Count - 1;
         }
 
         // Remove MenuItem from order
         private void BtnRemoveFromOrder_Click(object sender, EventArgs e)
         {
+            int index = Math.Clamp(ListBOrder.SelectedIndex - 1, 0, ListBOrder.SelectedItems.Count);
 
-            //WaitStaffServiceInterface.AddItem(order, SelectedMenuItem);
+            if (ListBOrder.SelectedItem == null) return;
+
+            WaitStaffServiceInterface.RemoveItem(order, ListBOrder.SelectedIndex);
             UpdateListBOrder();
 
-            // Update UI
-            //ListBOrder.Items.Remove(ListBOrder.SelectedItem);
+            if (ListBOrder.SelectedItems.Count > 0) ListBOrder.SelectedIndex = index;
         }
 
         // On selection of MenuItem in Menu List
