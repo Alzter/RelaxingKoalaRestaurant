@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -60,36 +61,52 @@ namespace RestaurantSystem
         {
             int index = ListBTables.SelectedIndex;
             _table = WaitStaffServiceInterface.Tables[index];
+
+            UpdateSelectedTable();
             // Console.WriteLine(TableNumber);
             // Console.WriteLine(_table.Status);
+        }
+
+        private void UpdateSelectedTable()
+        {
+            if (_table != null)
+            {
+                TxtBSelected.Text = TableNumber.ToString();
+                TxtBStatus.Text = _table.Status.ToString();
+            }
         }
 
         // Update Table Status to Empty
         private void BtnEmpty_Click(object sender, EventArgs e)
         {
-            if (TableNumber != null) { WaitStaffServiceInterface.UpdateTableStatus((int)TableNumber, TableStatus.Empty); }
-            ListBTables.DataSource = TableStrings;
+            UpdateTableStatus(TableNumber, TableStatus.Empty);
         }
 
         // Update Table Status to Occupied
         private void BtnOccupied_Click(object sender, EventArgs e)
         {
-            if (TableNumber != null) { WaitStaffServiceInterface.UpdateTableStatus((int)TableNumber, TableStatus.Occupied); }
-            ListBTables.DataSource = TableStrings;
+            UpdateTableStatus(TableNumber, TableStatus.Occupied);
         }
 
         // Update Table Status to NeedsCleaning
         private void BtnNeedsCleaning_Click(object sender, EventArgs e)
         {
-            if (TableNumber != null) { WaitStaffServiceInterface.UpdateTableStatus((int)TableNumber, TableStatus.NeedsCleaning); }
-            ListBTables.DataSource = TableStrings;
+            UpdateTableStatus(TableNumber, TableStatus.NeedsCleaning);
         }
 
         // Update Table Status to Reserved
         private void BtnReserved_Click(object sender, EventArgs e)
         {
-            if (TableNumber != null) { WaitStaffServiceInterface.UpdateTableStatus((int)TableNumber, TableStatus.Reserved); }
+            UpdateTableStatus(TableNumber, TableStatus.Reserved);
+        }
+
+        private void UpdateTableStatus(int? tableNumber, TableStatus status)
+        {
+            int index = ListBTables.SelectedIndex;
+            if (tableNumber != null) { WaitStaffServiceInterface.UpdateTableStatus((int)tableNumber, status); }
             ListBTables.DataSource = TableStrings;
+            ListBTables.SelectedIndex = index;
+            UpdateSelectedTable();
         }
     }
 }
