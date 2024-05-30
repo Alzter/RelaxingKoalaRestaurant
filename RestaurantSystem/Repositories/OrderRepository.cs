@@ -9,97 +9,137 @@ namespace RestaurantSystem.CRUDO
     {
         public static List<Order> LoadItems(string filePath)
         {
-            // Read the JSON file
-            var json = File.ReadAllText(filePath);
-
-            // Deserialize the JSON data
-            var data = JsonSerializer.Deserialize<JsonOrderData>(json);
-
-            // Create Order objects
-            var orders = new List<Order>();
-            foreach (var orderData in data.Orders)
+            try
             {
-                var items = new List<MenuItem>();
-                foreach (var menuItemData in orderData.Items)
+                // Read the JSON file
+                var json = File.ReadAllText(filePath);
+                Console.WriteLine("Loaded JSON data from file: " + json);
+
+                // Deserialize the JSON data
+                var data = JsonSerializer.Deserialize<JsonOrderData>(json);
+                Console.WriteLine("Deserialized JSON data.");
+
+                // Check for null data
+                if (data == null || data.Orders == null)
                 {
-                    var baseIngredients = new List<Ingredient>();
-                    foreach (var ingredientName in menuItemData.BaseIngredients)
+                    throw new NullReferenceException("Deserialized data is null.");
+                }
+
+                // Create Order objects
+                var orders = new List<Order>();
+                foreach (var orderData in data.Orders)
+                {
+                    if (orderData == null)
                     {
-                        baseIngredients.Add(new Ingredient(ingredientName));
+                        Console.WriteLine("Order data is null."); // debug
+                        continue;
                     }
 
-                    var menuItem = new MenuItem(menuItemData.Name, menuItemData.BasePrice, baseIngredients);
-                    items.Add(menuItem);
-                }
+                    var items = new List<MenuItem>();
+                    if (orderData.Items != null)
+                    {
+                        foreach (var menuItemData in orderData.Items)
+                        {
+                            if (menuItemData == null)
+                            {
+                                Console.WriteLine("Menu item data is null."); //debug
+                                continue;
+                            }
 
-                Order order;
-                // Have to handle potential null values
-                if (orderData.Address != null)
-                {
-                    order = new Order(items, orderData.ID, orderData.Address, Enum.Parse<OrderStatus>(orderData.Status), orderData.IsPaid, orderData.CreationTime, orderData.CompletionTime ?? default(DateTime));
-                }
-                else
-                {
-                    order = new Order(items, orderData.ID, orderData.TableNumber ?? 0, Enum.Parse<OrderStatus>(orderData.Status), orderData.IsPaid, orderData.CreationTime, orderData.CompletionTime ?? default(DateTime));
-                }
+                            var baseIngredients = new List<Ingredient>();
+                            foreach (var ingredientName in menuItemData.BaseIngredients)
+                            {
+                                baseIngredients.Add(new Ingredient(ingredientName));
+                            }
 
-                order.EstimatedCompletionTime = orderData.EstimatedCompletionTime;
+                            var menuItem = new MenuItem(menuItemData.Name, menuItemData.BasePrice, baseIngredients);
+                            items.Add(menuItem);
+                        }
+                    }
 
-                orders.Add(order);
+                    Order order;
+                    // Handle potential null values
+                    if (orderData.Address != null)
+                    {
+                        order = new Order(items, orderData.ID, orderData.Address, Enum.Parse<OrderStatus>(orderData.Status), orderData.IsPaid, orderData.CreationTime, orderData.CompletionTime ?? default(DateTime));
+                    }
+                    else
+                    {
+                        order = new Order(items, orderData.ID, orderData.TableNumber ?? 0, Enum.Parse<OrderStatus>(orderData.Status), orderData.IsPaid, orderData.CreationTime, orderData.CompletionTime ?? default(DateTime));
+                    }
+
+                    order.EstimatedCompletionTime = orderData.EstimatedCompletionTime;
+                    orders.Add(order);
+                }
+                Console.WriteLine("Created Order objects from deserialized data."); // debug
+                return orders;
             }
-
-            return orders;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading items: {ex.Message}"); // debug
+                throw;
+            }
         }
 
         public static void SaveItems(string filePath, List<Order> orders)
         {
-            // Convert orders to JSON orders
-            var jsonOrders = new List<JsonOrder>();
-
-            foreach (var order in orders)
+            try
             {
-                var jsonMenuItems = new List<JsonOrderMenuItem>();
+                // Convert orders to JSON orders
+                var jsonOrders = new List<JsonOrder>();
 
-                foreach (var menuItem in order.Items)
+                foreach (var order in orders)
                 {
-                    var baseIngredients = new List<string>();
+                    var jsonMenuItems = new List<JsonOrderMenuItem>();
 
-                    foreach (var ingredient in menuItem.Ingredients)
+                    foreach (var menuItem in order.Items)
                     {
-                        baseIngredients.Add(ingredient.Name);
+                        var baseIngredients = new List<string>();
+
+                        foreach (var ingredient in menuItem.Ingredients)
+                        {
+                            baseIngredients.Add(ingredient.Name);
+                        }
+
+                        jsonMenuItems.Add(new JsonOrderMenuItem
+                        {
+                            Name = menuItem.Name,
+                            BasePrice = menuItem.Price,
+                            BaseIngredients = baseIngredients
+                        });
                     }
 
-                    jsonMenuItems.Add(new JsonOrderMenuItem
+                    jsonOrders.Add(new JsonOrder
                     {
-                        Name = menuItem.Name,
-                        BasePrice = menuItem.Price,
-                        BaseIngredients = baseIngredients
+                        ID = order.ID,
+                        Status = order.Status.ToString(),
+                        CreationTime = order.CreationTime,
+                        EstimatedCompletionTime = order.EstimatedCompletionTime,
+                        CompletionTime = order.CompletionTime != default(DateTime) ? (DateTime?)order.CompletionTime : null, // Handle null completion time
+                        IsPaid = order.IsPaid,
+                        Address = order.Address,
+                        TableNumber = order.TableNumber,
+                        Items = jsonMenuItems
                     });
                 }
 
-                jsonOrders.Add(new JsonOrder
+                // Create JSON object
+                var data = new JsonOrderData
                 {
-                    ID = order.ID,
-                    Status = order.Status.ToString(),
-                    CreationTime = order.CreationTime,
-                    EstimatedCompletionTime = order.EstimatedCompletionTime,
-                    CompletionTime = order.CompletionTime != default(DateTime) ? (DateTime?)order.CompletionTime : null, // Handle null completion time
-                    IsPaid = order.IsPaid,
-                    Address = order.Address,
-                    TableNumber = order.TableNumber
-                });
+                    Orders = jsonOrders
+                };
+
+                // Serialize
+                var json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+                // Write to file
+                File.WriteAllText(filePath, json);
+                Console.WriteLine("Saved JSON data to file: " + json); // debug
             }
-
-            // Create JSON object
-            var data = new JsonOrderData
+            catch (Exception ex)
             {
-                Orders = jsonOrders
-            };
-
-            // Serialize 
-            var json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
-            // Write to file
-            File.WriteAllText(filePath, json);
+                Console.WriteLine($"Error saving items: {ex.Message}"); // debug
+                throw;
+            }
         }
 
         // Create Order Methods

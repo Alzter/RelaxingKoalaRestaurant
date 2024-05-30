@@ -63,7 +63,10 @@ namespace RestaurantSystem
             // ORDERS
             // Load
             var orders = RepositoryInterface.GetOrders();
-
+            // Save
+            RepositoryInterface.SaveOrders(orders);
+            // Reload
+            orders = RepositoryInterface.GetOrders();
             // Test
             foreach (var order in orders)
             {
