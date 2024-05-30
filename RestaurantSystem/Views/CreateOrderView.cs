@@ -37,7 +37,7 @@ namespace RestaurantSystem
 
         public void CreateOrderView_Shown(object sender, EventArgs e)
         {
-            Console.WriteLine("Create order");
+            //Console.WriteLine("Create order");
             order = WaitStaffServiceInterface.CreateTakeAwayOrder(new List<MenuItem> { });
             UpdateListBMenu();
             UpdateListBOrder();
@@ -45,7 +45,7 @@ namespace RestaurantSystem
 
         public void CreateOrderView_Hidden(object sender, EventArgs e)
         {
-            Console.WriteLine("Delete order");
+            //Console.WriteLine("Delete order");
             order = null; // Delete the order since we don't need it anymore.
         }
 
@@ -71,8 +71,13 @@ namespace RestaurantSystem
 
         private void UpdateListBOrder()
         {
-            if (order == null) return;
+            if (order == null) { MenuBox.Enabled = true; return; }
+
             ListBOrder.DataSource = GetMenuItemStrings(order);
+
+            // Only allow the user to change menus if they haven't added any items into their order.
+            MenuBox.Enabled = order.Items.Count == 0;
+
             UpdateTotalPrice();
         }
 
@@ -90,7 +95,9 @@ namespace RestaurantSystem
         // Create Order
         private void BtnCreateOrder_Click(object sender, EventArgs e)
         {
+            WaitStaffServiceInterface.AddOrderToQueue(order);
 
+            _userInterface.StateMachine.PopState();
         }
 
         // Go to Ingredients View
