@@ -20,9 +20,9 @@ namespace RestaurantSystem
         private Menu SelectedMenu { get { return Menus[MenuBox.SelectedIndex]; } }
 
         private MenuItem SelectedMenuItem { get { return SelectedMenu.GetItem(ListBMenu.SelectedIndex); } }
-        private MenuItem SelectedOrderItem { get { return order.GetItem(ListBOrder.SelectedIndex); } }
+        private MenuItem SelectedOrderItem { get { return _order.GetItem(ListBOrder.SelectedIndex); } }
 
-        private Order order;
+        private Order _order;
 
         public CreateOrderView(UserInterface userInterface)
         {
@@ -38,7 +38,7 @@ namespace RestaurantSystem
         public void CreateOrderView_Shown(object sender, EventArgs e)
         {
             //Console.WriteLine("Create order");
-            order = WaitStaffServiceInterface.CreateTakeAwayOrder(new List<MenuItem> { });
+            _order = WaitStaffServiceInterface.CreateTakeAwayOrder(new List<MenuItem> { });
             UpdateListBMenu();
             UpdateListBOrder();
         }
@@ -46,7 +46,7 @@ namespace RestaurantSystem
         public void CreateOrderView_Hidden(object sender, EventArgs e)
         {
             //Console.WriteLine("Delete order");
-            order = null; // Delete the order since we don't need it anymore.
+            _order = null; // Delete the order since we don't need it anymore.
         }
 
         private void MenuBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -71,19 +71,19 @@ namespace RestaurantSystem
 
         private void UpdateListBOrder()
         {
-            if (order == null) { MenuBox.Enabled = true; return; }
+            if (_order == null) { MenuBox.Enabled = true; return; }
 
-            ListBOrder.DataSource = GetMenuItemStrings(order);
+            ListBOrder.DataSource = GetMenuItemStrings(_order);
 
             // Only allow the user to change menus if they haven't added any items into their order.
-            MenuBox.Enabled = order.Items.Count == 0;
+            MenuBox.Enabled = _order.Items.Count == 0;
 
             UpdateTotalPrice();
         }
 
         private void UpdateTotalPrice()
         {
-            TxtBTotal.Text = order.Price.ToString("C");
+            TxtBTotal.Text = _order.Price.ToString("C");
         }
 
         // Return to WaitStaff View
@@ -95,7 +95,7 @@ namespace RestaurantSystem
         // Create Order
         private void BtnCreateOrder_Click(object sender, EventArgs e)
         {
-            WaitStaffServiceInterface.AddOrderToQueue(order);
+            WaitStaffServiceInterface.AddOrderToQueue(_order);
 
             _userInterface.StateMachine.PopState();
         }
@@ -103,6 +103,7 @@ namespace RestaurantSystem
         // Go to Ingredients View
         private void BtnIngredients_Click(object sender, EventArgs e)
         {
+            _userInterface.StateFactory.IngredientsView.ReceiveMenuItem(_order.GetItem(ListBOrder.SelectedIndex));
             _userInterface.StateMachine.PushState(_userInterface.StateFactory.IngredientsView);
         }
 
@@ -111,7 +112,7 @@ namespace RestaurantSystem
         {
             if (ListBMenu.SelectedItem == null) return;
 
-            WaitStaffServiceInterface.AddItem(order, SelectedMenuItem);
+            WaitStaffServiceInterface.AddItem(_order, SelectedMenuItem);
             UpdateListBOrder();
             ListBOrder.SelectedIndex = ListBOrder.Items.Count - 1;
         }
@@ -123,7 +124,7 @@ namespace RestaurantSystem
 
             if (ListBOrder.SelectedItem == null) return;
 
-            WaitStaffServiceInterface.RemoveItem(order, ListBOrder.SelectedIndex);
+            WaitStaffServiceInterface.RemoveItem(_order, ListBOrder.SelectedIndex);
             UpdateListBOrder();
 
             if (ListBOrder.SelectedItems.Count > 0) ListBOrder.SelectedIndex = index;

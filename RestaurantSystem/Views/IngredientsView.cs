@@ -14,11 +14,37 @@ namespace RestaurantSystem.Views
     public partial class IngredientsView : Form
     {
         private UserInterface _userInterface;
+        private MenuItem _item;
 
         public IngredientsView(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;
+        }
+
+        private List<String> GetIngredientsStrings(MenuItem item)
+        {
+            List<Ingredient> ingredients = item.Ingredients;
+            List<String> strings = new List<String>();
+            foreach (Ingredient i in ingredients) { strings.Add($"{i.Name}"); }
+            return strings;
+        }
+
+        private List<String> GetAddableIngredientsStrings(MenuItem item)
+        {
+            List<Ingredient> ingredients = item.AddableIngredients;
+            List<String> strings = new List<String>();
+            foreach (Ingredient i in ingredients) { strings.Add($"{i.Name}: {i.Price.ToString("C")}"); }
+            return strings;
+        }
+
+        public void ReceiveMenuItem(MenuItem item)
+        {
+            _item = item;
+
+            List<String> list = new List<String>();
+            ListBAddIngredients.DataSource = GetAddableIngredientsStrings(_item);
+            ListBRemoveIngredients.DataSource = GetIngredientsStrings(_item);
         }
 
         // Go back to CreateOrder View
