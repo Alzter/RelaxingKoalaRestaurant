@@ -36,18 +36,18 @@
             BtnAddToOrder = new Button();
             ListBOrder = new ListBox();
             ListBMenu = new ListBox();
-            TxtBMenu = new TextBox();
             TxtOrder = new Label();
             TxtBTotal = new TextBox();
             BtnIngredients = new Button();
+            MenuBox = new ComboBox();
             SuspendLayout();
             // 
             // BtnBack
             // 
-            BtnBack.Location = new Point(11, 453);
+            BtnBack.Location = new Point(13, 604);
             BtnBack.Margin = new Padding(2, 1, 2, 1);
             BtnBack.Name = "BtnBack";
-            BtnBack.Size = new Size(94, 22);
+            BtnBack.Size = new Size(107, 29);
             BtnBack.TabIndex = 1;
             BtnBack.Text = "Back";
             BtnBack.UseVisualStyleBackColor = true;
@@ -57,9 +57,9 @@
             // 
             TxtTotal.AutoSize = true;
             TxtTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtTotal.Location = new Point(546, 374);
+            TxtTotal.Location = new Point(624, 499);
             TxtTotal.Name = "TxtTotal";
-            TxtTotal.Size = new Size(71, 25);
+            TxtTotal.Size = new Size(90, 32);
             TxtTotal.TabIndex = 22;
             TxtTotal.Text = "Total: $";
             // 
@@ -67,17 +67,18 @@
             // 
             TxtMenu.AutoSize = true;
             TxtMenu.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtMenu.Location = new Point(40, 35);
+            TxtMenu.Location = new Point(26, 47);
             TxtMenu.Name = "TxtMenu";
-            TxtMenu.Size = new Size(77, 32);
+            TxtMenu.Size = new Size(95, 41);
             TxtMenu.TabIndex = 20;
             TxtMenu.Text = "Menu";
             // 
             // BtnCreateOrder
             // 
-            BtnCreateOrder.Location = new Point(580, 424);
+            BtnCreateOrder.Location = new Point(663, 565);
+            BtnCreateOrder.Margin = new Padding(3, 4, 3, 4);
             BtnCreateOrder.Name = "BtnCreateOrder";
-            BtnCreateOrder.Size = new Size(162, 23);
+            BtnCreateOrder.Size = new Size(185, 31);
             BtnCreateOrder.TabIndex = 17;
             BtnCreateOrder.Text = "Create Order";
             BtnCreateOrder.UseVisualStyleBackColor = true;
@@ -85,9 +86,10 @@
             // 
             // BtnRemoveFromOrder
             // 
-            BtnRemoveFromOrder.Location = new Point(364, 178);
+            BtnRemoveFromOrder.Location = new Point(416, 237);
+            BtnRemoveFromOrder.Margin = new Padding(3, 4, 3, 4);
             BtnRemoveFromOrder.Name = "BtnRemoveFromOrder";
-            BtnRemoveFromOrder.Size = new Size(133, 23);
+            BtnRemoveFromOrder.Size = new Size(152, 31);
             BtnRemoveFromOrder.TabIndex = 16;
             BtnRemoveFromOrder.Text = "Remove From Order";
             BtnRemoveFromOrder.UseVisualStyleBackColor = true;
@@ -95,9 +97,10 @@
             // 
             // BtnAddToOrder
             // 
-            BtnAddToOrder.Location = new Point(378, 132);
+            BtnAddToOrder.Location = new Point(432, 176);
+            BtnAddToOrder.Margin = new Padding(3, 4, 3, 4);
             BtnAddToOrder.Name = "BtnAddToOrder";
-            BtnAddToOrder.Size = new Size(103, 23);
+            BtnAddToOrder.Size = new Size(118, 31);
             BtnAddToOrder.TabIndex = 15;
             BtnAddToOrder.Text = "Add To Order";
             BtnAddToOrder.UseVisualStyleBackColor = true;
@@ -107,10 +110,11 @@
             // 
             ListBOrder.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ListBOrder.FormattingEnabled = true;
-            ListBOrder.ItemHeight = 21;
-            ListBOrder.Location = new Point(530, 94);
+            ListBOrder.ItemHeight = 28;
+            ListBOrder.Location = new Point(606, 125);
+            ListBOrder.Margin = new Padding(3, 4, 3, 4);
             ListBOrder.Name = "ListBOrder";
-            ListBOrder.Size = new Size(245, 256);
+            ListBOrder.Size = new Size(279, 340);
             ListBOrder.TabIndex = 14;
             ListBOrder.SelectedIndexChanged += ListBOrder_SelectedIndexChanged;
             // 
@@ -118,61 +122,64 @@
             // 
             ListBMenu.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             ListBMenu.FormattingEnabled = true;
-            ListBMenu.ItemHeight = 21;
+            ListBMenu.ItemHeight = 28;
             ListBMenu.Items.AddRange(new object[] { "Burger", "Fries", "Soda", "Lasagna", "Salad" });
-            ListBMenu.Location = new Point(23, 91);
+            ListBMenu.Location = new Point(26, 121);
+            ListBMenu.Margin = new Padding(3, 4, 3, 4);
             ListBMenu.Name = "ListBMenu";
-            ListBMenu.Size = new Size(309, 256);
+            ListBMenu.Size = new Size(353, 340);
             ListBMenu.TabIndex = 13;
             ListBMenu.SelectedIndexChanged += ListBMenu_SelectedIndexChanged;
-            // 
-            // TxtBMenu
-            // 
-            TxtBMenu.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBMenu.Location = new Point(135, 32);
-            TxtBMenu.Name = "TxtBMenu";
-            TxtBMenu.ReadOnly = true;
-            TxtBMenu.Size = new Size(182, 39);
-            TxtBMenu.TabIndex = 24;
             // 
             // TxtOrder
             // 
             TxtOrder.AutoSize = true;
             TxtOrder.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtOrder.Location = new Point(589, 35);
+            TxtOrder.Location = new Point(673, 47);
             TxtOrder.Name = "TxtOrder";
-            TxtOrder.Size = new Size(130, 32);
+            TxtOrder.Size = new Size(163, 41);
             TxtOrder.TabIndex = 25;
             TxtOrder.Text = "New Order";
             // 
             // TxtBTotal
             // 
             TxtBTotal.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBTotal.Location = new Point(623, 371);
+            TxtBTotal.Location = new Point(712, 495);
+            TxtBTotal.Margin = new Padding(3, 4, 3, 4);
             TxtBTotal.Name = "TxtBTotal";
             TxtBTotal.ReadOnly = true;
-            TxtBTotal.Size = new Size(135, 33);
+            TxtBTotal.Size = new Size(154, 39);
             TxtBTotal.TabIndex = 26;
             // 
             // BtnIngredients
             // 
-            BtnIngredients.Location = new Point(364, 231);
+            BtnIngredients.Location = new Point(416, 308);
+            BtnIngredients.Margin = new Padding(3, 4, 3, 4);
             BtnIngredients.Name = "BtnIngredients";
-            BtnIngredients.Size = new Size(133, 23);
+            BtnIngredients.Size = new Size(152, 31);
             BtnIngredients.TabIndex = 27;
             BtnIngredients.Text = "Alter Ingredients";
             BtnIngredients.UseVisualStyleBackColor = true;
             BtnIngredients.Click += BtnIngredients_Click;
             // 
+            // MenuBox
+            // 
+            MenuBox.FormattingEnabled = true;
+            MenuBox.Location = new Point(140, 60);
+            MenuBox.Name = "MenuBox";
+            MenuBox.Size = new Size(239, 28);
+            MenuBox.TabIndex = 28;
+            MenuBox.SelectedIndexChanged += MenuBox_SelectedIndexChanged;
+            // 
             // CreateOrderView
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(807, 485);
+            ClientSize = new Size(922, 647);
+            Controls.Add(MenuBox);
             Controls.Add(BtnIngredients);
             Controls.Add(TxtBTotal);
             Controls.Add(TxtOrder);
-            Controls.Add(TxtBMenu);
             Controls.Add(TxtTotal);
             Controls.Add(TxtMenu);
             Controls.Add(BtnCreateOrder);
@@ -181,6 +188,7 @@
             Controls.Add(ListBOrder);
             Controls.Add(ListBMenu);
             Controls.Add(BtnBack);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "CreateOrderView";
             Text = "Create Orders";
             ResumeLayout(false);
@@ -197,9 +205,9 @@
         private Button BtnAddToOrder;
         private ListBox ListBOrder;
         private ListBox ListBMenu;
-        private TextBox TxtBMenu;
         private Label TxtOrder;
         private TextBox TxtBTotal;
         private Button BtnIngredients;
+        private ComboBox MenuBox;
     }
 }

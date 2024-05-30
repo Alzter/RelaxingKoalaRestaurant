@@ -14,10 +14,40 @@ namespace RestaurantSystem
     {
         private UserInterface _userInterface;
 
+        private Menu _menu;
+
+        private Menu DineInMenu { get { return WaitStaffServiceInterface.DineInMenu; } }
+        private Menu TakeAwayMenu { get { return WaitStaffServiceInterface.TakeAwayMenu; } }
+        private List<Menu> Menus { get { return new List<Menu> { DineInMenu, TakeAwayMenu }; } }
+
         public CreateOrderView(UserInterface userInterface)
         {
             InitializeComponent();
             _userInterface = userInterface;
+
+            MenuBox.DataSource = new List<String> { "Dine-in", "Take-away" };
+            _menu = Menus[0];
+            UpdateMenuBox(_menu);
+        }
+
+        private void MenuBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _menu = Menus[MenuBox.SelectedIndex];
+
+            UpdateMenuBox(_menu);
+        }
+
+        private List<String> GetMenuItemStrings(Menu menu)
+        {
+            List<MenuItem> items = menu.Items;
+            List<String> strings = new List<String>();
+            foreach (MenuItem m in items) { strings.Add(m.Name); }
+            return strings;
+        }
+
+        private void UpdateMenuBox(Menu menu)
+        {
+            ListBMenu.DataSource = GetMenuItemStrings(menu);
         }
 
         // Return to WaitStaff View
