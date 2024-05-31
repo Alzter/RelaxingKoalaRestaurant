@@ -75,7 +75,7 @@ namespace RestaurantSystem.Interfaces
 
         private void CombineDateTime()
         {
-            _dateTime = _date.Date.Add(_time.TimeOfDay);
+            _dateTime = new DateTime(_date.Year, _date.Month, _date.Day, _time.Hour, _time.Minute, 0, 0);
 
             List<Table> tables = WaitStaffServiceInterface.GetFreeTables(_dateTime);
 
