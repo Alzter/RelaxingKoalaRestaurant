@@ -10,27 +10,26 @@ namespace RestaurantSystem.Service
     {
         public static void UpdateTableStatus(int tableNumber, TableStatus status)
         {
+            //List<Table> tables = RepositoryInterface.GetTables();
 
-            List<Table> tables = RepositoryInterface.GetTables();
-
-            int tableIndex = tables.FindIndex((Table t) => t.Number == tableNumber);
+            int tableIndex = Tables.FindIndex((Table t) => t.Number == tableNumber);
 
             Table t = GetTable(tableNumber);
 
             t.Status = status;
 
-            tables[tableIndex] = t;
+            Tables[tableIndex] = t;
 
             Console.WriteLine($"{t.Number}: {t.Status}");
 
-            RepositoryInterface.SaveTables(tables);
+            RepositoryInterface.SaveTables(Tables);
         }
 
         public static Table GetTable(int tableNumber)
         {
-            List<Table> tableList = Tables;
+            //List<Table> tableList = Tables;
 
-            foreach (Table t in tableList)
+            foreach (Table t in Tables)
             {
                 if (t.Number == tableNumber) return t;
             }
@@ -41,9 +40,9 @@ namespace RestaurantSystem.Service
         public static List<Table> GetTablesByStatus(TableStatus status)
         {
             List<Table> tables = new List<Table>();
-            List<Table> tableList = Tables;
+            //List<Table> tableList = Tables;
 
-            foreach (Table t in tableList)
+            foreach (Table t in Tables)
             {
                 if (t.Status == status) tables.Add(t);
             }
@@ -55,21 +54,34 @@ namespace RestaurantSystem.Service
         public static List<Table> GetFreeTables(DateTime time)
         {
             List<Reservation> reservations = ReservationService.PresentReservations;
-            List<Table> reservedTables = new List<Table>();
+            List<int> reservedTableNums = new List<int>();
 
             foreach (Reservation r in reservations)
             {
                 if (time >= r.StartTime && time < r.EndTime)
                 {
-                    Table table = GetTable(r.TableNumber);
-
-                    reservedTables.Add(table);
+                    reservedTableNums.Add(r.TableNumber);
                 }
             }
 
             List<Table> freeTables = Tables;
+            List<Table> tablesToRemoveFromFree = new List<Table>();
 
-            foreach (Table t in reservedTables) freeTables.Remove(t);
+            foreach (Table t in freeTables)
+            {
+                foreach (int num in reservedTableNums)
+                {
+                    if (t.Number == num)
+                    {
+                        tablesToRemoveFromFree.Add(t);
+                    }
+                }
+            }
+
+            foreach (Table r in tablesToRemoveFromFree)
+            {
+                freeTables.Remove(r);
+            }
 
             return freeTables;
         }
