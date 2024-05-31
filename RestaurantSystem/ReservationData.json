@@ -17,7 +17,7 @@
     {
       "startTime": "2024-05-31T20:00:00",
       "durationMinutes": 90,
-      "tableNumber": 11,
+      "tableNumber": 5,
       "customerName": "Customer 3",
       "numberOfGuests": 6
     },
@@ -31,7 +31,7 @@
     {
       "startTime": "2024-05-31T21:00:00",
       "durationMinutes": 90,
-      "tableNumber": 14,
+      "tableNumber": 1,
       "customerName": "Customer 5",
       "numberOfGuests": 5
     }
