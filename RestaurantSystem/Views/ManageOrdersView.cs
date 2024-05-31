@@ -31,11 +31,12 @@ namespace RestaurantSystem
         {
             get
             {
-                if (_statusFilter == null) { return WaitStaffServiceInterface.Orders; } else
+                if (_statusFilter == null) { return WaitStaffServiceInterface.Orders; }
+                else
                 {
                     return WaitStaffServiceInterface.GetOrdersByStatus((OrderStatus)_statusFilter);
                 }
-                
+
             }
         }
 
@@ -117,7 +118,7 @@ namespace RestaurantSystem
             int index = ListBOrders.SelectedIndex;
             ListBOrders.DataSource = OrderStrings;
 
-            int newIndex = Math.Clamp(index, 0, ListBOrders.Items.Count);
+            int newIndex = Math.Clamp(index, 0, Math.Max(0, ListBOrders.Items.Count - 1));
 
             if (ListBOrders.Items.Count != 0) ListBOrders.SelectedIndex = newIndex;
 
@@ -174,12 +175,22 @@ namespace RestaurantSystem
         {
             int index = StatusFilterBox.SelectedIndex;
 
-            if (index == 0) { _statusFilter = null;  } else
+            if (index == 0) { _statusFilter = null; }
+            else
             {
                 _statusFilter = (OrderStatus)index - 1;
             }
 
             UpdateListBOrders();
+        }
+
+        private void BtnCancelOrder_Click(object sender, EventArgs e)
+        {
+            if (SelectedOrder != null)
+            {
+                WaitStaffServiceInterface.RemoveOrderFromQueue(SelectedOrder);
+                UpdateListBOrders();
+            }
         }
     }
 }

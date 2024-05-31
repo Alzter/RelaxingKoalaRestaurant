@@ -182,5 +182,20 @@ namespace RestaurantSystem.CRUDO
             orders.Add(order);
             SaveItems(filePath, orders);
         }
+
+        public static void RemoveOrder(Order o)
+        {
+
+            var filePath = "OrderData.json";
+            var orders = LoadItems(filePath);
+
+            int orderIndex = orders.FindIndex((Order order) => { return order.ID == o.ID; });
+
+            if (orderIndex == -1 || orderIndex == null) { throw new NullReferenceException($"Order with ID: {o.ID} was not found in orders repository."); }
+
+            orders.RemoveAt(orderIndex);
+
+            SaveItems(filePath, orders);
+        }
     }
 }

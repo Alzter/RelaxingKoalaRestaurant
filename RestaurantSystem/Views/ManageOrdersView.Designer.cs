@@ -43,7 +43,7 @@
             TxtTotal = new Label();
             StatusFilterBox = new ComboBox();
             TxtFilter = new Label();
-            button1 = new Button();
+            BtnCancelOrder = new Button();
             TxtCreationTime = new Label();
             TxtBCreationTime = new TextBox();
             label1 = new Label();
@@ -208,15 +208,16 @@
             TxtFilter.TabIndex = 29;
             TxtFilter.Text = "Filter by Status:";
             // 
-            // button1
+            // BtnCancelOrder
             // 
-            button1.Location = new Point(40, 671);
-            button1.Margin = new Padding(3, 4, 3, 4);
-            button1.Name = "button1";
-            button1.Size = new Size(326, 47);
-            button1.TabIndex = 30;
-            button1.Text = "Cancel Order";
-            button1.UseVisualStyleBackColor = true;
+            BtnCancelOrder.Location = new Point(40, 671);
+            BtnCancelOrder.Margin = new Padding(3, 4, 3, 4);
+            BtnCancelOrder.Name = "BtnCancelOrder";
+            BtnCancelOrder.Size = new Size(326, 47);
+            BtnCancelOrder.TabIndex = 30;
+            BtnCancelOrder.Text = "Cancel Order";
+            BtnCancelOrder.UseVisualStyleBackColor = true;
+            BtnCancelOrder.Click += BtnCancelOrder_Click;
             // 
             // TxtCreationTime
             // 
@@ -298,7 +299,7 @@
             Controls.Add(label1);
             Controls.Add(TxtBCreationTime);
             Controls.Add(TxtCreationTime);
-            Controls.Add(button1);
+            Controls.Add(BtnCancelOrder);
             Controls.Add(TxtFilter);
             Controls.Add(StatusFilterBox);
             Controls.Add(TxtTotal);
@@ -338,7 +339,7 @@
         private Label TxtTotal;
         private ComboBox StatusFilterBox;
         private Label TxtFilter;
-        private Button button1;
+        private Button BtnCancelOrder;
         private Label TxtCreationTime;
         private TextBox TxtBCreationTime;
         private Label label1;

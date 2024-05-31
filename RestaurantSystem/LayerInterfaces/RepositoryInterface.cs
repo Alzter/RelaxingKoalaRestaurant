@@ -71,6 +71,11 @@ namespace RestaurantSystem
             OrderRepository.AddOrder(o);
         }
 
+        public static void RemoveOrder(Order o)
+        {
+            OrderRepository.RemoveOrder(o);
+        }
+
 
         // Orders - Save / Load
         public static List<Order> GetOrders() 
