@@ -78,7 +78,7 @@ namespace RestaurantSystem.Interfaces
             _dateTime = new DateTime(_date.Year, _date.Month, _date.Day, _time.Hour, _time.Minute, 0, 0);
 
             List<Table> tables = WaitStaffServiceInterface.GetFreeTables(_dateTime);
-
+            
             List<int> tableNums = new List<int>();
 
             foreach (Table table in tables)
