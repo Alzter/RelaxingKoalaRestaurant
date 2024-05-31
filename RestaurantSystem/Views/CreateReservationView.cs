@@ -27,6 +27,8 @@ namespace RestaurantSystem.Interfaces
             _time = DateTimeSelection.Value;
             _date = CalendarBooking.SelectionStart;
             CombineDateTime();
+            CalendarBooking.MinDate = DateTime.Now.Date;
+            DateTimeSelection.MinDate = DateTime.Now;
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
