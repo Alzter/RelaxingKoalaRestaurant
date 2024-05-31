@@ -62,7 +62,7 @@
             BtnHandlePayment.Location = new Point(389, 866);
             BtnHandlePayment.Margin = new Padding(3, 4, 3, 4);
             BtnHandlePayment.Name = "BtnHandlePayment";
-            BtnHandlePayment.Size = new Size(420, 75);
+            BtnHandlePayment.Size = new Size(539, 75);
             BtnHandlePayment.TabIndex = 3;
             BtnHandlePayment.Text = "Process Payment";
             BtnHandlePayment.UseVisualStyleBackColor = true;
@@ -82,7 +82,7 @@
             ListBOrders.FormattingEnabled = true;
             ListBOrders.ItemHeight = 28;
             ListBOrders.Items.AddRange(new object[] { "Order 56 - Table 5 - Waiting", "Order 57 - Table 10 - Ready", "Order 58 - Table 3 - Served" });
-            ListBOrders.Location = new Point(40, 147);
+            ListBOrders.Location = new Point(22, 147);
             ListBOrders.Margin = new Padding(3, 4, 3, 4);
             ListBOrders.Name = "ListBOrders";
             ListBOrders.ScrollAlwaysVisible = true;
@@ -94,7 +94,7 @@
             // 
             TxtOrders.AutoSize = true;
             TxtOrders.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtOrders.Location = new Point(145, 32);
+            TxtOrders.Location = new Point(127, 32);
             TxtOrders.Name = "TxtOrders";
             TxtOrders.Size = new Size(108, 41);
             TxtOrders.TabIndex = 11;
@@ -113,11 +113,11 @@
             // TxtBSelected
             // 
             TxtBSelected.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBSelected.Location = new Point(639, 29);
+            TxtBSelected.Location = new Point(653, 26);
             TxtBSelected.Margin = new Padding(3, 4, 3, 4);
             TxtBSelected.Name = "TxtBSelected";
             TxtBSelected.ReadOnly = true;
-            TxtBSelected.Size = new Size(173, 47);
+            TxtBSelected.Size = new Size(275, 47);
             TxtBSelected.TabIndex = 13;
             // 
             // TxtUpdateStatus
@@ -131,15 +131,15 @@
             // 
             // ListBOrderItems
             // 
-            ListBOrderItems.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ListBOrderItems.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ListBOrderItems.FormattingEnabled = true;
-            ListBOrderItems.ItemHeight = 28;
+            ListBOrderItems.ItemHeight = 23;
             ListBOrderItems.Items.AddRange(new object[] { "Pizza - $12", "Chips - $5", "Soda - $3" });
             ListBOrderItems.Location = new Point(389, 231);
             ListBOrderItems.Margin = new Padding(3, 4, 3, 4);
             ListBOrderItems.Name = "ListBOrderItems";
             ListBOrderItems.ScrollAlwaysVisible = true;
-            ListBOrderItems.Size = new Size(280, 424);
+            ListBOrderItems.Size = new Size(264, 418);
             ListBOrderItems.TabIndex = 19;
             ListBOrderItems.SelectedIndexChanged += ListBOrderItems_SelectedIndexChanged;
             // 
@@ -167,20 +167,20 @@
             // TxtBTotal
             // 
             TxtBTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBTotal.Location = new Point(592, 783);
+            TxtBTotal.Location = new Point(585, 783);
             TxtBTotal.Margin = new Padding(3, 4, 3, 4);
             TxtBTotal.Name = "TxtBTotal";
             TxtBTotal.ReadOnly = true;
-            TxtBTotal.Size = new Size(217, 47);
+            TxtBTotal.Size = new Size(343, 47);
             TxtBTotal.TabIndex = 24;
             TxtBTotal.TextAlign = HorizontalAlignment.Right;
             // 
             // OrderStatusBox
             // 
             OrderStatusBox.FormattingEnabled = true;
-            OrderStatusBox.Location = new Point(639, 84);
+            OrderStatusBox.Location = new Point(653, 81);
             OrderStatusBox.Name = "OrderStatusBox";
-            OrderStatusBox.Size = new Size(173, 28);
+            OrderStatusBox.Size = new Size(275, 28);
             OrderStatusBox.TabIndex = 25;
             OrderStatusBox.SelectedIndexChanged += OrderStatusBox_SelectedIndexChanged;
             // 
@@ -188,7 +188,7 @@
             // 
             TxtTotal.AutoSize = true;
             TxtTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtTotal.Location = new Point(389, 789);
+            TxtTotal.Location = new Point(389, 783);
             TxtTotal.Name = "TxtTotal";
             TxtTotal.Size = new Size(173, 41);
             TxtTotal.TabIndex = 26;
@@ -197,7 +197,7 @@
             // StatusFilterBox
             // 
             StatusFilterBox.FormattingEnabled = true;
-            StatusFilterBox.Location = new Point(191, 102);
+            StatusFilterBox.Location = new Point(173, 102);
             StatusFilterBox.Name = "StatusFilterBox";
             StatusFilterBox.Size = new Size(175, 28);
             StatusFilterBox.TabIndex = 28;
@@ -207,7 +207,7 @@
             // 
             TxtFilter.AutoSize = true;
             TxtFilter.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtFilter.Location = new Point(40, 102);
+            TxtFilter.Location = new Point(22, 102);
             TxtFilter.Name = "TxtFilter";
             TxtFilter.Size = new Size(145, 28);
             TxtFilter.TabIndex = 29;
@@ -215,7 +215,7 @@
             // 
             // BtnCancelOrder
             // 
-            BtnCancelOrder.Location = new Point(40, 671);
+            BtnCancelOrder.Location = new Point(22, 669);
             BtnCancelOrder.Margin = new Padding(3, 4, 3, 4);
             BtnCancelOrder.Name = "BtnCancelOrder";
             BtnCancelOrder.Size = new Size(326, 47);
@@ -238,11 +238,11 @@
             // 
             TxtBCreationTime.BorderStyle = BorderStyle.None;
             TxtBCreationTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBCreationTime.Location = new Point(550, 669);
+            TxtBCreationTime.Location = new Point(585, 669);
             TxtBCreationTime.Margin = new Padding(3, 4, 3, 4);
             TxtBCreationTime.Name = "TxtBCreationTime";
             TxtBCreationTime.ReadOnly = true;
-            TxtBCreationTime.Size = new Size(259, 27);
+            TxtBCreationTime.Size = new Size(343, 27);
             TxtBCreationTime.TabIndex = 32;
             TxtBCreationTime.TextAlign = HorizontalAlignment.Right;
             // 
@@ -260,11 +260,11 @@
             // 
             TxtBCompletionTime.BorderStyle = BorderStyle.None;
             TxtBCompletionTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBCompletionTime.Location = new Point(550, 703);
+            TxtBCompletionTime.Location = new Point(585, 703);
             TxtBCompletionTime.Margin = new Padding(3, 4, 3, 4);
             TxtBCompletionTime.Name = "TxtBCompletionTime";
             TxtBCompletionTime.ReadOnly = true;
-            TxtBCompletionTime.Size = new Size(259, 27);
+            TxtBCompletionTime.Size = new Size(343, 27);
             TxtBCompletionTime.TabIndex = 34;
             TxtBCompletionTime.TextAlign = HorizontalAlignment.Right;
             // 
@@ -282,10 +282,10 @@
             // 
             ETABox.Enabled = false;
             ETABox.Increment = new decimal(new int[] { 5, 0, 0, 0 });
-            ETABox.Location = new Point(639, 127);
+            ETABox.Location = new Point(653, 124);
             ETABox.Maximum = new decimal(new int[] { 60, 0, 0, 0 });
             ETABox.Name = "ETABox";
-            ETABox.Size = new Size(106, 27);
+            ETABox.Size = new Size(208, 27);
             ETABox.TabIndex = 36;
             ETABox.ValueChanged += ETABox_ValueChanged;
             // 
@@ -293,7 +293,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(751, 129);
+            label3.Location = new Point(867, 126);
             label3.Name = "label3";
             label3.Size = new Size(61, 20);
             label3.TabIndex = 37;
@@ -303,7 +303,7 @@
             // 
             TxtIngredients.AutoSize = true;
             TxtIngredients.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtIngredients.Location = new Point(699, 190);
+            TxtIngredients.Location = new Point(748, 190);
             TxtIngredients.Name = "TxtIngredients";
             TxtIngredients.Size = new Size(110, 28);
             TxtIngredients.TabIndex = 39;
@@ -311,15 +311,15 @@
             // 
             // ListBItemIngredients
             // 
-            ListBItemIngredients.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ListBItemIngredients.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ListBItemIngredients.FormattingEnabled = true;
-            ListBItemIngredients.ItemHeight = 28;
+            ListBItemIngredients.ItemHeight = 23;
             ListBItemIngredients.Items.AddRange(new object[] { "Pizza - $12", "Chips - $5", "Soda - $3" });
-            ListBItemIngredients.Location = new Point(675, 231);
+            ListBItemIngredients.Location = new Point(674, 231);
             ListBItemIngredients.Margin = new Padding(3, 4, 3, 4);
             ListBItemIngredients.Name = "ListBItemIngredients";
             ListBItemIngredients.ScrollAlwaysVisible = true;
-            ListBItemIngredients.Size = new Size(151, 424);
+            ListBItemIngredients.Size = new Size(254, 418);
             ListBItemIngredients.TabIndex = 40;
             // 
             // TxtItems
@@ -336,7 +336,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(838, 964);
+            ClientSize = new Size(947, 964);
             Controls.Add(TxtItems);
             Controls.Add(ListBItemIngredients);
             Controls.Add(TxtIngredients);
