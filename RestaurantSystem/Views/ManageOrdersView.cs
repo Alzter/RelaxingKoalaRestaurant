@@ -13,14 +13,17 @@ namespace RestaurantSystem
     public partial class ManageOrdersView : Form
     {
         private UserInterface _userInterface;
+        private OrderStatus? _statusFilter;
 
         public ManageOrdersView(UserInterface userInterface)
         {
+            _statusFilter = null;
             InitializeComponent();
             _userInterface = userInterface;
             this.Activated += ManageOrdersView_Shown;
 
             OrderStatusBox.DataSource = OrderStatusStrings;
+            StatusFilterBox.DataSource = OrderFilterStatusStrings;
             //this.Deactivate += CreateOrderView_Hidden;
         }
 
@@ -28,7 +31,11 @@ namespace RestaurantSystem
         {
             get
             {
-                return WaitStaffServiceInterface.Orders;
+                if (_statusFilter == null) { return WaitStaffServiceInterface.Orders; } else
+                {
+                    return WaitStaffServiceInterface.GetOrdersByStatus((OrderStatus)_statusFilter);
+                }
+                
             }
         }
 
@@ -86,6 +93,20 @@ namespace RestaurantSystem
             }
         }
 
+        private List<String> OrderFilterStatusStrings // Fuck you C#. Perish
+        {
+            get
+            {
+                List<OrderStatus> statuses = Enum.GetValues(typeof(OrderStatus)).Cast<OrderStatus>().ToList();
+                List<String> strings = new List<String>() { "All" };
+                foreach (OrderStatus o in statuses)
+                {
+                    strings.Add(o.ToString());
+                }
+                return strings;
+            }
+        }
+
         public void ManageOrdersView_Shown(object sender, EventArgs e)
         {
             UpdateListBOrders();
@@ -98,7 +119,8 @@ namespace RestaurantSystem
 
             int newIndex = Math.Clamp(index, 0, ListBOrders.Items.Count);
 
-            ListBOrders.SelectedIndex = newIndex;
+            if (ListBOrders.Items.Count != 0) ListBOrders.SelectedIndex = newIndex;
+
         }
 
         // Go to previous View
@@ -145,6 +167,18 @@ namespace RestaurantSystem
 
             // Change the status of the order to the selected status.
             WaitStaffServiceInterface.SetOrderStatus(SelectedOrder, selectedStatus);
+            UpdateListBOrders();
+        }
+
+        private void StatusFilterBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = StatusFilterBox.SelectedIndex;
+
+            if (index == 0) { _statusFilter = null;  } else
+            {
+                _statusFilter = (OrderStatus)index - 1;
+            }
+
             UpdateListBOrders();
         }
     }
