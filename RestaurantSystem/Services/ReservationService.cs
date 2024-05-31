@@ -9,8 +9,6 @@ namespace RestaurantSystem.Service
 {
     public static class ReservationService
     {
-
-
         public static List<Reservation> PresentReservations
         {
             get

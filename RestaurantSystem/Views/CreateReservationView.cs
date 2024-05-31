@@ -27,6 +27,8 @@ namespace RestaurantSystem.Interfaces
             _time = DateTimeSelection.Value;
             _date = CalendarBooking.SelectionStart;
             CombineDateTime();
+            CalendarBooking.MinDate = DateTime.Now.Date;
+            DateTimeSelection.MinDate = DateTime.Now;
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
@@ -73,7 +75,7 @@ namespace RestaurantSystem.Interfaces
 
         private void CombineDateTime()
         {
-            _dateTime = _date.Date.Add(_time.TimeOfDay);
+            _dateTime = new DateTime(_date.Year, _date.Month, _date.Day, _time.Hour, _time.Minute, 0, 0);
 
             List<Table> tables = WaitStaffServiceInterface.GetFreeTables(_dateTime);
 
@@ -85,21 +87,16 @@ namespace RestaurantSystem.Interfaces
             }
 
             CBoxTable.DataSource = tableNums;
+
+            // Disable create reservation button if booking is earlier than the current time
+            BtnCreateReservation.Enabled = (DateTime.Compare(_dateTime, DateTime.Now) < 0) ? false : true;
         }
 
         // Create reservation with the details inputted
         private void BtnCreateReservation_Click(object sender, EventArgs e)
         {
-            // Need to do data sanitisation/checking here
-            if (DateTime.Compare(_dateTime, DateTime.Now) < 0)
-            {
-                throw new Exception("Booking cannot be earlier than current time.");
-            }
-            else
-            {
-                WaitStaffServiceInterface.AddReservation(_dateTime, 90, _tableNum, _name, _numGuests);
-                _userInterface.StateMachine.PopState();
-            } 
+            WaitStaffServiceInterface.AddReservation(_dateTime, 90, _tableNum, _name, _numGuests);
+            _userInterface.StateMachine.PopState(); 
         }
     }
 }

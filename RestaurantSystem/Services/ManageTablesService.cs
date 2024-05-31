@@ -21,7 +21,7 @@ namespace RestaurantSystem.Service
 
             tables[tableIndex] = t;
 
-            // Console.WriteLine($"{t.Number}: {t.Status}");
+            Console.WriteLine($"{t.Number}: {t.Status}");
 
             RepositoryInterface.SaveTables(tables);
         }

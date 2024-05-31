@@ -58,7 +58,7 @@
             CalendarBooking.Location = new Point(126, 28);
             CalendarBooking.MaxDate = new DateTime(2050, 12, 31, 0, 0, 0, 0);
             CalendarBooking.MaxSelectionCount = 1;
-            CalendarBooking.MinDate = new DateTime(2024, 1, 1, 0, 0, 0, 0);
+            CalendarBooking.MinDate = new DateTime(2024, 5, 5, 0, 0, 0, 0);
             CalendarBooking.Name = "CalendarBooking";
             CalendarBooking.TabIndex = 4;
             CalendarBooking.DateChanged += CalendarBooking_DateChanged;
