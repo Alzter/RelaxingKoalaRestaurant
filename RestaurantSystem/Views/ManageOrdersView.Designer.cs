@@ -46,7 +46,7 @@
             BtnCancelOrder = new Button();
             TxtCreationTime = new Label();
             TxtBCreationTime = new TextBox();
-            label1 = new Label();
+            TxtCompletionTime = new Label();
             TxtBCompletionTime = new TextBox();
             label2 = new Label();
             ETABox = new NumericUpDown();
@@ -242,15 +242,15 @@
             TxtBCreationTime.TabIndex = 32;
             TxtBCreationTime.TextAlign = HorizontalAlignment.Right;
             // 
-            // label1
+            // TxtCompletionTime
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(389, 705);
-            label1.Name = "label1";
-            label1.Size = new Size(166, 28);
-            label1.TabIndex = 33;
-            label1.Text = "Completion Time:";
+            TxtCompletionTime.AutoSize = true;
+            TxtCompletionTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtCompletionTime.Location = new Point(389, 705);
+            TxtCompletionTime.Name = "TxtCompletionTime";
+            TxtCompletionTime.Size = new Size(166, 28);
+            TxtCompletionTime.TabIndex = 33;
+            TxtCompletionTime.Text = "Completion Time:";
             // 
             // TxtBCompletionTime
             // 
@@ -304,7 +304,7 @@
             Controls.Add(ETABox);
             Controls.Add(label2);
             Controls.Add(TxtBCompletionTime);
-            Controls.Add(label1);
+            Controls.Add(TxtCompletionTime);
             Controls.Add(TxtBCreationTime);
             Controls.Add(TxtCreationTime);
             Controls.Add(BtnCancelOrder);
@@ -350,7 +350,7 @@
         private Button BtnCancelOrder;
         private Label TxtCreationTime;
         private TextBox TxtBCreationTime;
-        private Label label1;
+        private Label TxtCompletionTime;
         private TextBox TxtBCompletionTime;
         private Label label2;
         private NumericUpDown ETABox;

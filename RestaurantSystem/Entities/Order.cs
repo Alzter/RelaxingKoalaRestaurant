@@ -65,7 +65,7 @@ namespace RestaurantSystem
 
         public void SetETA(int etaMinutes)
         {
-            DateTime eta = _creationTime.AddMinutes(-etaMinutes);
+            DateTime eta = _creationTime.AddMinutes(etaMinutes);
             EstimatedCompletionTime = eta;
 
             // Console.WriteLine($"Setting Order ETA to: {EstimatedCompletionTimeInMinutes.ToString()}");
@@ -77,7 +77,7 @@ namespace RestaurantSystem
             TransactionRecord r = new TransactionRecord(true, ID, Items, DateTime.Now);
             return r;
         }
-
+        
         public OrderStatus Status
         {
             get { return _status; }
@@ -108,13 +108,14 @@ namespace RestaurantSystem
         {
             get
             {
-                return (CreationTime - EstimatedCompletionTime).Minutes;
+                return (EstimatedCompletionTime - CreationTime).Minutes;
             }
         }
 
         public DateTime? CompletionTime { get { return _completionTime == DateTime.MinValue ? null : _completionTime; } set { _completionTime = value; } }
 
         public String CreationTimeString { get { return _creationTime.ToString("h:mm tt, ddd dd/MM/yy"); } }
+        public String EstimatedCompletionTimeString { get { return _estimatedCompletionTime.ToString("h:mm tt, ddd dd/MM/yy"); } }
 
         public String CompletionTimeString
         {

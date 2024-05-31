@@ -157,7 +157,7 @@ namespace RestaurantSystem
             BtnHandlePayment.Enabled = !SelectedOrder.IsPaid;
 
             TxtBCreationTime.Text = SelectedOrder.CreationTimeString;
-            TxtBCompletionTime.Text = SelectedOrder.CompletionTimeString;
+
 
             UpdateOrderETA();
         }
@@ -171,7 +171,31 @@ namespace RestaurantSystem
 
             ETABox.Enabled = SelectedOrder.Status == OrderStatus.InProgress && !SelectedOrder.IsPaid;
             ETABox.Value = Math.Clamp(etaMins, ETABox.Minimum, ETABox.Maximum);
+
+            UpdateOrderCompletionTime();
         }
+
+        private void UpdateOrderCompletionTime()
+        {
+            if (SelectedOrder == null) return;
+
+            if (SelectedOrder.CompletionTime != null)
+            {
+                TxtCompletionTime.Text = "Completion Time:";
+                TxtBCompletionTime.Text = SelectedOrder.CompletionTimeString;
+            }
+            else if (SelectedOrder.EstimatedCompletionTimeInMinutes > 0)
+            {
+                TxtCompletionTime.Text = "ETA:";
+                TxtBCompletionTime.Text = SelectedOrder.EstimatedCompletionTimeString;
+            }
+            else
+            {
+                TxtCompletionTime.Text = "";
+                TxtBCompletionTime.Text = "";
+            }
+        }
+
 
         private void OrderStatusBox_SelectedIndexChanged(object sender, EventArgs e)
         {
