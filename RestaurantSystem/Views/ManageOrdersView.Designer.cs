@@ -47,7 +47,7 @@
             TxtCreationTime = new Label();
             TxtBCreationTime = new TextBox();
             label1 = new Label();
-            txtBCompletionTime = new TextBox();
+            TxtBCompletionTime = new TextBox();
             label2 = new Label();
             ETABox = new NumericUpDown();
             label3 = new Label();
@@ -169,6 +169,7 @@
             TxtBTotal.ReadOnly = true;
             TxtBTotal.Size = new Size(217, 47);
             TxtBTotal.TabIndex = 24;
+            TxtBTotal.TextAlign = HorizontalAlignment.Right;
             // 
             // OrderStatusBox
             // 
@@ -231,13 +232,15 @@
             // 
             // TxtBCreationTime
             // 
+            TxtBCreationTime.BorderStyle = BorderStyle.None;
             TxtBCreationTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBCreationTime.Location = new Point(592, 669);
+            TxtBCreationTime.Location = new Point(550, 669);
             TxtBCreationTime.Margin = new Padding(3, 4, 3, 4);
             TxtBCreationTime.Name = "TxtBCreationTime";
             TxtBCreationTime.ReadOnly = true;
-            TxtBCreationTime.Size = new Size(217, 34);
+            TxtBCreationTime.Size = new Size(259, 27);
             TxtBCreationTime.TabIndex = 32;
+            TxtBCreationTime.TextAlign = HorizontalAlignment.Right;
             // 
             // label1
             // 
@@ -249,15 +252,17 @@
             label1.TabIndex = 33;
             label1.Text = "Completion Time:";
             // 
-            // txtBCompletionTime
+            // TxtBCompletionTime
             // 
-            txtBCompletionTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBCompletionTime.Location = new Point(592, 703);
-            txtBCompletionTime.Margin = new Padding(3, 4, 3, 4);
-            txtBCompletionTime.Name = "txtBCompletionTime";
-            txtBCompletionTime.ReadOnly = true;
-            txtBCompletionTime.Size = new Size(217, 34);
-            txtBCompletionTime.TabIndex = 34;
+            TxtBCompletionTime.BorderStyle = BorderStyle.None;
+            TxtBCompletionTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtBCompletionTime.Location = new Point(550, 703);
+            TxtBCompletionTime.Margin = new Padding(3, 4, 3, 4);
+            TxtBCompletionTime.Name = "TxtBCompletionTime";
+            TxtBCompletionTime.ReadOnly = true;
+            TxtBCompletionTime.Size = new Size(259, 27);
+            TxtBCompletionTime.TabIndex = 34;
+            TxtBCompletionTime.TextAlign = HorizontalAlignment.Right;
             // 
             // label2
             // 
@@ -295,7 +300,7 @@
             Controls.Add(label3);
             Controls.Add(ETABox);
             Controls.Add(label2);
-            Controls.Add(txtBCompletionTime);
+            Controls.Add(TxtBCompletionTime);
             Controls.Add(label1);
             Controls.Add(TxtBCreationTime);
             Controls.Add(TxtCreationTime);
@@ -343,7 +348,7 @@
         private Label TxtCreationTime;
         private TextBox TxtBCreationTime;
         private Label label1;
-        private TextBox txtBCompletionTime;
+        private TextBox TxtBCompletionTime;
         private Label label2;
         private NumericUpDown ETABox;
         private Label label3;

@@ -72,7 +72,7 @@ namespace RestaurantSystem
                 List<String> strings = new List<String>();
                 foreach (MenuItem m in SelectedOrderItems)
                 {
-                    strings.Add(m.ToString());
+                    strings.Add($"{m.ToString()}: {m.Price.ToString("C")}");
                 }
                 return strings;
             }
@@ -153,7 +153,11 @@ namespace RestaurantSystem
             // Update TextBox to show Order Price Total
             TxtBTotal.Text = SelectedOrderPrice;
 
+            OrderStatusBox.Enabled = !SelectedOrder.IsPaid;
             BtnHandlePayment.Enabled = !SelectedOrder.IsPaid;
+
+            TxtBCreationTime.Text = SelectedOrder.CreationTime.ToString("h:mm tt, ddd dd/MM/yy");
+            TxtBCompletionTime.Text = SelectedOrder.CompletionTime.ToString("h:mm tt, ddd dd/MM/yy");
         }
 
         private void OrderStatusBox_SelectedIndexChanged(object sender, EventArgs e)
