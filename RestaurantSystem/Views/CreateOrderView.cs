@@ -95,12 +95,16 @@ namespace RestaurantSystem
 
         private void UpdateListBOrder()
         {
-            if (_order == null) { MenuBox.Enabled = true; return; }
+
+            if (_order == null) { MenuBox.Enabled = true; BtnCreateOrder.Enabled = false; return; }
 
             ListBOrder.DataSource = GetMenuItemStrings(_order);
 
             // Only allow the user to change menus if they haven't added any items into their order.
             MenuBox.Enabled = _order.Items.Count == 0;
+
+            // Only allow the order to be created if it has menu items.
+            BtnCreateOrder.Enabled = _order.Items.Count != 0;
 
             UpdateTotalPrice();
         }
