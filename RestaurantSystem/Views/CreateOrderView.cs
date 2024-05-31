@@ -127,6 +127,7 @@ namespace RestaurantSystem
             WaitStaffServiceInterface.AddOrderToQueue(_order);
 
             _userInterface.StateMachine.PopState();
+            _order = null; // Delete the order since we don't need it anymore.
         }
 
         // Go to Ingredients View
