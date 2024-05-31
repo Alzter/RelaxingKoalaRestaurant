@@ -9,6 +9,8 @@ namespace RestaurantSystem.CRUDO
     {
         public static List<Reservation> LoadItems(string filePath)
         {
+            File.SetAttributes(filePath, FileAttributes.Normal); // Make file writeable if it is read-only.
+
             // Read the JSON file
             var json = File.ReadAllText(filePath);
 
