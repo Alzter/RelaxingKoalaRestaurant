@@ -156,8 +156,8 @@ namespace RestaurantSystem
             OrderStatusBox.Enabled = !SelectedOrder.IsPaid;
             BtnHandlePayment.Enabled = !SelectedOrder.IsPaid;
 
-            TxtBCreationTime.Text = SelectedOrder.CreationTime.ToString("h:mm tt, ddd dd/MM/yy");
-            TxtBCompletionTime.Text = SelectedOrder.CompletionTime.ToString("h:mm tt, ddd dd/MM/yy");
+            TxtBCreationTime.Text = SelectedOrder.CreationTimeString;
+            TxtBCompletionTime.Text = SelectedOrder.CompletionTimeString;
         }
 
         private void OrderStatusBox_SelectedIndexChanged(object sender, EventArgs e)

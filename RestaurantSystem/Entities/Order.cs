@@ -11,7 +11,7 @@ namespace RestaurantSystem
         private OrderStatus _status;
         private DateTime _creationTime;
         private DateTime _estimatedCompletionTime;
-        private DateTime _completionTime;
+        private DateTime? _completionTime;
         private bool _isPaid;
         private string? _address;
         private int? _tableNumber;
@@ -81,10 +81,13 @@ namespace RestaurantSystem
             get { return _status; }
             set {
 
-                // Set completion time to now once the order's status is set to 'ready'
-                if (value == OrderStatus.Ready && (_status == OrderStatus.InProgress || _status == OrderStatus.Waiting))
+                // Set completion time to now once the order's status is set to 'ready' or 'served'
+                if ((value == OrderStatus.Ready || value == OrderStatus.Served) && (_status == OrderStatus.InProgress || _status == OrderStatus.Waiting))
                 {
                     _completionTime = DateTime.Now;
+                } else if (_completionTime != null && (value == OrderStatus.InProgress || value == OrderStatus.Waiting))
+                {
+                    _completionTime = null;
                 }
 
                 _status = value;
@@ -99,7 +102,23 @@ namespace RestaurantSystem
             set { _estimatedCompletionTime = value; }
         }
 
-        public DateTime CompletionTime { get { return _completionTime; } set { _completionTime = value; } }
+        public DateTime? CompletionTime { get { return _completionTime; } set { _completionTime = value; } }
+
+        public String CreationTimeString { get { return _creationTime.ToString("h:mm tt, ddd dd/MM/yy"); } }
+
+        public String CompletionTimeString
+        {
+            get
+            {
+                if (_completionTime == DateTime.MinValue)
+                {
+                    return "";
+                } else
+                {
+                    return ((DateTime)_completionTime).ToString("h:mm tt, ddd dd/MM/yy");
+                }
+            }
+        }
 
         public double Price
         {
