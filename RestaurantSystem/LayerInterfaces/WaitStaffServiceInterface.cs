@@ -38,6 +38,11 @@ namespace RestaurantSystem
             CreateOrderService.AddOrderToQueue(o);
         }
 
+        public static void RemoveOrderFromQueue(Order o)
+        {
+            CreateOrderService.RemoveOrderFromQueue(o);
+        }
+
         public static void AddItem(Order o, MenuItem m)
         {
             CreateOrderService.AddItem(o, m);

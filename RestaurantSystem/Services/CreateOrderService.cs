@@ -36,6 +36,10 @@ namespace RestaurantSystem.Service
         {
             RepositoryInterface.AddOrder(o);
         }
+        public static void RemoveOrderFromQueue(Order o)
+        {
+            RepositoryInterface.RemoveOrder(o);
+        }
 
     }
 }
