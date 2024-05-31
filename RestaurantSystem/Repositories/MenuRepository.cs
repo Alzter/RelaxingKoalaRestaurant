@@ -57,6 +57,8 @@ namespace RestaurantSystem.CRUDO
 
         public static void SaveItems(string filePath, List<Menu> menus)
         {
+            File.SetAttributes(filePath, FileAttributes.Normal); // Make file writeable if it is read-only.
+
             // For holding ingredient data as JSON
             var ingredientsSet = new HashSet<Ingredient>();
             var jsonIngredients = new List<JsonIngredient>();

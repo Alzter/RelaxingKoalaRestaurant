@@ -30,6 +30,9 @@ namespace RestaurantSystem.CRUDO
 
         public static void SaveItems(string filePath, List<Table> tables)
         {
+
+            File.SetAttributes(filePath, FileAttributes.Normal); // Make file writeable if it is read-only.
+
             // Convert tables to JSON
             var jsonTables = new List<JsonTable>();
 

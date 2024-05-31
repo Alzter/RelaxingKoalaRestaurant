@@ -85,6 +85,8 @@ namespace RestaurantSystem.CRUDO
         {
             try
             {
+                File.SetAttributes(filePath, FileAttributes.Normal); // Make file writeable if it is read-only.
+
                 // Convert orders to JSON orders
                 var jsonOrders = new List<JsonOrder>();
 

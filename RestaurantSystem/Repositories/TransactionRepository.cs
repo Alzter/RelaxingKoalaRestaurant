@@ -44,6 +44,9 @@ namespace RestaurantSystem.CRUDO
 
         public static void SaveItems(string filePath, List<TransactionRecord> transactions)
         {
+
+            File.SetAttributes(filePath, FileAttributes.Normal); // Make file writeable if it is read-only.
+
             // Convert transactions to JSON transaction records
             var jsonRecords = new List<JsonTransactionRecord>();
 

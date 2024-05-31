@@ -36,6 +36,9 @@ namespace RestaurantSystem.CRUDO
 
         public static void SaveItems(string filePath, List<Reservation> reservations)
         {
+
+            File.SetAttributes(filePath, FileAttributes.Normal); // Make file writeable if it is read-only.
+
             // List of JSON reservations
             var jsonReservations = new List<JsonReservation>();
 
