@@ -275,5 +275,22 @@ namespace RestaurantSystem
         {
             UpdateListBItemIngredients();
         }
+
+        private void TxtBTotal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtTotal_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void TxtCompletionTime_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void TxtCreationTime_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

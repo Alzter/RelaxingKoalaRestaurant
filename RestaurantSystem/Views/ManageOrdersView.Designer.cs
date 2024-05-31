@@ -59,10 +59,10 @@
             // 
             // BtnHandlePayment
             // 
-            BtnHandlePayment.Location = new Point(389, 866);
+            BtnHandlePayment.Location = new Point(389, 835);
             BtnHandlePayment.Margin = new Padding(3, 4, 3, 4);
             BtnHandlePayment.Name = "BtnHandlePayment";
-            BtnHandlePayment.Size = new Size(539, 75);
+            BtnHandlePayment.Size = new Size(539, 54);
             BtnHandlePayment.TabIndex = 3;
             BtnHandlePayment.Text = "Process Payment";
             BtnHandlePayment.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             ListBOrders.Margin = new Padding(3, 4, 3, 4);
             ListBOrders.Name = "ListBOrders";
             ListBOrders.ScrollAlwaysVisible = true;
-            ListBOrders.Size = new Size(326, 508);
+            ListBOrders.Size = new Size(326, 676);
             ListBOrders.TabIndex = 7;
             ListBOrders.SelectedIndexChanged += ListBOrders_SelectedIndexChanged;
             // 
@@ -94,7 +94,7 @@
             // 
             TxtOrders.AutoSize = true;
             TxtOrders.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtOrders.Location = new Point(127, 32);
+            TxtOrders.Location = new Point(125, 26);
             TxtOrders.Name = "TxtOrders";
             TxtOrders.Size = new Size(108, 41);
             TxtOrders.TabIndex = 11;
@@ -139,13 +139,13 @@
             ListBOrderItems.Margin = new Padding(3, 4, 3, 4);
             ListBOrderItems.Name = "ListBOrderItems";
             ListBOrderItems.ScrollAlwaysVisible = true;
-            ListBOrderItems.Size = new Size(339, 418);
+            ListBOrderItems.Size = new Size(339, 441);
             ListBOrderItems.TabIndex = 19;
             ListBOrderItems.SelectedIndexChanged += ListBOrderItems_SelectedIndexChanged;
             // 
             // BtnBack
             // 
-            BtnBack.Location = new Point(13, 912);
+            BtnBack.Location = new Point(22, 912);
             BtnBack.Margin = new Padding(2, 1, 2, 1);
             BtnBack.Name = "BtnBack";
             BtnBack.Size = new Size(93, 29);
@@ -167,13 +167,14 @@
             // TxtBTotal
             // 
             TxtBTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBTotal.Location = new Point(585, 783);
+            TxtBTotal.Location = new Point(585, 770);
             TxtBTotal.Margin = new Padding(3, 4, 3, 4);
             TxtBTotal.Name = "TxtBTotal";
             TxtBTotal.ReadOnly = true;
             TxtBTotal.Size = new Size(343, 47);
             TxtBTotal.TabIndex = 24;
             TxtBTotal.TextAlign = HorizontalAlignment.Right;
+            TxtBTotal.TextChanged += TxtBTotal_TextChanged;
             // 
             // OrderStatusBox
             // 
@@ -188,16 +189,17 @@
             // 
             TxtTotal.AutoSize = true;
             TxtTotal.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtTotal.Location = new Point(389, 783);
+            TxtTotal.Location = new Point(389, 770);
             TxtTotal.Name = "TxtTotal";
             TxtTotal.Size = new Size(173, 41);
             TxtTotal.TabIndex = 26;
             TxtTotal.Text = "Order Total:";
+            TxtTotal.Click += TxtTotal_Click;
             // 
             // StatusFilterBox
             // 
             StatusFilterBox.FormattingEnabled = true;
-            StatusFilterBox.Location = new Point(173, 102);
+            StatusFilterBox.Location = new Point(173, 81);
             StatusFilterBox.Name = "StatusFilterBox";
             StatusFilterBox.Size = new Size(175, 28);
             StatusFilterBox.TabIndex = 28;
@@ -207,7 +209,7 @@
             // 
             TxtFilter.AutoSize = true;
             TxtFilter.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtFilter.Location = new Point(22, 102);
+            TxtFilter.Location = new Point(22, 81);
             TxtFilter.Name = "TxtFilter";
             TxtFilter.Size = new Size(145, 28);
             TxtFilter.TabIndex = 29;
@@ -215,10 +217,10 @@
             // 
             // BtnCancelOrder
             // 
-            BtnCancelOrder.Location = new Point(22, 669);
+            BtnCancelOrder.Location = new Point(22, 835);
             BtnCancelOrder.Margin = new Padding(3, 4, 3, 4);
             BtnCancelOrder.Name = "BtnCancelOrder";
-            BtnCancelOrder.Size = new Size(326, 47);
+            BtnCancelOrder.Size = new Size(326, 54);
             BtnCancelOrder.TabIndex = 30;
             BtnCancelOrder.Text = "Cancel Order";
             BtnCancelOrder.UseVisualStyleBackColor = true;
@@ -228,17 +230,18 @@
             // 
             TxtCreationTime.AutoSize = true;
             TxtCreationTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtCreationTime.Location = new Point(389, 671);
+            TxtCreationTime.Location = new Point(389, 691);
             TxtCreationTime.Name = "TxtCreationTime";
             TxtCreationTime.Size = new Size(137, 28);
             TxtCreationTime.TabIndex = 31;
             TxtCreationTime.Text = "Creation Time:";
+            TxtCreationTime.Click += TxtCreationTime_Click;
             // 
             // TxtBCreationTime
             // 
             TxtBCreationTime.BorderStyle = BorderStyle.None;
             TxtBCreationTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBCreationTime.Location = new Point(585, 669);
+            TxtBCreationTime.Location = new Point(585, 692);
             TxtBCreationTime.Margin = new Padding(3, 4, 3, 4);
             TxtBCreationTime.Name = "TxtBCreationTime";
             TxtBCreationTime.ReadOnly = true;
@@ -250,17 +253,18 @@
             // 
             TxtCompletionTime.AutoSize = true;
             TxtCompletionTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtCompletionTime.Location = new Point(389, 705);
+            TxtCompletionTime.Location = new Point(389, 725);
             TxtCompletionTime.Name = "TxtCompletionTime";
             TxtCompletionTime.Size = new Size(166, 28);
             TxtCompletionTime.TabIndex = 33;
             TxtCompletionTime.Text = "Completion Time:";
+            TxtCompletionTime.Click += TxtCompletionTime_Click;
             // 
             // TxtBCompletionTime
             // 
             TxtBCompletionTime.BorderStyle = BorderStyle.None;
             TxtBCompletionTime.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtBCompletionTime.Location = new Point(585, 703);
+            TxtBCompletionTime.Location = new Point(585, 726);
             TxtBCompletionTime.Margin = new Padding(3, 4, 3, 4);
             TxtBCompletionTime.Name = "TxtBCompletionTime";
             TxtBCompletionTime.ReadOnly = true;
@@ -320,7 +324,7 @@
             ListBItemIngredients.Margin = new Padding(3, 4, 3, 4);
             ListBItemIngredients.Name = "ListBItemIngredients";
             ListBItemIngredients.ScrollAlwaysVisible = true;
-            ListBItemIngredients.Size = new Size(194, 418);
+            ListBItemIngredients.Size = new Size(194, 441);
             ListBItemIngredients.TabIndex = 40;
             // 
             // TxtItems
