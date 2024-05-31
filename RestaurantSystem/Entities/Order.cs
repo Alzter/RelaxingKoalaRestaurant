@@ -82,6 +82,9 @@ namespace RestaurantSystem
         {
             get { return _status; }
             set {
+                if (value == OrderStatus.Waiting){
+                    _estimatedCompletionTime = DateTime.MinValue;
+                }
 
                 // Set completion time to now once the order's status is set to 'ready' or 'served'
                 if ((value == OrderStatus.Ready || value == OrderStatus.Served) && (_status == OrderStatus.InProgress || _status == OrderStatus.Waiting))
@@ -108,6 +111,7 @@ namespace RestaurantSystem
         {
             get
             {
+                if (_estimatedCompletionTime == DateTime.MinValue) return 0;
                 return (EstimatedCompletionTime - CreationTime).Minutes;
             }
         }
