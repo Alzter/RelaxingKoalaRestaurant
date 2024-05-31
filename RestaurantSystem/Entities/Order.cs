@@ -102,7 +102,7 @@ namespace RestaurantSystem
             set { _estimatedCompletionTime = value; }
         }
 
-        public DateTime? CompletionTime { get { return _completionTime; } set { _completionTime = value; } }
+        public DateTime? CompletionTime { get { return _completionTime == DateTime.MinValue ? null : _completionTime; } set { _completionTime = value; } }
 
         public String CreationTimeString { get { return _creationTime.ToString("h:mm tt, ddd dd/MM/yy"); } }
 
@@ -110,12 +110,12 @@ namespace RestaurantSystem
         {
             get
             {
-                if (_completionTime == DateTime.MinValue)
+                if (CompletionTime == null)
                 {
                     return "";
                 } else
                 {
-                    return ((DateTime)_completionTime).ToString("h:mm tt, ddd dd/MM/yy");
+                    return ((DateTime)CompletionTime).ToString("h:mm tt, ddd dd/MM/yy");
                 }
             }
         }
