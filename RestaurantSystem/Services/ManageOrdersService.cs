@@ -36,6 +36,9 @@ namespace RestaurantSystem.Service
 
         public static void SetOrderETA(Order o, int etaMinutes)
         {
+            // Console.WriteLine($"Order: {o.ID.ToString()}");
+            // Console.WriteLine($"ETA: {etaMinutes.ToString()}");
+
             List<Order> orderList = RepositoryInterface.GetOrders();
 
             int orderIndex = orderList.FindIndex((Order order) => { return order.ID == o.ID; });

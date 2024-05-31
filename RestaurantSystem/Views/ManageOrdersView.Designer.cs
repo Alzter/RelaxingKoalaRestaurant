@@ -277,10 +277,13 @@
             // ETABox
             // 
             ETABox.Enabled = false;
+            ETABox.Increment = new decimal(new int[] { 5, 0, 0, 0 });
             ETABox.Location = new Point(639, 127);
+            ETABox.Maximum = new decimal(new int[] { 60, 0, 0, 0 });
             ETABox.Name = "ETABox";
             ETABox.Size = new Size(106, 27);
             ETABox.TabIndex = 36;
+            ETABox.ValueChanged += ETABox_ValueChanged;
             // 
             // label3
             // 

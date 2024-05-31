@@ -72,6 +72,10 @@ namespace RestaurantSystem
         {
             ManageOrdersService.SetOrderStatus(o, status);
         }
+        public static void SetOrderETA(Order o, int etaMinutes)
+        {
+            ManageOrdersService.SetOrderETA(o, etaMinutes);
+        }
 
         public static TransactionRecord PayForOrder(Order o)
         {

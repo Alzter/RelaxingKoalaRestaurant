@@ -65,8 +65,10 @@ namespace RestaurantSystem
 
         public void SetETA(int etaMinutes)
         {
-            DateTime eta = _creationTime.AddMinutes(etaMinutes);
+            DateTime eta = _creationTime.AddMinutes(-etaMinutes);
             EstimatedCompletionTime = eta;
+
+            // Console.WriteLine($"Setting Order ETA to: {EstimatedCompletionTimeInMinutes.ToString()}");
         }
 
         public TransactionRecord PayForOrder()
@@ -100,6 +102,14 @@ namespace RestaurantSystem
         {
             get { return _estimatedCompletionTime; }
             set { _estimatedCompletionTime = value; }
+        }
+
+        public int EstimatedCompletionTimeInMinutes
+        {
+            get
+            {
+                return (CreationTime - EstimatedCompletionTime).Minutes;
+            }
         }
 
         public DateTime? CompletionTime { get { return _completionTime == DateTime.MinValue ? null : _completionTime; } set { _completionTime = value; } }

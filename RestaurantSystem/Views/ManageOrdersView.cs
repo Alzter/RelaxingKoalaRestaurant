@@ -158,6 +158,19 @@ namespace RestaurantSystem
 
             TxtBCreationTime.Text = SelectedOrder.CreationTimeString;
             TxtBCompletionTime.Text = SelectedOrder.CompletionTimeString;
+
+            UpdateOrderETA();
+        }
+
+        private void UpdateOrderETA()
+        {
+
+            if (SelectedOrder == null) return;
+
+            int etaMins = SelectedOrder.EstimatedCompletionTimeInMinutes;
+
+            ETABox.Enabled = SelectedOrder.Status == OrderStatus.InProgress && !SelectedOrder.IsPaid;
+            ETABox.Value = Math.Clamp(etaMins, ETABox.Minimum, ETABox.Maximum);
         }
 
         private void OrderStatusBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -194,6 +207,16 @@ namespace RestaurantSystem
             {
                 WaitStaffServiceInterface.RemoveOrderFromQueue(SelectedOrder);
                 UpdateListBOrders();
+            }
+        }
+
+        private void ETABox_ValueChanged(object sender, EventArgs e)
+        {
+
+            if (SelectedOrder != null)
+            {
+                WaitStaffServiceInterface.SetOrderETA(SelectedOrder, (int)ETABox.Value);
+                UpdateOrderETA();
             }
         }
     }
