@@ -13,11 +13,9 @@ namespace RestaurantSystem.CRUDO
             {
                 // Read the JSON file
                 var json = File.ReadAllText(filePath);
-                Console.WriteLine("Loaded JSON data from file: " + json);
 
                 // Deserialize the JSON data
                 var data = JsonSerializer.Deserialize<JsonOrderData>(json);
-                Console.WriteLine("Deserialized JSON data.");
 
                 // Check for null data
                 if (data == null || data.Orders == null)
@@ -71,7 +69,6 @@ namespace RestaurantSystem.CRUDO
                     order.EstimatedCompletionTime = orderData.EstimatedCompletionTime;
                     orders.Add(order);
                 }
-                Console.WriteLine("Created Order objects from deserialized data."); // debug
                 return orders;
             }
             catch (Exception ex)
@@ -133,7 +130,6 @@ namespace RestaurantSystem.CRUDO
                 var json = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
                 // Write to file
                 File.WriteAllText(filePath, json);
-                Console.WriteLine("Saved JSON data to file: " + json); // debug
             }
             catch (Exception ex)
             {
@@ -152,10 +148,6 @@ namespace RestaurantSystem.CRUDO
             int newId = orders.Count > 0 ? orders.Max(o => o.ID) + 1 : 1; // Create a new order ID that is unique (Max ID + 1)
             var newOrder = new Order(menuItems, newId, address); // Create a new order object with passed in data and ID
 
-            // Add new order to the orders list then save the list to the JSON file
-            //orders.Add(newOrder);
-            //SaveItems(filePath, orders);
-
             return newOrder;
         }
 
@@ -168,9 +160,6 @@ namespace RestaurantSystem.CRUDO
             int newId = orders.Count > 0 ? orders.Max(o => o.ID) + 1 : 1;
             var newOrder = new Order(menuItems, newId, tableNumber);
 
-            //orders.Add(newOrder);
-            //SaveItems(filePath, orders);
-
             return newOrder;
         }
 
@@ -182,9 +171,6 @@ namespace RestaurantSystem.CRUDO
 
             int newId = orders.Count > 0 ? orders.Max(o => o.ID) + 1 : 1;
             var newOrder = new Order(menuItems, newId);
-
-            //orders.Add(newOrder);
-            //SaveItems(filePath, orders);
 
             return newOrder;
         }
