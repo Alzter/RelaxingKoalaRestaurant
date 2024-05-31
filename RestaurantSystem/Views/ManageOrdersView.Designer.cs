@@ -51,6 +51,9 @@
             label2 = new Label();
             ETABox = new NumericUpDown();
             label3 = new Label();
+            TxtIngredients = new Label();
+            ListBItemIngredients = new ListBox();
+            TxtItems = new Label();
             ((System.ComponentModel.ISupportInitialize)ETABox).BeginInit();
             SuspendLayout();
             // 
@@ -132,12 +135,13 @@
             ListBOrderItems.FormattingEnabled = true;
             ListBOrderItems.ItemHeight = 28;
             ListBOrderItems.Items.AddRange(new object[] { "Pizza - $12", "Chips - $5", "Soda - $3" });
-            ListBOrderItems.Location = new Point(389, 175);
+            ListBOrderItems.Location = new Point(389, 231);
             ListBOrderItems.Margin = new Padding(3, 4, 3, 4);
             ListBOrderItems.Name = "ListBOrderItems";
             ListBOrderItems.ScrollAlwaysVisible = true;
-            ListBOrderItems.Size = new Size(420, 480);
+            ListBOrderItems.Size = new Size(280, 424);
             ListBOrderItems.TabIndex = 19;
+            ListBOrderItems.SelectedIndexChanged += ListBOrderItems_SelectedIndexChanged;
             // 
             // BtnBack
             // 
@@ -295,11 +299,47 @@
             label3.TabIndex = 37;
             label3.Text = "minutes";
             // 
+            // TxtIngredients
+            // 
+            TxtIngredients.AutoSize = true;
+            TxtIngredients.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtIngredients.Location = new Point(699, 190);
+            TxtIngredients.Name = "TxtIngredients";
+            TxtIngredients.Size = new Size(110, 28);
+            TxtIngredients.TabIndex = 39;
+            TxtIngredients.Text = "Ingredients";
+            // 
+            // ListBItemIngredients
+            // 
+            ListBItemIngredients.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            ListBItemIngredients.FormattingEnabled = true;
+            ListBItemIngredients.ItemHeight = 28;
+            ListBItemIngredients.Items.AddRange(new object[] { "Pizza - $12", "Chips - $5", "Soda - $3" });
+            ListBItemIngredients.Location = new Point(675, 231);
+            ListBItemIngredients.Margin = new Padding(3, 4, 3, 4);
+            ListBItemIngredients.Name = "ListBItemIngredients";
+            ListBItemIngredients.ScrollAlwaysVisible = true;
+            ListBItemIngredients.Size = new Size(151, 424);
+            ListBItemIngredients.TabIndex = 40;
+            // 
+            // TxtItems
+            // 
+            TxtItems.AutoSize = true;
+            TxtItems.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtItems.Location = new Point(467, 190);
+            TxtItems.Name = "TxtItems";
+            TxtItems.Size = new Size(114, 28);
+            TxtItems.TabIndex = 41;
+            TxtItems.Text = "Menu Items";
+            // 
             // ManageOrdersView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(838, 964);
+            Controls.Add(TxtItems);
+            Controls.Add(ListBItemIngredients);
+            Controls.Add(TxtIngredients);
             Controls.Add(label3);
             Controls.Add(ETABox);
             Controls.Add(label2);
@@ -355,5 +395,8 @@
         private Label label2;
         private NumericUpDown ETABox;
         private Label label3;
+        private Label TxtIngredients;
+        private ListBox ListBItemIngredients;
+        private Label TxtItems;
     }
 }

@@ -65,6 +65,26 @@ namespace RestaurantSystem
         }
 
         private List<MenuItem> SelectedOrderItems { get { return SelectedOrder == null ? null : SelectedOrder.Items; } }
+
+        private MenuItem SelectedOrderItem { get { return SelectedOrderItems == null ? null : SelectedOrderItems[ListBOrderItems.SelectedIndex]; } }
+
+        private List<String> SelectedOrderItemIngredients
+        {
+            get
+            {
+                if (SelectedOrderItem == null) return new List<String>();
+                else
+                {
+                    List<String> ingredients = new List<String>();
+                    foreach (Ingredient i in SelectedOrderItem.Ingredients)
+                    {
+                        ingredients.Add(i.Name);
+                    }
+                    return ingredients;
+                }
+            }
+        }
+
         private List<String> SelectedOrderItemStrings
         {
             get
@@ -124,6 +144,11 @@ namespace RestaurantSystem
 
         }
 
+        private void UpdateListBItemIngredients()
+        {
+            ListBItemIngredients.DataSource = SelectedOrderItemIngredients;
+        }
+
         // Go to previous View
         private void BtnBack_Click(object sender, EventArgs e)
         {
@@ -160,6 +185,7 @@ namespace RestaurantSystem
 
 
             UpdateOrderETA();
+            UpdateListBItemIngredients();
         }
 
         private void UpdateOrderETA()
@@ -242,6 +268,11 @@ namespace RestaurantSystem
                 WaitStaffServiceInterface.SetOrderETA(SelectedOrder, (int)ETABox.Value);
                 UpdateOrderETA();
             }
+        }
+
+        private void ListBOrderItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateListBItemIngredients();
         }
     }
 }
