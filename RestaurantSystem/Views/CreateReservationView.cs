@@ -87,21 +87,16 @@ namespace RestaurantSystem.Interfaces
             }
 
             CBoxTable.DataSource = tableNums;
+
+            // Disable create reservation button if booking is earlier than the current time
+            BtnCreateReservation.Enabled = (DateTime.Compare(_dateTime, DateTime.Now) < 0) ? false : true;
         }
 
         // Create reservation with the details inputted
         private void BtnCreateReservation_Click(object sender, EventArgs e)
         {
-            // Need to do data sanitisation/checking here
-            if (DateTime.Compare(_dateTime, DateTime.Now) < 0)
-            {
-                throw new Exception("Booking cannot be earlier than current time.");
-            }
-            else
-            {
-                WaitStaffServiceInterface.AddReservation(_dateTime, 90, _tableNum, _name, _numGuests);
-                _userInterface.StateMachine.PopState();
-            } 
+            WaitStaffServiceInterface.AddReservation(_dateTime, 90, _tableNum, _name, _numGuests);
+            _userInterface.StateMachine.PopState(); 
         }
     }
 }
