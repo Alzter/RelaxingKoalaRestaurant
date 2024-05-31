@@ -147,6 +147,7 @@ namespace RestaurantSystem
         private void UpdateListBItemIngredients()
         {
             ListBItemIngredients.DataSource = SelectedOrderItemIngredients;
+            ListBItemIngredients.SelectedItem = null;
         }
 
         // Go to previous View

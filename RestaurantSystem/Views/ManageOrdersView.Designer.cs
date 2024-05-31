@@ -139,7 +139,7 @@
             ListBOrderItems.Margin = new Padding(3, 4, 3, 4);
             ListBOrderItems.Name = "ListBOrderItems";
             ListBOrderItems.ScrollAlwaysVisible = true;
-            ListBOrderItems.Size = new Size(264, 418);
+            ListBOrderItems.Size = new Size(339, 418);
             ListBOrderItems.TabIndex = 19;
             ListBOrderItems.SelectedIndexChanged += ListBOrderItems_SelectedIndexChanged;
             // 
@@ -303,7 +303,7 @@
             // 
             TxtIngredients.AutoSize = true;
             TxtIngredients.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtIngredients.Location = new Point(748, 190);
+            TxtIngredients.Location = new Point(776, 190);
             TxtIngredients.Name = "TxtIngredients";
             TxtIngredients.Size = new Size(110, 28);
             TxtIngredients.TabIndex = 39;
@@ -311,22 +311,23 @@
             // 
             // ListBItemIngredients
             // 
+            ListBItemIngredients.Enabled = false;
             ListBItemIngredients.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             ListBItemIngredients.FormattingEnabled = true;
             ListBItemIngredients.ItemHeight = 23;
             ListBItemIngredients.Items.AddRange(new object[] { "Pizza - $12", "Chips - $5", "Soda - $3" });
-            ListBItemIngredients.Location = new Point(674, 231);
+            ListBItemIngredients.Location = new Point(734, 231);
             ListBItemIngredients.Margin = new Padding(3, 4, 3, 4);
             ListBItemIngredients.Name = "ListBItemIngredients";
             ListBItemIngredients.ScrollAlwaysVisible = true;
-            ListBItemIngredients.Size = new Size(254, 418);
+            ListBItemIngredients.Size = new Size(194, 418);
             ListBItemIngredients.TabIndex = 40;
             // 
             // TxtItems
             // 
             TxtItems.AutoSize = true;
             TxtItems.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            TxtItems.Location = new Point(467, 190);
+            TxtItems.Location = new Point(509, 190);
             TxtItems.Name = "TxtItems";
             TxtItems.Size = new Size(114, 28);
             TxtItems.TabIndex = 41;
